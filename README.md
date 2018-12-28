@@ -10,7 +10,7 @@ The app will have user auth which will only need an email and password for user 
 
 On the user dashboard, we will display data about the areas of life that we identify you mess up most, as well as constructive feedback. The data displayed here will be over time and should hopefully show an improvement trajectory.
 
-For example: “Got yelled at this morning for cutting someone off in traffic” would prompt feedback like “Driving can be hard. Here are some resources for improvement! www.linktodrivingresources.com”
+For example: “Got yelled at this morning for cutting someone off in traffic” would prompt feedback like “Driving can be hard. Here are some resources for improvement! www.<span>linktodrivingresources</span>.com”
 
 The site will also have a newsfeed page where posts are completely anonymous but can be upvoted for support from fellow improvers.
 
