@@ -18,7 +18,7 @@ The site will also have a newsfeed page where posts are completely anonymous but
 # Functionality and MVP
 ### User Auth (1 day)
 - [ ] Users can sign up, sign in, and log out
-- [ ] Users can use demo account to test out website
+- [ ] Users can use a demo account to test the website
 
 ### Profile Page (1 day)
 - [ ] User will have a profile page
