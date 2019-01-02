@@ -1,8 +1,9 @@
 .navbar-container {
   position: sticky;
-  width: 1452px;
-  height: 127px;
+  width: 100%;
+  height: auto;
   left: 0px;
   top: 0px;
-  background: #F7F7F7;
+  background: red;
+  padding: 0;
 }
