@@ -4,6 +4,7 @@ const app = express();
 const users = require("./routes/api/users");
 const fups = require("./routes/api/fups");
 const db = require('./config/keys').mongoURI;
+const bodyParser = require('body-parser');
 
 
 
@@ -12,9 +13,13 @@ mongoose
 .then(() => console.log('Connected to MongoDB successfully'))
 .catch(err => console.log(err));
 
+
+
 app.get('/', (req, res) => res.send('This is working'));
 app.use('/api/users', users);
 app.use('/api/fups', fups);
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
