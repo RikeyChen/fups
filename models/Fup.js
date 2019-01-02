@@ -13,6 +13,10 @@ const FupSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  private: {
+    type: Boolean,
+    default: true
   }
 });
 

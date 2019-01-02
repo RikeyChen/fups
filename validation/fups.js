@@ -1,4 +1,4 @@
-const Validator = reqiure('validaor');
+const Validator = require('validator');
 const validText = require('./valid-text');
 
 module.exports = function validateFupInput(data) {
@@ -7,7 +7,7 @@ module.exports = function validateFupInput(data) {
   data.text = validText(data.text) ? data.text : '';
 
   if (!Validator.isLength(data.text, {min: 25, max: 280 })) {
-    errors.text = 'Fup must be between 25 and 140 characters';
+    errors.text = 'Fup must be between 25 and 280 characters';
   }
 
   if (Validator.isEmpty(data.text)) {
