@@ -33,9 +33,18 @@ class NavBar extends React.Component {
     }
   }
 
+  checkLoggin() {
+    if (this.props.loggedIn) {
+      return <div className='loggedIn'></div>
+    } else {
+      return <div className='loggedOut'></div> 
+    }
+  };
+
   render() {
     return (
       <div className="navbar-container">
+        {this.checkLoggin()}
         <div>LOGO</div>
         {this.getLinks()}
       </div>
