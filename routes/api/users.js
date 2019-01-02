@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
+const jwt = require('jsonwebtoken');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
@@ -31,6 +32,7 @@ router.post('/register', (req, res) => {
     })
 })
 
+// User login
 router.post('/login', (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
