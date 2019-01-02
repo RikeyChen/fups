@@ -21,4 +21,22 @@ router.get('/user/:user_id'), (req, res) => {
       res.status(404).json({ notweetsfound: 'No Fups found for this user'}))
 }
 
+router.post('/',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateTweetInput(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    const newFup = new Fup({
+      text: req.body.text,
+      uesr: req.user.id
+    });
+
+    newFup.save().then(fup => res.json(fup));
+  }
+);
+
 module.exports = router;
