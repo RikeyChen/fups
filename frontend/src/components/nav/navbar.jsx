@@ -33,20 +33,35 @@ class NavBar extends React.Component {
     }
   }
 
+  navElements() {
+    return (
+      <div className="navbar-container">
+        <div>LOGO</div>
+        {this.getLinks()}
+      </div>
+    )
+  }
+
   checkLoggin() {
     if (this.props.loggedIn) {
-      return <div className='loggedIn'></div>
+      return (
+        <div className='loggedIn'>
+          {this.navElements()}
+        </div>
+      )
     } else {
-      return <div className='loggedOut'></div> 
+      return (
+        <div className='loggedOut'>
+          {this.navElements()}
+        </div>
+      )
     }
   };
 
   render() {
     return (
-      <div className="navbar-container">
+      <div>
         {this.checkLoggin()}
-        <div>LOGO</div>
-        {this.getLinks()}
       </div>
     );
   }
