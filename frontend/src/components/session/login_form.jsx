@@ -43,9 +43,10 @@ class LoginForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className="session-errors">
         {Object.keys(this.state.errors).map((error, i) => (
           <li key={`error-${i}`}>
+            <span>X</span>
             {this.state.errors[error]}
           </li>
         ))}
@@ -56,8 +57,9 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="session-form-container">
+        <h1>Welcome back!</h1>
         <form onSubmit={this.handleSubmit}>
-          <div>
+          <div className="session-form">
             <input type="text"
               value={this.state.email}
               onChange={this.update('email')}
@@ -74,6 +76,7 @@ class LoginForm extends React.Component {
             {this.renderErrors()}
             <div>
               <span>Don't have an account?</span>
+              {' '}
               <Link to='/signup'>Sign Up</Link>
             </div>
           </div>
