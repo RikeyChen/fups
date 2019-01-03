@@ -92,7 +92,9 @@ class SignupForm extends React.Component {
               />
               <br />
               <input type="submit" value="Sign Up" />
-              {this.renderErrors()}
+              <div>
+                {this.renderErrors()}
+              </div>
               <div>
                 <span>Already have an account?</span>
                 {' '}

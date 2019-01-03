@@ -76,7 +76,9 @@ class LoginForm extends React.Component {
               />
               <br />
               <input type="submit" value="Log In" />
-              {this.renderErrors()}
+              <div>
+                {this.renderErrors()}
+              </div>
               <div>
                 <span>Don't have an account?</span>
                 {' '}
