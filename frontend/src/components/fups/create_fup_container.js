@@ -4,9 +4,11 @@ import CreateFup from './create_fup';
 
 const mapStateToProps = (state) => {
   return {
-    user: state.session.user.id,
-    text: '',
-    private: false
+    formFields: {
+      user: state.session.user.id,
+      text: '',
+      private: false
+    }
   }
 }
 

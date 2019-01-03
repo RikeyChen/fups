@@ -15,7 +15,7 @@ export const receiveUserFups = fups => ({
 })
 
 export const receiveNewFup = fup => ({
-  type: RECEIVE_NEW_FUPS,
+  type: RECEIVE_NEW_FUP,
   fup
 })
 
@@ -33,6 +33,6 @@ export const fetchUserFups = (id) => dispatch =>
 
 export const composeFup = (data) => dispatch =>
   writeFup(data)
-    .then(fup => dispatch(receiveFups(fup)))
+    .then(fup => dispatch(receiveNewFup(fup)))
     .catch(err => console.log(err)
 );

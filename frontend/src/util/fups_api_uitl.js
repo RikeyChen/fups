@@ -4,7 +4,7 @@ export const getFups = () => {
   return axios.get('/api/fups')
 }
 
-export const getUserFups = () => {
+export const getUserFups = (id) => {
   return axios.get(`/api/fups/user/${id}`)
 }
 
