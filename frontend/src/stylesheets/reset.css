@@ -61,7 +61,7 @@ main {
   height: 100%;
 }
 
-#root {
+#root, #app  {
   width: 100%;
   height: 100%;
 }
