@@ -1,7 +1,7 @@
 .navbar-container {
   position: sticky;
   width: 100%;
-  height: auto;
+  height: 100%;
   left: 0px;
   top: 0px;
   padding: 0;
@@ -34,4 +34,39 @@
   left: 20px;
   width: 210px;
   height: 100px;
+}
+
+.navbar-links {
+  width: 320px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar-links > a {
+  text-decoration: none;
+  color: #505050;
+}
+
+.navbar-links > a:hover {
+  cursor: pointer;
+  color: #3BC3FC;
+}
+
+.logout-button {
+  background: #F7F7F7;
+  height: 30px;
+  width: 100px;
+  border: 1px solid #E98A48;
+  box-sizing: border-box;
+  border-radius: 50px;
+  line-height: 0;
+  font-size: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+}
+
+.logout-button:hover {
+  cursor: pointer;
+  border: 2px solid #3BC3FC;
 }
