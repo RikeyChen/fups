@@ -10,7 +10,8 @@ class CreateFup extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let fup = {
-      text: this.state.text
+      text: this.state.text,
+      private: this.state.private
     }
 
     this.props.composeFup(fup);
