@@ -4,10 +4,10 @@ class CreateFup extends React.Component {
   constructor(props) {
     super(props)
     this.state = this.props.formFields;
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  hanelSubmit(e) {
+  handleSubmit(e) {
     e.preventDefault();
     let fup = {
       text: this.state.text
@@ -30,7 +30,8 @@ class CreateFup extends React.Component {
           <div>
             <input type="textarea" value={this.state.text} onChange={this.update("text")} placeholder="What happened today?"/>
             <div>
-              <input type="checkbox" value="true" onChange={this.update()}/>
+              <input type="checkbox" value="true" onChange={this.update("private")}/>
+              Publish post publicly
             </div>
             <input type="submit" value="Submit"/>
           </div>
