@@ -13,3 +13,25 @@
 .loggedIn {
   background: #F7F7F7;
 }
+
+.logo {
+  background-image: url('../images/fups-koala.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 130px;
+  height: 60px;
+}
+
+.logo-container {
+  position: relative;
+  width: 150px;
+  height: 100%;
+}
+
+.loggedout {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  width: 210px;
+  height: 100px;
+}

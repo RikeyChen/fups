@@ -23,7 +23,7 @@ class NavBar extends React.Component {
           <button onClick={this.logoutUser}>Logout</button>
         </div>
       );
-    } else {
+    } else if (this.props.location.pathname === '/') {
       return (
         <div>
           <Link to={'/signup'}>Sign up</Link>
@@ -34,11 +34,19 @@ class NavBar extends React.Component {
   }
 
   navElements() {
-    const logo = (
-      this.props.loggedIn
-        ? <Link to="/profile">LOGO</Link>
-        : <Link to="/">LOGO</Link>
-    )
+    let logo;
+    if (this.props.loggedIn) {
+      logo = (this.props.location.pathname === '/profile'
+        ? <Link className="logo" to="/fups"><div className="logo loggedin" /></Link>
+        : <Link className="logo" to="/profile"><div className="logo loggedin" /></Link>)
+    } else {
+      logo = (
+        <div className="logo-container">
+          <div className="logo loggedout" />
+        </div>
+      )
+    }
+
     return (
       <div className="navbar-container">
         <div>{logo}</div>
