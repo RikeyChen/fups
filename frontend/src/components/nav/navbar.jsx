@@ -34,9 +34,14 @@ class NavBar extends React.Component {
   }
 
   navElements() {
+    const logo = (
+      this.props.loggedIn
+        ? <Link to="/profile">LOGO</Link>
+        : <Link to="/">LOGO</Link>
+    )
     return (
       <div className="navbar-container">
-        <div>LOGO</div>
+        <div>{logo}</div>
         {this.getLinks()}
       </div>
     )
