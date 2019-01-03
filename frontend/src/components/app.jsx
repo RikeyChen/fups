@@ -9,7 +9,7 @@ import SignupFormContainer from './session/signup_form_container';
 import Profile from './profile/profile';
 
 const App = () => (
-  <div>
+  <div id="app">
     <NavBarContainer />
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
