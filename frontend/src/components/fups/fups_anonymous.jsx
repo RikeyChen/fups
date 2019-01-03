@@ -9,3 +9,5 @@ class FupsAnonymous extends React.Component {
     )
   }
 }
+
+export default FupsAnonymous;
