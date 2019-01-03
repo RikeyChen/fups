@@ -1,3 +1,7 @@
+//Set Google API credentials 
+const path = __dirname
+process.env.GOOGLE_APPLICATION_CREDENTIALS = `${path}/../config/google_key.json`;
+
 // Imports the Google Cloud client library
 const language = require('@google-cloud/language');
 
