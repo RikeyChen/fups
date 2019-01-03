@@ -58,45 +58,51 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="session-form-container">
-        <h1>Welcome to FUPS</h1>
-        <h1>You can do better here</h1>
-        <form onSubmit={this.handleSubmit}>
-          <div className="session-form">
-            <br />
-            <input type="text"
-              value={this.state.email}
-              onChange={this.update('email')}
-              placeholder="Email"
-            />
-            <br />
-            <input type="text"
-              value={this.state.username}
-              onChange={this.update('username')}
-              placeholder="Username"
-            />
-            <br />
-            <input type="password"
-              value={this.state.password}
-              onChange={this.update('password')}
-              placeholder="Password"
-            />
-            <br />
-            <input type="password"
-              value={this.state.password2}
-              onChange={this.update('password2')}
-              placeholder="Confirm Password"
-            />
-            <br />
-            <input type="submit" value="Sign Up" />
-            {this.renderErrors()}
-            <div>
-              <span>Already have an account?</span>
-              {' '}
-              <Link to='/login'>Log In</Link>
-            </div>
+      <div className="session-main">
+        <div className="session-form-container">
+          <div className="session-form-header">
+            <h1>Welcome to FUPS</h1>
+            <h1>You can do better here</h1>
           </div>
-        </form>
+          <form onSubmit={this.handleSubmit}>
+            <div className="session-form">
+              <br />
+              <input type="text"
+                value={this.state.email}
+                onChange={this.update('email')}
+                placeholder="Email"
+              />
+              <br />
+              <input type="text"
+                value={this.state.username}
+                onChange={this.update('username')}
+                placeholder="Username"
+              />
+              <br />
+              <input type="password"
+                value={this.state.password}
+                onChange={this.update('password')}
+                placeholder="Password"
+              />
+              <br />
+              <input type="password"
+                value={this.state.password2}
+                onChange={this.update('password2')}
+                placeholder="Confirm Password"
+              />
+              <br />
+              <input type="submit" value="Sign Up" />
+              <div>
+                {this.renderErrors()}
+              </div>
+              <div>
+                <span>Already have an account?</span>
+                {' '}
+                <Link to='/login'>Log In</Link>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

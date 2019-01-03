@@ -16,7 +16,7 @@ const Fup = require('../../models/Fup');
 const Word = require('../../models/Word');
 const validateFupInput = require('../../validation/fups');
 
-const getWordsFromFup = (req) => {
+const getWordsFromFup = (fup, req) => {
   let document = {
     content: req.body.text,
     type: 'PLAIN_TEXT',
@@ -29,6 +29,7 @@ const getWordsFromFup = (req) => {
       entities.forEach(entity => {
         newWord = new Word({
           user: req.user.id,
+          fup: fup.id,
           word: entity.name,
           type: entity.type,
           score: entity.sentiment.score,
@@ -80,7 +81,7 @@ router.post('/',
           score: sentiment.score
         });
         newFup.save().then(fup => {
-          getWordsFromFup(req);
+          getWordsFromFup(fup, req);
           res.json(fup)}
           );
       })
