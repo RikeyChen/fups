@@ -5,6 +5,10 @@ const WordSchema = new Schema ({
   word: {
     type: String
   },
+  fup: {
+    type: Schema.Types.ObjectId,
+    ref: 'fups'
+  },
   user: {
     type: Schema.Types.ObjectId,
     ref: 'users'
