@@ -41,7 +41,6 @@ router.post('/',
 );
 
 router.delete('/:id', (req, res) => {
-  console.log(Fup.find({_id: req.params.id}))
   Fup.findOneAndRemove({_id: req.params.id})
     .then(fup => res.json(fup))
     .catch(err => res.status(404).json({somethingwentwrong: 'Fup not found or unable to delete'}))

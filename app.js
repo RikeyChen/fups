@@ -8,7 +8,6 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 app.use(passport.initialize());
 require('./config/passport')(passport);
-process.env.GOOGLE_APPLICATION_CREDENTIALS = `${path}/config/google_key.json`;
 
 mongoose
 .connect(db, { useNewUrlParser: true })
