@@ -25,7 +25,7 @@ class Pie extends React.Component {
     let type = 'Bar'
 
     return (
-      <div>
+      <div className='bar_graph'>
         <ChartistGraph data={data} options={options} type={type} />
       </div>
     )

@@ -1,0 +1,19 @@
+.profile_page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.user_data_container {
+  margin-top: 100px;
+  padding: 20px;
+  background-color: white;
+  width: 800px;
+  height: 200px;
+  border-radius: 4px;
+}
+
+.bar_graph {
+  margin-top: 40px;
+}
