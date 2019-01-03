@@ -24,6 +24,7 @@ body {
   line-height: 1;
   color: black;
   background: #37465B;
+  font-family: 'Montserrat', sans-serif;
 }
 ol, ul {
   list-style: none;
