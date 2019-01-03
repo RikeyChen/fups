@@ -17,6 +17,10 @@ const FupSchema = new Schema({
   private: {
     type: Boolean,
     default: true
+  }, 
+  score: {
+    type: Number,
+    required: true
   }
 });
 
