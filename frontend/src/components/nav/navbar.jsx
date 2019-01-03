@@ -23,13 +23,6 @@ class NavBar extends React.Component {
           <button onClick={this.logoutUser}>Logout</button>
         </div>
       );
-    } else if (this.props.location.pathname === '/') {
-      return (
-        <div>
-          <Link to={'/signup'}>Sign up</Link>
-          <Link to={'/login'}>Log in</Link>
-        </div>
-      );
     }
   }
 
