@@ -48,7 +48,7 @@ router.get('/', (req, res) => {
     .catch(err => res.status(404).json({nofupsfound: 'No fups were found' }));
 }); 
 
-router.get(`/user/:user_id`, (req, res) => {
+router.get(`/:user_id`, (req, res) => {
   Fup.find({user: req.params.user_id})
     .then(fups => res.json(fups))
     .catch(err => 
