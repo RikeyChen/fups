@@ -3,28 +3,23 @@ const Schema = mongoose.Schema;
 
 const WordSchema = new Schema ({
   word: {
-    type: String,
-    requied: true
+    type: String
   },
   user: {
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
   type: {
-    type: String,
-    required: true
+    type: String
   },
   score: {
-    type: Number,
-    required: true
+    type: Number
   },
   magnitiude: {
-    type: Number,
-    required: true
+    type: Number
   },
   salience: {
-    type: Number,
-    required: true
+    type: Number
   },
   date: {
     type: Date,
@@ -32,4 +27,4 @@ const WordSchema = new Schema ({
   }
 })
 
-module.exports = Fup = mongoose.model('word', WordSchema);
+module.exports = Word = mongoose.model('word', WordSchema);

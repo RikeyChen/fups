@@ -16,6 +16,30 @@ const Fup = require('../../models/Fup');
 const Word = require('../../models/Word');
 const validateFupInput = require('../../validation/fups');
 
+const getWordsFromFup = (req) => {
+  let document = {
+    content: req.body.text,
+    type: 'PLAIN_TEXT',
+  };
+  client
+    .analyzeEntitySentiment({ document: document })
+    .then(results => {
+      const entities = results[0].entities;
+
+      entities.forEach(entity => {
+        newWord = new Word({
+          user: req.user.id,
+          word: entity.name,
+          type: entity.type,
+          score: entity.sentiment.score,
+          salience: entity.salience,
+          magnitude: entity.sentiment.magnitude,
+        })
+        newWord.save()
+      })
+    })
+}
+
 router.get('/', (req, res) => {
   Fup.find()
     .where({ private: false })
@@ -48,7 +72,6 @@ router.post('/',
     client
       .analyzeSentiment({ document })
       .then(results => {
-        // create fup with score
         const sentiment = results[0].documentSentiment;
         const newFup = new Fup({
           text: req.body.text,
@@ -56,26 +79,11 @@ router.post('/',
           private: req.body.private,
           score: sentiment.score
         });
-        newFup.save().then(fup => res.json(fup));
-
-        //create words
-        client
-          .analyzeEntitySentiment({ document: document })
-          .then(results => {
-            const entities = results[0].entities; 
-
-            entities.forEach(entity => {
-              newWord = new Word({
-                user: req.user.id,
-                word: entity.name,
-                type: entity.type,
-                score: entity.sentiment.score,
-                salience: entity.salience,
-                magnitude: entity.sentiment.magnitude,
-              })
-              newWord.save().then(word => res.json(word))
-            })});
-        })
+        newFup.save().then(fup => {
+          getWordsFromFup(req);
+          res.json(fup)}
+          );
+      })
       .catch(err => {
         console.error('ERROR:', err);
       });
