@@ -1,5 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import '../../stylesheets/session.css';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -44,9 +45,10 @@ class SignupForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className="session-errors">
         {Object.keys(this.state.errors).map((error, i) => (
           <li key={`error-${i}`}>
+            <span>X</span>
             {this.state.errors[error]}
           </li>
         ))}
@@ -56,9 +58,11 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="signup-form-container">
+      <div className="session-form-container">
+        <h1>Welcome to FUPS</h1>
+        <h1>You can do better here</h1>
         <form onSubmit={this.handleSubmit}>
-          <div className="signup-form">
+          <div className="session-form">
             <br />
             <input type="text"
               value={this.state.email}
@@ -84,8 +88,13 @@ class SignupForm extends React.Component {
               placeholder="Confirm Password"
             />
             <br />
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Sign Up" />
             {this.renderErrors()}
+            <div>
+              <span>Already have an account?</span>
+              {' '}
+              <Link to='/login'>Log In</Link>
+            </div>
           </div>
         </form>
       </div>
