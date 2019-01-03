@@ -1,15 +1,30 @@
+.session-main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .session-form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2% auto;
   width: 359px;
   background: #FFFFFF;
   border-radius: 5px;
   padding: 15px;
 }
 
-.session-form-container > h1 {
+.session-form-container form {
+  width: 100%;
+}
+
+.session-form-header {
+  margin: 10px 0px;
+}
+
+.session-form-container h1 {
   font-style: normal;
   font-weight: normal;
   line-height: normal;
@@ -19,6 +34,7 @@
 }
 
 .session-form {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,11 +68,14 @@
 }
 
 .session-errors {
+  width: 100%;
   color: red;
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 10px 20px;
   line-height: 1.2em;
+  box-sizing: border-box;
+  font-size: 14px;
 }
 
 .session-errors li > span {
