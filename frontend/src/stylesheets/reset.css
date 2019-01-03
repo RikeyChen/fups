@@ -13,19 +13,22 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   font-weight: inherit;
   font-style: inherit;
   font-size: 100%;
-  font-family: "Lucida Grande", sans-serif;
   vertical-align: baseline;
+  font-family: 'Montserrat', sans-serif;
 }
 
 :focus {
   outline: 0;
 }
+
 body {
   line-height: 1;
   color: black;
   background: #37465B;
-  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  height: 100%;
 }
+
 ol, ul {
   list-style: none;
 }
@@ -34,14 +37,17 @@ table {
   border-collapse: separate;
   border-spacing: 0;
 }
+
 caption, th, td {
   text-align: left;
   font-weight: normal;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: "";
 }
+
 blockquote, q {
   quotes: "" "";
 }
@@ -51,5 +57,10 @@ html {
 }
 
 main {
+  height: 100%;
+}
+
+#root, #app  {
+  width: 100%;
   height: 100%;
 }
