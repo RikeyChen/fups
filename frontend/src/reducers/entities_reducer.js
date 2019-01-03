@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import fups from './fups_reducer';
 
-const RootReducer = combineReducers({
+const EntitiesReducer = combineReducers({
   fups,
 });
 
-export default RootReducer;
+export default EntitiesReducer;
