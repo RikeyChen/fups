@@ -9,7 +9,7 @@ const language = require('@google-cloud/language');
 const client = new language.LanguageServiceClient();
 
 // The text to analyze
-const text = 'I fucking hate my job';
+const text = 'I cannot fucking believe that my boss fired me today';
 
 const document = {
   content: text,
