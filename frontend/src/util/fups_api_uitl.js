@@ -8,6 +8,6 @@ export const getUserFups = () => {
   return axios.get(`/api/fups/user/${id}`)
 }
 
-export const writeFups = data => {
+export const writeFup = data => {
   return axios.post('/api/fups', data)
 }
