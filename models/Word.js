@@ -7,7 +7,7 @@ const WordSchema = new Schema ({
     requied: true
   },
   user: {
-    type: Schema.Types.ObjectIdId,
+    type: Schema.Types.ObjectId,
     ref: 'users'
   },
   type: {
@@ -19,6 +19,10 @@ const WordSchema = new Schema ({
     required: true
   },
   magnitiude: {
+    type: Number,
+    required: true
+  },
+  salience: {
     type: Number,
     required: true
   },

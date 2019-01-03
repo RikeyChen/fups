@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
+
 const path = __dirname
 process.env.GOOGLE_APPLICATION_CREDENTIALS = `${path}/../../config/google_key.json`;
 
@@ -12,6 +13,7 @@ const language = require('@google-cloud/language');
 const client = new language.LanguageServiceClient();
 
 const Fup = require('../../models/Fup');
+const Word = require('../../models/Word');
 const validateFupInput = require('../../validation/fups');
 
 router.get('/', (req, res) => {
@@ -46,6 +48,7 @@ router.post('/',
     client
       .analyzeSentiment({ document })
       .then(results => {
+        // create fup with score
         const sentiment = results[0].documentSentiment;
         const newFup = new Fup({
           text: req.body.text,
@@ -54,7 +57,25 @@ router.post('/',
           score: sentiment.score
         });
         newFup.save().then(fup => res.json(fup));
-      })
+
+        //create words
+        client
+          .analyzeEntitySentiment({ document: document })
+          .then(results => {
+            const entities = results[0].entities; 
+
+            entities.forEach(entity => {
+              newWord = new Word({
+                user: req.user.id,
+                word: entity.name,
+                type: entity.type,
+                score: entity.sentiment.score,
+                salience: entity.salience,
+                magnitude: entity.sentiment.magnitude,
+              })
+              newWord.save().then(word => res.json(word))
+            })});
+        })
       .catch(err => {
         console.error('ERROR:', err);
       });
