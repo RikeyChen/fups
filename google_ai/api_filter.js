@@ -9,16 +9,16 @@ const language = require('@google-cloud/language');
 const client = new language.LanguageServiceClient();
 
 // Function to determine score of a fup 
-export const getFupScore = (fup) => {
+function getFupScore(fup) {
   let document = {
     content: fup,
     type: 'PLAIN_TEXT',
   };
-
+  
   client 
     .analyzeSentiment({ document })
-    .then(results => {
-      const sentiment = results[0].documentSentiment;
+    .then(results => {      
+      const sentiment = results[0].documentSentiment;      
       return sentiment.score
     })
     .catch(err => {
@@ -26,22 +26,28 @@ export const getFupScore = (fup) => {
     });
 };
 
-  // Detects entities of the text 
-client
-  .analyzeEntitySentiment({ document: document })
-  .then(results => {
-    
-    const entities = results[0].entities;        
+console.log(getFupScore('this is a hard coded test'));
 
-    console.log('Entities:');
-    entities.forEach(entity => {
-      console.log(entity.name);
-      console.log(` - Type: ${entity.type}, Salience: ${entity.salience}`);
-      console.log(' - Word Sentiment:');
-      console.log(` - Magnitude: ${entity.sentiment.magnitude}, Score: ${entity.sentiment.score}`);
+
+
+  // Detects entities of the text 
+// client
+//   .analyzeEntitySentiment({ document: document })
+//   .then(results => {
+    
+//     const entities = results[0].entities;        
+
+//     console.log('Entities:');
+//     entities.forEach(entity => {
+//       console.log(entity.name);
+//       console.log(` - Type: ${entity.type}, Salience: ${entity.salience}`);
+//       console.log(' - Word Sentiment:');
+//       console.log(` - Magnitude: ${entity.sentiment.magnitude}, Score: ${entity.sentiment.score}`);
       
-      if (entity.metadata && entity.metadata.wikipedia_url) {
-        console.log(` - Wikipedia URL: ${entity.metadata.wikipedia_url}$`);
-      }
-    })
-  });
+//       if (entity.metadata && entity.metadata.wikipedia_url) {
+//         console.log(` - Wikipedia URL: ${entity.metadata.wikipedia_url}$`);
+//       }
+//     })
+//   });
+
+  module.exports = getFupScore;

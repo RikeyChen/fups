@@ -2,6 +2,14 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
+const path = __dirname
+process.env.GOOGLE_APPLICATION_CREDENTIALS = `${path}/../../config/google_key.json`;
+
+// Imports the Google Cloud client library
+const language = require('@google-cloud/language');
+
+// Instantiates a client
+const client = new language.LanguageServiceClient();
 
 const Fup = require('../../models/Fup');
 const validateFupInput = require('../../validation/fups');
@@ -28,15 +36,28 @@ router.post('/',
 
     if (!isValid) {
       return res.status(400).json(errors);
-    }
+    }    
 
-    const newFup = new Fup({
-      text: req.body.text,
-      user: req.user.id,
-      private: req.body.private
-    });
+    let document = {
+      content: req.body.text,
+      type: 'PLAIN_TEXT',
+    };
 
-    newFup.save().then(fup => res.json(fup));
+    client
+      .analyzeSentiment({ document })
+      .then(results => {
+        const sentiment = results[0].documentSentiment;
+        const newFup = new Fup({
+          text: req.body.text,
+          user: req.user.id,
+          private: req.body.private,
+          score: sentiment.score
+        });
+        newFup.save().then(fup => res.json(fup));
+      })
+      .catch(err => {
+        console.error('ERROR:', err);
+      });
   }
 );
 
