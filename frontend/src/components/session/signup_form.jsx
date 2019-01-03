@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import '../../stylesheets/session.css';
 
 class SignupForm extends React.Component {
   constructor(props) {
