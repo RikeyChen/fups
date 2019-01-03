@@ -6,12 +6,20 @@
 }
 
 .user_data_container {
-  margin-top: 100px;
+  margin-top: 50px;
   padding: 20px;
   background-color: white;
   width: 800px;
   height: 200px;
   border-radius: 4px;
+
+}
+
+.graphs_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .bar_graph {

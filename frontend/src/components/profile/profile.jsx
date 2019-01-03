@@ -8,7 +8,10 @@ class Profile extends React.Component {
       <div className='profile_page'>
         <div className='user_data_container'>
           <h1>Welcome back INSERT NAME OF USER</h1>
-          <Pie/>
+          <div className='graphs_container'>
+            {/* this is where pie chart will go */}
+            <Pie />
+          </div>
         </div>
       </div>
     )
