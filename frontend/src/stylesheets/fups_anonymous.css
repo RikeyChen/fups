@@ -1,8 +1,9 @@
 .anon-image {
   background-repeat: no-repeat;
   background-size: contain;
-  width: 130px;
-  height: 90px;
+  width: 80px;
+  height: 70px;
+  border-radius: 5px;
 }
 
 .anon0 {
@@ -43,4 +44,15 @@
 
 .anon9 {
   background-image: url('../images/anon_pig.png');
+}
+
+.fups-anonymous-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fups-item-master {
+  display: flex;
+  margin: 10px 0px;
 }
