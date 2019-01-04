@@ -5,6 +5,14 @@ import Pie from '../data_viz/pie';
 import '../../stylesheets/profile.css';
 
 class Profile extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchUserWords(this.props.currentUserId)
+  }
+
   render() {
     return (
       <div className='profile_page'>

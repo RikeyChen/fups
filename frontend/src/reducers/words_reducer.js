@@ -4,7 +4,7 @@ const WordsReducer = ( state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_USER_WORDS:
-      return action.words
+      return action.words.data
     default:
       return state
   }

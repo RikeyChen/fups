@@ -5,7 +5,6 @@ import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
-import { fetchUserWords } from './actions/words_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -23,8 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore({});
   }
   const root = document.getElementById('root');
-  window.fetchUserWords = fetchUserWords;
-  window.dispatch = store.dispatch
 
   ReactDOM.render(<Root store={store} />, root);
 });
