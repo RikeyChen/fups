@@ -1,6 +1,6 @@
 import React from 'react';
 import FupCreate from "../fups/create_fup_container";
-import Pie from '../data_viz/pie_chart';
+import Graph from '../data_viz/graph';
 import '../../stylesheets/profile.css';
 
 class Profile extends React.Component {
@@ -11,7 +11,7 @@ class Profile extends React.Component {
           <h1>Welcome back INSERT NAME OF USER</h1>
           <div className='graphs_container'>
             {/* this is where pie chart will go */}
-            <Pie />
+            <Graph />
           </div>
         </div>
         <FupCreate />
