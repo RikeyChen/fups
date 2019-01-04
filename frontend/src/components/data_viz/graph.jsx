@@ -1,31 +1,121 @@
 import React from 'react';
 import ChartistGraph from 'react-chartist';
+// import Chartist from 'chartist';
 
-class Graph extends React.Component {
+class Graph extends React.Component {  
+
   render() {
+    let seq = 0,
+      delays = 80,
+      durations = 500;  
 
-    let data = {
-      labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
-      series: [
-        [1, 2, 4, 8, 6, -2, -1, -4, -6, -2]
-      ]
-    };
+    const listener = {
+      'created': function () {
+        seq = 0;
+      },
+      'draw': function (data) {
+        seq++;
 
-    let options = {
-      high: 10,
-      low: -10,
-      axisX: {
-        labelInterpolationFnc: function (value, index) {
-          return index % 2 === 0 ? value : null;
+        if (data.type === 'line') {
+          data.element.animate({
+            opacity: {
+              begin: seq * delays + 1000,
+              dur: durations,
+              from: 0,
+              to: 1
+            }
+          });
+        } else if (data.type === 'label' && data.axis === 'x') {
+          data.element.animate({
+            y: {
+              begin: seq * delays,
+              dur: durations,
+              from: data.y + 100,
+              to: data.y,
+              easing: 'easeOutQuart'
+            }
+          });
+        } else if (data.type === 'label' && data.axis === 'y') {
+          data.element.animate({
+            x: {
+              begin: seq * delays,
+              dur: durations,
+              from: data.x - 100,
+              to: data.x,
+              easing: 'easeOutQuart'
+            }
+          });
+        } else if (data.type === 'point') {
+          data.element.animate({
+            x1: {
+              begin: seq * delays,
+              dur: durations,
+              from: data.x - 10,
+              to: data.x,
+              easing: 'easeOutQuart'
+            },
+            x2: {
+              begin: seq * delays,
+              dur: durations,
+              from: data.x - 10,
+              to: data.x,
+              easing: 'easeOutQuart'
+            },
+            opacity: {
+              begin: seq * delays,
+              dur: durations,
+              from: 0,
+              to: 1,
+              easing: 'easeOutQuart'
+            }
+          });
+        } else if (data.type === 'grid') {
+          let pos1Animation = {
+            begin: seq * delays,
+            dur: durations,
+            from: data[data.axis.units.pos + '1'] - 30,
+            to: data[data.axis.units.pos + '1'],
+            easing: 'easeOutQuart'
+          };
+
+          let pos2Animation = {
+            begin: seq * delays,
+            dur: durations,
+            from: data[data.axis.units.pos + '2'] - 100,
+            to: data[data.axis.units.pos + '2'],
+            easing: 'easeOutQuart'
+          };
+
+          let animations = {};
+          animations[data.axis.units.pos + '1'] = pos1Animation;
+          animations[data.axis.units.pos + '2'] = pos2Animation;
+          animations['opacity'] = {
+            begin: seq * delays,
+            dur: durations,
+            from: 0,
+            to: 1,
+            easing: 'easeOutQuart'
+          };
+
+          data.element.animate(animations);
         }
       }
-    };
+    }
 
-    let type = 'Bar'
+    let lineChartData = {
+      labels: [1, 2, 3, 4, 5, 6, 7, 8],
+      series: [
+        [5, 9, 7, 8, 5, 3, 5, 4]
+      ]
+    }
+    let lineChartOptions = {
+      low: 0,
+      showArea: true
+    }
 
     return (
       <div className='bar_graph'>
-        <ChartistGraph data={data} options={options} type={type} />
+        < ChartistGraph listener={listener} data={lineChartData} options={lineChartOptions} type={'Line'} />
       </div>
     )
   }
