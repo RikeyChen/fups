@@ -77,7 +77,8 @@ router.post('/',
           text: req.body.text,
           user: req.user.id,
           private: req.body.private,
-          score: sentiment.score
+          score: sentiment.score,
+          iconNum: Math.floor(Math.random() * Math.floor(10))
         });
         newFup.save().then(fup => {
           getWordsFromFup(fup, req);
