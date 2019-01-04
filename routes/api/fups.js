@@ -45,7 +45,7 @@ router.get('/', (req, res) => {
   Fup.find()
     .where({ private: false })
     .sort({ date: -1 })
-    .then(tweets => res.json(tweets))
+    .then(fups => res.json(fups))
     .catch(err => res.status(404).json({nofupsfound: 'No fups were found' }));
 }); 
 
@@ -53,7 +53,7 @@ router.get(`/user/:user_id`, (req, res) => {
   Fup.find({user: req.params.user_id})
     .then(fups => res.json(fups))
     .catch(err => 
-      res.status(404).json({ notweetsfound: 'No Fups found for this user'}))
+      res.status(404).json({ nofupsfound: 'No Fups found for this user'}))
 });
 
 router.post('/',
