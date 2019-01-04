@@ -5,7 +5,6 @@ const FupsItem = (props) => (
     <p className="fup-text">
       {props.fup.text}
     </p>
-    <div className="upvote-arrow" />
   </div>
 )
 
