@@ -11,8 +11,7 @@ class CreateFup extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let fup = {
-      text: this.state.text,
-      private: this.state.private
+      text: this.state.text
     }
 
     this.props.composeFup(fup);
@@ -33,7 +32,7 @@ class CreateFup extends React.Component {
               <div className="form-box">
               <textarea className="text-field" value={this.state.text} onChange={this.update("text")} placeholder="Fupped today? Tell us about it. We're here to help."> </textarea>
                 <div className="check-box-text">
-                  <input className="checkbox-margin" type="checkbox" value="true" onChange={this.update("private")} />
+                  <input className="checkbox-margin" type="checkbox" value="false" onChange={this.update(this.state.private)} />
                   Publish post publicly
                 </div>
               </div>
