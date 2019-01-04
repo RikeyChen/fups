@@ -30,7 +30,7 @@ class UserFups extends React.Component {
       )
     } else {
       return (
-        <div className="fups-item-container">
+        <div>
           <h2>Wow your Fups!</h2>
           {this.props.fups.map(fup => (
             <FupsItem fup={fup}/>

@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
     formFields: {
       user: state.session.user.id,
       text: '',
-      private: false
+      private: true
     }
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import FupsItem from './fups_item';
+import '../../stylesheets/fups_anonymous.css';
 
 class FupsAnonymous extends React.Component {
   componentDidMount() {
@@ -7,10 +8,21 @@ class FupsAnonymous extends React.Component {
   }
 
   render() {
-    const fups = this.props;
+    const { fups } = this.props;
+    if (!(fups instanceof Array) || !fups.length) return null;
+
     return (
-      <div>
+      <div className="fups-anonymous-container">
         <h1>FUPSAnonymous</h1>
+        {fups.map(fup => (
+          <div className="fups-item-master">
+            <div className={`anon-image anon${fup.iconNum}`} />
+            <div>
+              <FupsItem fup={fup} key={fup._id} />
+              <div className="upvote-arrow" />
+            </div>
+          </div>
+        ))}
       </div>
     )
   }
