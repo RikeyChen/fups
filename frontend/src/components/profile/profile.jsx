@@ -3,6 +3,7 @@ import FupCreate from "../fups/create_fup_container";
 import Graph from '../data_viz/graph';
 import Pie from '../data_viz/pie';
 import '../../stylesheets/profile.css';
+import UserFups from "../fups/user_fups_container";
 
 class Profile extends React.Component {
   render() {
@@ -17,6 +18,7 @@ class Profile extends React.Component {
           </div>
         </div>
         <FupCreate />
+        <UserFups />
       </div>
     )
   }

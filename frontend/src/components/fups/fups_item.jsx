@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../stylesheets/fups_item.css'
 
 const FupsItem = (props) => (
   <div className="fups-item-container">
