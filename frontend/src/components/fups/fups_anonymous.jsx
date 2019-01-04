@@ -7,10 +7,18 @@ class FupsAnonymous extends React.Component {
   }
 
   render() {
-    const fups = this.props;
+    const { fups } = this.props;
+    if (!(fups instanceof Array) || !fups.length) return null;
+
     return (
       <div>
         <h1>FUPSAnonymous</h1>
+        {fups.map(fup => (
+          <div>
+            <FupsItem fup={fup} key={fup._id} />
+            <div className="upvote-arrow" />
+          </div>
+        ))}
       </div>
     )
   }
