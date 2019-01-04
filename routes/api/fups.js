@@ -32,9 +32,8 @@ const getWordsFromFup = (fup, req) => {
           fup: fup.id,
           word: entity.name,
           type: entity.type,
-          score: entity.sentiment.score,
-          salience: entity.salience,
-          magnitude: entity.sentiment.magnitude,
+          fupScore: fup.score,
+          salience: entity.salience
         })
         newWord.save()
       })
@@ -78,7 +77,8 @@ router.post('/',
           text: req.body.text,
           user: req.user.id,
           private: req.body.private,
-          score: sentiment.score
+          score: sentiment.score,
+          iconNum: Math.floor(Math.random() * Math.floor(10))
         });
         newFup.save().then(fup => {
           getWordsFromFup(fup, req);
