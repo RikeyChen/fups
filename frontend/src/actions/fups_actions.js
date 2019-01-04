@@ -1,4 +1,4 @@
-import {getFups, getUserFups, writeFup} from '../util/fups_api_uitl';
+import { getFups, getUserFups, writeFup } from '../util/fups_api_uitl';
 
 export const RECEIVE_FUPS = 'RECEIVE_FUPS';
 export const RECEIVE_USER_FUPS = 'RECEIVE_USER_FUPS';

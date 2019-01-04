@@ -11,7 +11,8 @@ class Pie extends React.Component {
     }
 
     const options = {
-      donut: true
+      donut: true,
+      showSeries: true,
     }
 
     const type = 'Pie';
