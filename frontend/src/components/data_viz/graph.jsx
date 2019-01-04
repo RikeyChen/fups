@@ -1,8 +1,7 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
 import ChartistGraph from 'react-chartist';
 
-class Pie extends React.Component {
+class Graph extends React.Component {
   render() {
 
     let data = {
@@ -32,4 +31,4 @@ class Pie extends React.Component {
   }
 }
 
-export default Pie;
+export default Graph;
