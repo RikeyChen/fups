@@ -1,0 +1,38 @@
+.form-center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-box {
+  width: 550px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  width: 75px;
+  margin: 12px 0 0 477px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.text-field {
+  width: 100%;
+  border: none;
+  padding: 0px;
+  height: 70px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.check-box-text {
+  font-size: 10px;
+  font-weight: 600;
+  color: #7F807F;
+}
+
+.checkbox-margin {
+  margin: 0 8px 8px 10px;
+}
