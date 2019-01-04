@@ -3,11 +3,34 @@ import ChartistGraph from 'react-chartist';
 import Chartist from 'chartist';
 
 class Pie extends React.Component {
+
+  chartData() {
+
+    // const items = this.props.words.map(word => {
+    //   <li>
+    //     {word.name} - {word.count}
+    //   </li>
+    // })
+
+    // TEMPORARY CODE SO IT DOESN'T BREAK
+    const items = (
+      <li>
+        data - 20%
+      </li>
+    )
+
+    return (
+      <ul>
+        {items}
+      </ul>
+    )
+  }
+
   render() {
     // hardcode data for testing
     const data = {
-      labels: ['Driving', 'Drinking', 'Money', 'Oversleeping', 'Boss', 'Wife'],
-      series: [5, 10, 5, 2, 10, 20],
+      labels: ['Driving', 'Drinking', 'Money', 'Oversleeping', 'Boss', 'Wife', 'test'],
+      series: [5, 10, 5, 5, 10, 20, 10],
     }
 
     const options = {
@@ -51,8 +74,9 @@ class Pie extends React.Component {
     }
 
     return(
-      <div>
-        <ChartistGraph data={data} options={options} listener={listener} type={type} />
+      <div className='pie_chart'>
+        <ChartistGraph className='pie_item' data={data} options={options} listener={listener} type={type} />
+        {this.chartData()}
       </div>
     )
   }

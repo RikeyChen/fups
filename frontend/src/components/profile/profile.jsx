@@ -9,8 +9,37 @@ class Profile extends React.Component {
     super(props);
   }
 
+  // importantWords() {
+  //   let wordCount = {}
+  //   let words = []
+    
+  //   this.props.words.forEach(word => {
+  //     if (wordCount[word]) {
+  //       wordCount[word] += 1
+  //     } else {
+  //       wordCount[word] = 0
+  //     }
+  //   })
+
+  //   for (key in wordCount) {
+  //     if (wordCount[key] >)
+  //   }
+  // }
+
+
+
+
   componentDidMount() {
     this.props.fetchUserWords(this.props.currentUserId)
+  }
+
+  renderGraphs() {
+    return (
+      <div className='graphs_container'>
+        <Pie />
+        <Graph />
+      </div>
+    )
   }
 
   render() {
@@ -18,11 +47,7 @@ class Profile extends React.Component {
       <div className='profile_page'>
         <div className='user_data_container'>
           <h1>Welcome back INSERT NAME OF USER</h1>
-          <div className='graphs_container'>
-            {/* this is where pie chart will go */}
-            <Graph />
-            <Pie />
-          </div>
+          {this.renderGraphs()}
         </div>
         <FupCreate />
       </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import FupsItem from './fups_item';
 
 class FupsAnonymous extends React.Component {
   componentDidMount() {

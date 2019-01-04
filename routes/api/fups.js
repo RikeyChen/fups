@@ -32,9 +32,8 @@ const getWordsFromFup = (fup, req) => {
           fup: fup.id,
           word: entity.name,
           type: entity.type,
-          score: entity.sentiment.score,
-          salience: entity.salience,
-          magnitude: entity.sentiment.magnitude,
+          fupScore: fup.score,
+          salience: entity.salience
         })
         newWord.save()
       })
