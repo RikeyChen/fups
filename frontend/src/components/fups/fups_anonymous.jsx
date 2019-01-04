@@ -15,8 +15,11 @@ class FupsAnonymous extends React.Component {
         <h1>FUPSAnonymous</h1>
         {fups.map(fup => (
           <div>
-            <FupsItem fup={fup} key={fup._id} />
-            <div className="upvote-arrow" />
+            <div className={`anon-image ${fup.iconNum}`}>ANON IMAGE</div>
+            <div>
+              <FupsItem fup={fup} key={fup._id} />
+              <div className="upvote-arrow" />
+            </div>
           </div>
         ))}
       </div>
