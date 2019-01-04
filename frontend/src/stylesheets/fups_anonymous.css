@@ -1,0 +1,58 @@
+.anon-image {
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 80px;
+  height: 70px;
+  border-radius: 5px;
+}
+
+.anon0 {
+  background-image: url('../images/anon_koala.png');
+}
+
+.anon1 {
+  background-image: url('../images/anon_dolphin.png');
+}
+
+.anon2 {
+  background-image: url('../images/anon_bird.png');
+}
+
+.anon3 {
+  background-image: url('../images/anon_elephant.png');
+}
+
+.anon4 {
+  background-image: url('../images/anon_flamingo.png');
+}
+
+.anon5 {
+  background-image: url('../images/anon_fox.png');
+}
+
+.anon6 {
+  background-image: url('../images/anon_giraffe.png');
+}
+
+.anon7 {
+  background-image: url('../images/anon_hippo.png');
+}
+
+.anon8 {
+  background-image: url('../images/anon_monkey.png');
+}
+
+.anon9 {
+  background-image: url('../images/anon_pig.png');
+}
+
+.fups-anonymous-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fups-item-master {
+  display: flex;
+  margin: 10px 0px;
+}

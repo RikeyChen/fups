@@ -6,6 +6,33 @@ import '../../stylesheets/profile.css';
 import UserFups from "../fups/user_fups_container";
 
 class Profile extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  // importantWords() {
+  //   let wordCount = {}
+  //   let words = []
+    
+  //   this.props.words.forEach(word => {
+  //     if (wordCount[word]) {
+  //       wordCount[word] += 1
+  //     } else {
+  //       wordCount[word] = 0
+  //     }
+  //   })
+
+  //   for (key in wordCount) {
+  //     if (wordCount[key] >)
+  //   }
+  // }
+
+
+
+
+  componentDidMount() {
+    this.props.fetchUserWords(this.props.currentUserId)
+  }
 
   renderGraphs() {
     return (
