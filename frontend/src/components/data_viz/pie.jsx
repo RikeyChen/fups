@@ -4,9 +4,14 @@ import Chartist from 'chartist';
 
 class Pie extends React.Component {
   render() {
+    // hardcode data for testing
     const data = {
       labels: ['Driving', 'Drinking', 'Money', 'Oversleeping', 'Boss', 'Wife'],
-      series: [5, 10, 5, 2, 10, 20]
+      series: [5, 10, 5, 2, 10, 20],
+    }
+
+    const options = {
+      donut: true
     }
 
     const type = 'Pie';
@@ -23,7 +28,7 @@ class Pie extends React.Component {
           const animation = {
             'stroke-dashoffset': {
               id: 'anim' + data.index,
-              dur: 1000,
+              dur: 500,
               from: -pathLength + 'px',
               to: '0px',
               easing: Chartist.Svg.Easing.easeOutQuint,
@@ -46,7 +51,7 @@ class Pie extends React.Component {
 
     return(
       <div>
-        <ChartistGraph data={data} listener={listener} type={type} />
+        <ChartistGraph data={data} options={options} listener={listener} type={type} />
       </div>
     )
   }
