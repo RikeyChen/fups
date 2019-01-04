@@ -9,9 +9,9 @@
 .user_data_container {
   margin-top: 50px;
   padding: 20px;
-  background-color: white;
-  width: 800px;
-  height: 200px;
+  background-color: #F7F7F7;
+  width: 900px;
+  height: 300px;
   border-radius: 4px;
 
 }
@@ -24,5 +24,32 @@
 }
 
 .bar_graph {
-  margin-top: 40px;
+  width: 500px;
+  height: 100%;
+}
+
+.pie_chart {
+  height: 100%;
+  width: 300px;
+}
+
+.graph_item {
+  height: 240px;
+  width: 500px;
+  margin-top: 20px;
+  padding-right: 50px;
+}
+
+.pie_item {
+  height: 230px;
+  margin-right: 20px;
+  color: white;
+}
+
+.bar_graph_explanation p {
+  margin-left: 20px;
+  font-size: 12px;
+  line-height: 15px;
+  color: #757575;
+  margin-bottom: 10px;
 }

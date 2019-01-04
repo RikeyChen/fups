@@ -103,19 +103,26 @@ class Graph extends React.Component {
     }
 
     let lineChartData = {
-      labels: [1, 2, 3, 4, 5, 6, 7, 8],
+      labels: [],
       series: [
-        [5, 9, 7, 8, 5, 3, 5, 4]
+        [.5, .9, .7, .8, -.5, .3, -.5, -.4]
       ]
     }
     let lineChartOptions = {
-      low: 0,
+      low: -1,
+      high: 1,
       showArea: true
     }
 
     return (
       <div className='bar_graph'>
-        < ChartistGraph listener={listener} data={lineChartData} options={lineChartOptions} type={'Line'} />
+        <ChartistGraph className='graph_item' listener={listener} data={lineChartData} options={lineChartOptions} type={'Line'} />
+        <div className='bar_graph_explanation'>
+          <p>
+            This demonstrates sentiment per fup in chronological order. 
+            Sentiment is a measure of attitude and we display it from very negative (-1) to very positive (1).
+          </p>
+        </div>
       </div>
     )
   }
