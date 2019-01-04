@@ -13,18 +13,28 @@
 
 .submit-btn {
   width: 75px;
-  margin: 12px 0 0 477px;
+  margin: 12px 0 0 520px;
   border-radius: 10px;
-  font-size: 13px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  border: 1px solid #E98A48;
+  background: #F7F7F7;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  border: 2px solid #3BC3FC;
 }
 
 .text-field {
-  width: 100%;
+  width: -webkit-fill-available;
   border: none;
   padding: 0px;
   height: 70px;
   border-radius: 5px;
   font-size: 16px;
+  resize: none;
+  padding: 10px 0 0 8px;
 }
 
 .check-box-text {
@@ -35,4 +45,8 @@
 
 .checkbox-margin {
   margin: 0 8px 8px 10px;
+}
+
+.create-container {
+  margin-top: 50px;
 }

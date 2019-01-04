@@ -26,24 +26,22 @@ class CreateFup extends React.Component {
   }
 
   render() {
-    return (
-      <>
-        <div>
+    return <>
+        <div className="create-container">
           <form onSubmit={this.handleSubmit}>
             <div className="form-center">
               <div className="form-box">
-                <input className="text-field" type="text" value={this.state.text} onChange={this.update("text")} placeholder="Fupped today? Tell us about it. We're here to help."/>
+              <textarea className="text-field" value={this.state.text} onChange={this.update("text")} placeholder="Fupped today? Tell us about it. We're here to help."> </textarea>
                 <div className="check-box-text">
-                  <input className="checkbox-margin" type="checkbox" value="true" onChange={this.update("private")}/>
+                  <input className="checkbox-margin" type="checkbox" value="true" onChange={this.update("private")} />
                   Publish post publicly
                 </div>
               </div>
-              <input className="submit-btn" type="submit" value="Post"/>
+              <input className="submit-btn" type="submit" value="Post" />
             </div>
           </form>
         </div>
-      </>
-    )
+      </>;
   }
 }
 
