@@ -2,10 +2,12 @@ import React from 'react'
 import '../../stylesheets/fups_item.css'
 
 const FupsItem = (props) => (
-  <div className="fups-item-container">
-    <p className="fup-text">
-      {props.fup.text}
-    </p>
+  <div className="user-fups-container">
+    <div>
+      <p className="fup-text">
+        {props.fup.text}
+      </p>
+    </div>
     <div className="upvote-arrow" />
   </div>
 )

@@ -1,5 +1,6 @@
 import React from 'react';
 import FupsItem from './fups_item';
+import "../../stylesheets/fups_item.css"
 
 class UserFups extends React.Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class UserFups extends React.Component {
       )
     } else {
       return (
-        <div>
+        <div className="fups-item-container">
           <h2>Wow your Fups!</h2>
           {this.props.fups.map(fup => (
             <FupsItem fup={fup}/>
