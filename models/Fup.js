@@ -21,6 +21,9 @@ const FupSchema = new Schema({
   score: {
     type: Number,
     required: true
+  },
+  iconNum: {
+    type: Number
   }
 });
 

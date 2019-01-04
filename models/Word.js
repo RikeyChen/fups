@@ -16,10 +16,7 @@ const WordSchema = new Schema ({
   type: {
     type: String
   },
-  score: {
-    type: Number
-  },
-  magnitiude: {
+  fupScore: {
     type: Number
   },
   salience: {
