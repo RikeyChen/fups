@@ -5,16 +5,22 @@ import Pie from '../data_viz/pie';
 import '../../stylesheets/profile.css';
 
 class Profile extends React.Component {
+
+  renderGraphs() {
+    return (
+      <div className='graphs_container'>
+        <Pie />
+        <Graph />
+      </div>
+    )
+  }
+
   render() {
     return (
       <div className='profile_page'>
         <div className='user_data_container'>
           <h1>Welcome back INSERT NAME OF USER</h1>
-          <div className='graphs_container'>
-            {/* this is where pie chart will go */}
-            <Graph />
-            <Pie />
-          </div>
+          {this.renderGraphs()}
         </div>
         <FupCreate />
       </div>
