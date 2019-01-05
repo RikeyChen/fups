@@ -55,4 +55,5 @@
 .fups-item-master {
   display: flex;
   margin: 10px 0px;
+  width: 500px;
 }
