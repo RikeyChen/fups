@@ -6,24 +6,24 @@ class UserFups extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      fups: []
-    }
+    // this.state = {
+    //   fups: this.props.fups
+    // }
   }
 
-  componentWillMount() {
-    this.props.fetchUserFups(this.props.currentUser.id)
-  }
+  // componentWillMount() {
+  //   // this.props.fetchUserFups(this.props.currentUser.id)
+  // }
 
-  componentWillReceiveProps(newState) {
-    this.setState({ fups: newState.fups });
-  } 
+  // componentWillReceiveProps(newState) {
+  //   this.setState({ fups: newState.fups });
+  // } 
 
   render() {
     return (
       <div className="user-fups-container">
         {this.props.fups.map(fup => (
-          <FupsItem fup={fup}/>
+          <FupsItem key={fup._id} fup={fup} />
         ))}
       </div>
     )
