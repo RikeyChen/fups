@@ -4,6 +4,19 @@ import ChartistGraph from 'react-chartist';
 
 class Graph extends React.Component {  
 
+  getData() {
+    let data = []
+    this.props.fups.forEach(fup => {
+      data.push(fup.score)
+    });
+
+    // this ensures that the graph doesnt get too lengthy but does maintain the trajectory
+    if (data.length > 10) {
+      data = data.filter((el, idx) => idx % 2 === 0)
+    }
+    return data
+  }
+
   render() {
     let seq = 0,
       delays = 80,
@@ -19,7 +32,7 @@ class Graph extends React.Component {
         if (data.type === 'line') {
           data.element.animate({
             opacity: {
-              begin: seq * delays + 1000,
+              begin: seq * delays + 700,
               dur: durations,
               from: 0,
               to: 1
@@ -50,14 +63,14 @@ class Graph extends React.Component {
             x1: {
               begin: seq * delays,
               dur: durations,
-              from: data.x - 10,
+              from: data.x - 5,
               to: data.x,
               easing: 'easeOutQuart'
             },
             x2: {
               begin: seq * delays,
               dur: durations,
-              from: data.x - 10,
+              from: data.x - 5,
               to: data.x,
               easing: 'easeOutQuart'
             },
@@ -105,7 +118,7 @@ class Graph extends React.Component {
     let lineChartData = {
       labels: [],
       series: [
-        [.5, .9, .7, .8, -.5, .3, -.5, -.4]
+        this.getData()
       ]
     }
     let lineChartOptions = {

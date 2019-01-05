@@ -3,16 +3,16 @@ import FupCreate from "../fups/create_fup_container";
 import Graph from '../data_viz/graph';
 import Pie from '../data_viz/pie';
 import '../../stylesheets/profile.css';
-import UserFups from "../fups/user_fups_container";
+import UserFups from "../fups/user_fups";
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-  }
+  } 
 
   // importantWords() {
   //   let wordCount = {}
-  //   let words = []
+  //   let words = [] 
     
   //   this.props.words.forEach(word => {
   //     if (wordCount[word]) {
@@ -25,22 +25,22 @@ class Profile extends React.Component {
   //   for (key in wordCount) {
   //     if (wordCount[key] >)
   //   }
-  // }
-
-
-
+  // }  
 
   componentDidMount() {
-    this.props.fetchUserWords(this.props.currentUserId)
+    this.props.fetchUserWords(this.props.currentUserId) 
+    this.props.fetchUserFups(this.props.currentUserId)
   }
 
   renderGraphs() {
-    return (
-      <div className='graphs_container'>
-        <Pie />
-        <Graph />
-      </div>
-    )
+    if (this.props.fups) {
+      return (
+        <div className='graphs_container'>
+          <Pie />
+          <Graph fups={this.props.fups} />
+        </div>
+      )
+    }
   }
 
   render() {
@@ -51,7 +51,7 @@ class Profile extends React.Component {
           {this.renderGraphs()}
         </div>
         <FupCreate />
-        <UserFups />
+        <UserFups fups={this.props.fups}/>
       </div>
     )
   }

@@ -6,21 +6,23 @@ class UserFups extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      fups: []
-    }
+    // this.state = {
+    //   fups: this.props.fups
+    // }
   }
 
-  componentWillMount() {
-    this.props.fetchUserFups(this.props.currentUser.id)
-  }
+  // componentWillMount() {
+  //   // this.props.fetchUserFups(this.props.currentUser.id)
+  // }
 
-  componentWillReceiveProps(newState) {
-    this.setState({ fups: newState.fups });
-  } 
+  // componentWillReceiveProps(newState) {
+  //   this.setState({ fups: newState.fups });
+  // } 
 
   render() {
-    if (this.state.fups.length === 0) {
+    console.log(this.props);
+    
+    if (this.props.fups.length === 0) {
       return (
         <div>
           Post a Fup to get started!
