@@ -33,7 +33,7 @@ class UserFups extends React.Component {
         <div>
           <h2>Wow your Fups!</h2>
           {this.props.fups.map(fup => (
-            <FupsItem fup={fup}/>
+            <FupsItem key={fup._id} fup={fup}/>
           ))}
         </div>
       )
