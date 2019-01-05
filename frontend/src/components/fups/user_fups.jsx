@@ -20,22 +20,13 @@ class UserFups extends React.Component {
   } 
 
   render() {
-    if (this.state.fups.length === 0) {
-      return (
-        <div>
-          Post a Fup to get started!
-        </div>
-      )
-    } else {
-      return (
-        <div>
-          <h2>Wow your Fups!</h2>
-          {this.props.fups.map(fup => (
-            <FupsItem fup={fup}/>
-          ))}
-        </div>
-      )
-    } 
+    return (
+      <div className="user-fups-container">
+        {this.props.fups.map(fup => (
+          <FupsItem fup={fup}/>
+        ))}
+      </div>
+    )
   }
 }
 
