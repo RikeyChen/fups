@@ -1,6 +1,6 @@
 .anon-image {
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   width: 80px;
   height: 70px;
   border-radius: 5px;
