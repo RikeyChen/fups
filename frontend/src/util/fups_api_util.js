@@ -11,3 +11,7 @@ export const getUserFups = (id) => {
 export const writeFup = data => {
   return axios.post('/api/fups', data)
 }
+
+export const getDataFups = (id) => {
+  return axios.get(`/api/fups/data/${id}`)
+}
