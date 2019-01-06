@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchUserWords } from '../../actions/words_actions';
-import { fetchUserFups, fetchDataFups, removeDataFups } from '../../actions/fups_actions';
+import { fetchUserFups, fetchDataFups, removeUserFups, removeDataFups } from '../../actions/fups_actions';
 import Profile from './profile';
 
 const mSTP = (state, ownProps) => ({
@@ -13,6 +13,7 @@ const mSTP = (state, ownProps) => ({
 const mDTP = dispatch => ({
   fetchUserWords: (id) => dispatch(fetchUserWords(id)), 
   fetchUserFups: (id) => dispatch(fetchUserFups(id)),
+  removeUserFups: () => dispatch(removeUserFups()),
   fetchDataFups: (id) => dispatch(fetchDataFups(id)),
   removeDataFups: () => dispatch(removeDataFups())
 })
