@@ -3,6 +3,7 @@ import { getFups, getUserFups, writeFup } from '../util/fups_api_util';
 export const RECEIVE_FUPS = 'RECEIVE_FUPS';
 export const RECEIVE_USER_FUPS = 'RECEIVE_USER_FUPS';
 export const RECEIVE_NEW_FUP = 'RECEIVE_NEW_FUP';
+export const CLEAR_FUPS = 'CLEAR_FUPS';
 
 export const receiveFups = fups => ({
   type: RECEIVE_FUPS,
@@ -18,6 +19,10 @@ export const receiveUserFups = fups => ({
 export const receiveNewFup = fup => ({
   type: RECEIVE_NEW_FUP,
   fup
+})
+
+export const clearFups = () => ({
+  type: CLEAR_FUPS,
 })
 
 export const fetchFups = (page) => dispatch =>

@@ -1,4 +1,4 @@
-import {RECEIVE_FUPS, RECEIVE_USER_FUPS, RECEIVE_NEW_FUP} from '../actions/fups_actions';
+import {RECEIVE_FUPS, RECEIVE_USER_FUPS, RECEIVE_NEW_FUP, CLEAR_FUPS} from '../actions/fups_actions';
 
 const FupsReducer = (state = [], action) => {
   Object.freeze(state);
@@ -13,6 +13,8 @@ const FupsReducer = (state = [], action) => {
       state.forEach(el => newState.push(el))
       newState.push(action.fup)
       return newState
+    case CLEAR_FUPS:
+      return [];
     default:
       return state;
   }

@@ -23,6 +23,10 @@ class FupsAnonymous extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.clearFups();
+  }
+
   handleLoadMore(page) {
     const fupsLength = this.props.fups.length;
     this.props.fetchFups(page);
@@ -35,13 +39,13 @@ class FupsAnonymous extends React.Component {
     const { fups } = this.props;
     if (!(fups instanceof Array) || !fups.length) return null;
     const items = (
-      fups.map(fup => (
-        <div className="fups-item-master" key={fup._id}>
+      fups.map((fup, idx) => (
+        <div className="fups-item-master" key={idx}>
           <div className='anon-image-container'>
             <div className={`anon-image anon${fup.iconNum}`} />
           </div>
           <div className="fups-item-main">
-            <FupsItem fup={fup} />
+            <FupsItem fup={fup} key={fup._id} />
             <div className='upvote-arrow-container'>
               <div className="upvote-arrow" />
             </div>
@@ -57,7 +61,6 @@ class FupsAnonymous extends React.Component {
           pageStart={0}
           loadMore={this.handleLoadMore}
           hasMore={this.state.hasMore}
-          loader={<div className="loader" key={0}>Loading ...</div>}
         >
           {items}
         </InfiniteScroll>
