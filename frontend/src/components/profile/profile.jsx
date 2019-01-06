@@ -55,7 +55,7 @@ class Profile extends React.Component {
         <div className='upper_page'>
           <SuggestionsBox/>
           <div className='user_data_container'>
-            <h1>Welcome back INSERT NAME OF USER</h1>
+            <h1>Welcome back to FUPS</h1>
             {this.renderGraphs()}
           </div>
         </div>
