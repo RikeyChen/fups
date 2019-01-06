@@ -20,8 +20,8 @@ export const receiveNewFup = fup => ({
   fup
 })
 
-export const fetchFups = () => dispatch =>
-  getFups()
+export const fetchFups = (page) => dispatch =>
+  getFups(page)
     .then(fups => dispatch(receiveFups(fups.data)))
     .catch(err => console.log(err)
 );

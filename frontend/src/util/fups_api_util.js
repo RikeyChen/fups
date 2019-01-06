@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const getFups = () => {
-  return axios.get('/api/fups')
+export const getFups = (page) => {
+  return axios.get(`/api/fups?page=${page}`)
 }
 
 export const getUserFups = (id) => {

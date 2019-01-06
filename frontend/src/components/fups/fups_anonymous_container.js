@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchFups: () => dispatch(fetchFups())
+  fetchFups: (page) => dispatch(fetchFups(page))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FupsAnonymous));
