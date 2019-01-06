@@ -3,6 +3,7 @@ import { getFups, getUserFups, writeFup, getDataFups } from '../util/fups_api_ui
 export const RECEIVE_FUPS = 'RECEIVE_FUPS';
 export const RECEIVE_USER_FUPS = 'RECEIVE_USER_FUPS';
 export const RECEIVE_NEW_FUP = 'RECEIVE_NEW_FUP';
+export const REMOVE_USER_FUPS = 'REMOVE_USER_FUPS';
 export const RECEIVE_DATA_FUPS = 'RECEIVE_DATA_FUPS';
 export const REMOVE_DATA_FUPS = 'REMOVE_DATA_FUPS';
 
@@ -10,7 +11,6 @@ export const receiveFups = fups => ({
   type: RECEIVE_FUPS,
   fups
 })
-
 
 export const receiveUserFups = fups => ({
   type: RECEIVE_USER_FUPS,
@@ -20,6 +20,10 @@ export const receiveUserFups = fups => ({
 export const receiveNewFup = fup => ({
   type: RECEIVE_NEW_FUP,
   fup
+})
+
+export const removeUserFups = () => ({
+  type: REMOVE_USER_FUPS,
 })
 
 export const receiveDataFups = fups => ({

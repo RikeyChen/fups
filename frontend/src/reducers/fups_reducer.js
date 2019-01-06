@@ -1,4 +1,4 @@
-import {RECEIVE_FUPS, RECEIVE_USER_FUPS, RECEIVE_NEW_FUP} from '../actions/fups_actions';
+import {RECEIVE_FUPS, RECEIVE_USER_FUPS, RECEIVE_NEW_FUP, REMOVE_USER_FUPS} from '../actions/fups_actions';
 
 const FupsReducer = (state = [], action) => {
   Object.freeze(state);
