@@ -50,6 +50,7 @@ router.get('/', (req, res) => {
 
 router.get(`/user/:user_id`, (req, res) => {
   Fup.find({user: req.params.user_id})
+    .sort({ date: -1 })
     .then(fups => res.json(fups))
     .catch(err => 
       res.status(404).json({ nofupsfound: 'No Fups found for this user'}))
