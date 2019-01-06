@@ -18,6 +18,9 @@ router.get('/:user_id', (req, res) => {
         }
       })
 
+      // iterate through keys 
+      // Add desired amount to heap and extract max to result array
+      // respond with json of result array
 
       res.json(counter)})
     .catch(err => res.status(404).json({ nowordsfound: 'No words found for this user'}))
