@@ -9,8 +9,8 @@ const FupsReducer = (state = [], action) => {
       return action.fups;
     case RECEIVE_NEW_FUP:
       const newState = []
-      state.forEach(el => newState.push(el))
       newState.push(action.fup)
+      state.forEach(el => newState.push(el))
       return newState
     default:
       return state;
