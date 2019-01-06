@@ -6,7 +6,6 @@
 }
 
 .navbar-container {
-  border-bottom: 1px solid gray;
   width: 100%;
   height: 100%;
   padding: 0;
@@ -17,6 +16,7 @@
 
 .loggedIn {
   background: #F7F7F7;
+  border-bottom: 1px solid gray;
 }
 
 .logo {
