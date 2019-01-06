@@ -14,7 +14,7 @@ class Graph extends React.Component {
     if (data.length > 10) {
       data = data.filter((el, idx) => idx % 2 === 0)
     }
-    return data
+    return data.reverse()
   }
 
   render() {
