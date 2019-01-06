@@ -30,6 +30,7 @@ class Profile extends React.Component {
   componentDidMount() {
     this.props.fetchUserWords(this.props.currentUserId) 
     this.props.fetchUserFups(this.props.currentUserId)
+    this.props.fetchDataFups(this.props.currentUserId)
   }
 
   renderGraphs() {
