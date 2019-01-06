@@ -105,3 +105,30 @@
 #demo:hover {
   border: 2px solid #3BC3FC;
 }
+
+.splash-info {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  padding: 35px;
+  height: 350px;
+  margin: 0px 20px;
+}
+
+.splash-info h1 {
+  line-height: 1.2em;
+  font-size: 30px;
+  font-weight: bolder;
+  color: #B5D5FF;
+}
+
+.splash-info h2 {
+  font-weight: bolder;
+  color: #7D9FCC;
+  font-size: 20px;
+  margin: 15px 0px;
+}
+
+.info-section {
+  height: 250px;
+}

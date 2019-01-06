@@ -1,5 +1,8 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import '../../stylesheets/session.css';
 
 class SignupForm extends React.Component {
@@ -57,12 +60,46 @@ class SignupForm extends React.Component {
   }
 
   render() {
+    const settings = {
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 7000,
+      dots: false,
+      arrows: false,
+      vertical: true,
+    }
     return (
       <div className="session-main">
+        <div className="splash-info">
+          <Slider {...settings}>
+            <div className='info-section'>
+              <h1>Welcome to FUPS!</h1>
+              <h1>Let's get you to your best self.</h1>
+              <h2>What is FUPS?</h2>
+              <h2>FUPS is For User Progress.</h2>
+            </div>
+            <div className='info-section'>
+              <h1>FUPS is a progress tracker.</h1>
+              <h2>Add FUPS to your profile to track your most common mistakes.</h2>
+              <h2>View cool charts to see your data over time.</h2>
+            </div>
+            <div className='info-section'>
+              <h1>Support System</h1>
+              <h2>Receive online resources on areas where you can improve.</h2>
+            </div>
+            <div className='info-section'>
+              <h1>Community</h1>
+              <h2>Share your FUPS anonymously with the community.</h2>
+              <h2>Upvote FUPS to show support.</h2>
+            </div>
+          </Slider>
+        </div>
         <div className="session-form-container">
           <div className="session-form-header">
-            <h1>Welcome to FUPS</h1>
-            <h1>You can do better here</h1>
+            <h1>Join today, it's free!</h1>
           </div>
           <form onSubmit={this.handleSubmit}>
             <div className="session-form">
