@@ -34,7 +34,7 @@ class Profile extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.removeUserFups();
+    this.props.clearFups();
     this.props.removeDataFups();
   }
 

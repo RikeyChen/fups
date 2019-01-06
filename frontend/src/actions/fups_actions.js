@@ -1,9 +1,9 @@
-import { getFups, getUserFups, writeFup, getDataFups } from '../util/fups_api_uitl';
+import { getFups, getUserFups, writeFup, getDataFups } from '../util/fups_api_util';
 
 export const RECEIVE_FUPS = 'RECEIVE_FUPS';
 export const RECEIVE_USER_FUPS = 'RECEIVE_USER_FUPS';
 export const RECEIVE_NEW_FUP = 'RECEIVE_NEW_FUP';
-export const REMOVE_USER_FUPS = 'REMOVE_USER_FUPS';
+export const CLEAR_FUPS = 'CLEAR_FUPS';
 export const RECEIVE_DATA_FUPS = 'RECEIVE_DATA_FUPS';
 export const REMOVE_DATA_FUPS = 'REMOVE_DATA_FUPS';
 
@@ -22,8 +22,8 @@ export const receiveNewFup = fup => ({
   fup
 })
 
-export const removeUserFups = () => ({
-  type: REMOVE_USER_FUPS,
+export const clearFups = () => ({
+  type: CLEAR_FUPS,
 })
 
 export const receiveDataFups = fups => ({
@@ -35,8 +35,8 @@ export const removeDataFups = () => ({
   type: REMOVE_DATA_FUPS,
 })
 
-export const fetchFups = () => dispatch =>
-  getFups()
+export const fetchFups = (page) => dispatch =>
+  getFups(page)
     .then(fups => dispatch(receiveFups(fups.data)))
     .catch(err => console.log(err)
 );

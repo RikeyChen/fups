@@ -8,11 +8,11 @@ const FupsReducer = (state = [], action) => {
     case RECEIVE_USER_FUPS:
       return action.fups;
     case RECEIVE_NEW_FUP:
-      const newState = []
-      newState.push(action.fup)
-      state.forEach(el => newState.push(el))
-      return newState
-    case REMOVE_USER_FUPS:
+      const newState = [];
+      newState.push(action.fup);
+      state.forEach(el => newState.push(el));
+      return newState;
+    case CLEAR_FUPS:
       return [];
     default:
       return state;
