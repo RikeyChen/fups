@@ -12,6 +12,8 @@ const FupsReducer = (state = [], action) => {
       newState.push(action.fup)
       state.forEach(el => newState.push(el))
       return newState
+    case REMOVE_USER_FUPS:
+      return [];
     default:
       return state;
   }
