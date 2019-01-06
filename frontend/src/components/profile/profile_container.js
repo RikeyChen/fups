@@ -12,7 +12,7 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = dispatch => ({
   fetchUserWords: id => dispatch(fetchUserWords(id)),
-  fetchUserFups: id => dispatch(fetchUserFups(id)),
+  fetchUserFups: (id, page) => dispatch(fetchUserFups(id, page)),
   clearFups: () => dispatch(clearFups()),
   fetchDataFups: id => dispatch(fetchDataFups(id)),
   removeDataFups: () => dispatch(removeDataFups())

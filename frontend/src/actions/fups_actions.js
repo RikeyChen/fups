@@ -41,8 +41,8 @@ export const fetchFups = (page) => dispatch =>
     .catch(err => console.log(err)
 );
 
-export const fetchUserFups = (id) => dispatch =>
-  getUserFups(id)
+export const fetchUserFups = (id, page) => dispatch =>
+  getUserFups(id, page)
     .then(fups => dispatch(receiveUserFups(fups.data)))
     .catch(err => console.log(err)
 );
