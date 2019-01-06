@@ -38,7 +38,7 @@ class Profile extends React.Component {
       return (
         <div className='graphs_container'>
           <Pie />
-          <Graph fups={this.props.fups} />
+          <Graph fups={this.props.dataFups} />
         </div>
       )
     }

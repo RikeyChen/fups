@@ -6,7 +6,8 @@ import Profile from './profile';
 const mSTP = (state, ownProps) => ({
   words: state.entities.words,
   currentUserId: state.session.user.id, 
-  fups: state.entities.fups
+  fups: state.entities.fups,
+  dataFups: state.entities.dataFups
 })
 
 const mDTP = dispatch => ({
