@@ -44,13 +44,23 @@ router.get('/', (req, res) => {
   Fup.find()
     .where({ private: false })
     .sort({ date: -1 })
+    .limit(25)
+    .skip(25 * Math.max(0, req.param('page')))
     .then(fups => res.json(fups))
-    .catch(err => res.status(404).json({nofupsfound: 'No fups were found' }));
-}); 
+    .catch(err => res.status(404).json({ nofupsfound: 'No fups were found' }));
+});
 
 router.get(`/user/:user_id`, (req, res) => {
   Fup.find({user: req.params.user_id})
     .sort({ date: -1 })
+    .limit(25)
+    .skip(25 * Math.max(0, req.param('page')))
+    .then(fups => res.json(fups))
+    .catch(err => res.status(404).json({ nofupsfound: 'No fups for this user' }));
+});
+
+router.get(`/data/:user_id`, (req, res) => {
+  Fup.find({user: req.params.user_id})
     .then(fups => res.json(fups))
     .catch(err => 
       res.status(404).json({ nofupsfound: 'No Fups found for this user'}))
