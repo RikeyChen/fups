@@ -28,8 +28,13 @@ class Profile extends React.Component {
   // }  
 
   componentDidMount() {
-    this.props.fetchUserWords(this.props.currentUserId) 
-    this.props.fetchUserFups(this.props.currentUserId)
+    this.props.fetchUserWords(this.props.currentUserId); 
+    this.props.fetchUserFups(this.props.currentUserId);
+    this.props.fetchDataFups(this.props.currentUserId);
+  }
+
+  componentWillUnmount() {
+    this.props.removeDataFups();
   }
 
   renderGraphs() {
@@ -37,7 +42,7 @@ class Profile extends React.Component {
       return (
         <div className='graphs_container'>
           <Pie />
-          <Graph fups={this.props.fups} />
+          <Graph fups={this.props.dataFups} />
         </div>
       )
     }
