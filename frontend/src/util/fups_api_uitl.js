@@ -13,5 +13,5 @@ export const writeFup = data => {
 }
 
 export const getDataFups = (id) => {
-  return axios.get(`/api/fups/data/${id}`)
+  return axios.get(`/api/fups/graphs/${id}`)
 }
