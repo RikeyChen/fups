@@ -1,6 +1,6 @@
 .anon-image {
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   width: 80px;
   height: 70px;
   border-radius: 5px;
@@ -55,4 +55,59 @@
 .fups-item-master {
   display: flex;
   margin: 10px 0px;
+  width: 500px;
+}
+
+.anon-image-container {
+  margin-right: 10px;
+}
+
+.fups-item-main {
+  overflow-wrap: break-word;
+  width: 400px;
+  margin-top: 10px;
+}
+
+.fups-anon-header {
+  font-size: 32px;
+  margin: 20px 0px;
+  font-weight: bolder;
+  color: rgba(189, 94, 27, 0.589);
+  text-shadow: 3px 3px 5px black;
+}
+
+.upvote-arrow-container {
+  width: 100%;
+  height: 25px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.upvote-arrow {
+  color: #505050;
+  position: absolute;
+  margin-left: -15px;
+  margin-top: -25px;
+  width: 2px;
+  height: 16px;
+  background-color: currentColor;
+  transition: all .2s ease-in-out;
+}
+
+.upvote-arrow:before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 1px;
+  width: 10px;
+  height: 10px;
+  border-top: solid 2px currentColor;
+  border-right: solid 2px currentColor;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.upvote-arrow:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }

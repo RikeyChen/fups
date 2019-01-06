@@ -70,7 +70,7 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='navbar-master'>
         {this.checkLoggin()}
       </div>
     );
