@@ -48,14 +48,36 @@
 
 .fups-anonymous-container {
   display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: space-around;
+  position: relative;
+}
+
+.fups_anon {
+  display: flex;
   flex-direction: column;
   align-items: center;
+  width: auto;
+  padding-right: 10%;
+  margin-top: 20px;
+  /* margin-left: 10%; */
 }
 
 .fups-item-master {
   display: flex;
   margin: 10px 0px;
   width: 500px;
+}
+
+.trending {
+  width: 350px;
+  position: sticky;
+  top: 15vh;
+  height: 80vh;
+  background-color: #f7f7f7;
+  margin: 50px;
+  border-radius: 5px;
 }
 
 .anon-image-container {

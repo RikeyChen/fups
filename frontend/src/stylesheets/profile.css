@@ -1,4 +1,6 @@
 .profile_page {
+  position: relative;
+  top: 0;
   height: 100%;
   width: 100%;
   display: flex;
@@ -9,6 +11,8 @@
 .upper_page {
   display: flex;
   flex-direction: row;
+  width: 90%;
+  margin: 50px;
 }
 
 .suggestion {
@@ -24,21 +28,24 @@
 }
 
 .user_data_container {
-  margin-top: 50px;
   padding: 20px;
   background-color: #F7F7F7;
-  width: 900px;
+  width: 70%;
   height: 300px;
   border-radius: 4px;
-  margin-left: 50px;
+  margin-left: 25vw;
 }
 
 .suggestion_box {
   margin-top: 50px;
   padding: 20px;
   background-color: #F7F7F7;
-  width: 300px;
+  width: 20%;
   height: auto;
+  margin-left: 3vw;
+  position: fixed;
+  align-self: flex-start;
+  top: 65px;
   border-radius: 4px;
 }
 
