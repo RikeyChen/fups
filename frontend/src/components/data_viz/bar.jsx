@@ -16,6 +16,20 @@ class Bar extends React.Component {
       series,
     }
 
+    const listener = {
+      'draw': (data) => {
+        if (data.type === 'bar') {
+          data.element.animate({
+            y2: {
+              dur: '0.2s',
+              from: data.y1,
+              to: data.y2
+            }
+          });
+          }
+        }
+      }
+
     const options = {
       distributeSeries: true
     }
@@ -23,7 +37,7 @@ class Bar extends React.Component {
 
     return(
       <div>
-        <ChartistGraph data={data} type={type} options={options}/>
+        <ChartistGraph data={data} type={type} options={options} listener={listener}/>
       </div>
     )
   }
