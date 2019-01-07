@@ -111,3 +111,32 @@
   transform: scale(1.1);
   cursor: pointer;
 }
+
+.upvote-arrow-liked {
+  color: #505050;
+  position: absolute;
+  margin-left: -15px;
+  margin-top: -25px;
+  width: 2px;
+  height: 16px;
+  background-color: blue;
+  transition: all .2s ease-in-out;
+}
+
+.upvote-arrow-liked:before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 1px;
+  width: 10px;
+  height: 10px;
+  border-top: solid 2px blue;
+  border-right: solid 2px blue;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.upvote-arrow-liked:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
