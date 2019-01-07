@@ -4,7 +4,6 @@ import Graph from '../data_viz/graph';
 import Pie from '../data_viz/pie';
 import '../../stylesheets/profile.css';
 import FupsItem from "../fups/fups_item";
-import UserFups from "../fups/user_fups";
 import InfiniteScroll from "react-infinite-scroller";
 
 class Profile extends React.Component {

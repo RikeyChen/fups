@@ -36,7 +36,6 @@ class CreateFup extends React.Component {
   }
 
   render() {
-    console.log("private: ", this.state.private);
     return (
       <>
         <div className="create-container">
