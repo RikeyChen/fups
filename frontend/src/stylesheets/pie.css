@@ -1,0 +1,11 @@
+.table-format {
+  display: flex;
+  justify-content: space-around;
+  width: 100%
+}
+
+.item-border {
+  border: 1px solid black;
+  width: 50%;
+  text-align: center;
+}

@@ -21,6 +21,7 @@
 
 .life_suggestions {
   margin-top: 8px;
+  line-height: 24px;
 }
 
 .suggestion a {
@@ -31,22 +32,27 @@
   padding: 20px;
   background-color: #F7F7F7;
   width: 70%;
-  height: 300px;
+  height: 370px;
   border-radius: 4px;
   margin-left: 25vw;
 }
 
 .suggestion_box {
-  margin-top: 50px;
+  margin-top: 46px;
   padding: 20px;
   background-color: #F7F7F7;
   width: 20%;
   height: auto;
+  max-height: 370px;
   margin-left: 3vw;
   position: fixed;
   align-self: flex-start;
   top: 65px;
   border-radius: 4px;
+}
+
+.suggestion_height {
+  line-height: 22px;
 }
 
 .graphs_container {
