@@ -27,10 +27,18 @@ class Pie extends React.Component {
   }
 
   render() {
+    const labels = []
+    const series = []
+    this.props.words.forEach(word => {
+      labels.push(word.word);
+      series.push(word.count);
+    })
+ 
+
     // hardcode data for testing
     const data = {
-      labels: ['Driving', 'Drinking', 'Money', 'Oversleeping', 'Boss', 'Wife', 'test'],
-      series: [5, 10, 5, 5, 10, 20, 10],
+      labels,
+      series,
     }
 
     const options = {

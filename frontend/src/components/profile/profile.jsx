@@ -41,7 +41,7 @@ class Profile extends React.Component {
     if (this.props.fups) {
       return (
         <div className='graphs_container'>
-          <Pie />
+          <Pie words={this.props.words}/>
           <Graph fups={this.props.dataFups} />
         </div>
       )
