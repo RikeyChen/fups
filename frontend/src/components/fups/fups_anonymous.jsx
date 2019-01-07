@@ -70,7 +70,7 @@ class FupsAnonymous extends React.Component {
   render() {
     const { fups } = this.props;
     const loader = (
-      <div class="lds-ellipsis">
+      <div className="lds-ellipsis" key={Math.random()}>
         <div></div>
         <div></div>
         <div></div>
