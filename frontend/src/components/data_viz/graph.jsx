@@ -1,6 +1,7 @@
 import React from 'react';
 import ChartistGraph from 'react-chartist';
-// import Chartist from 'chartist';
+import Chartist from 'chartist';
+import ChartistTooltip from 'chartist-plugin-tooltips-updated';
 
 class Graph extends React.Component {  
 
@@ -9,23 +10,12 @@ class Graph extends React.Component {
     let count = 0;
     for (let i = this.props.fups.length - 1; i >= 0; i --) {
       if (count <= 15) {
-        data.unshift(this.props.fups[i].score)
+        data.unshift({
+          meta: this.props.fups[i].text,
+          value: this.props.fups[i].score})
       }
       count += 1;
     }
-    // this.props.fups.forEach(fup => {
-    //   if (count <= 25) {
-    //     data.unshift(fup.score)
-    //   } else {
-        
-    //   }
-    //   count += 1
-    // });
-
-    // this ensures that the graph doesnt get too lengthy but does maintain the trajectory
-    // if (data.length > 10) {
-    //   data = data.filter((el, idx) => idx % 2 === 0)
-    // }
     return data
   }
 
@@ -136,7 +126,10 @@ class Graph extends React.Component {
     let lineChartOptions = {
       low: -1,
       high: 1,
-      showArea: true
+      showArea: true,
+      plugins: [
+        ChartistTooltip({anchorToPoint: true})
+      ]
     }
 
     return (
