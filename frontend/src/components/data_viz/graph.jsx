@@ -1,6 +1,8 @@
 import React from 'react';
 import ChartistGraph from 'react-chartist';
-// import Chartist from 'chartist';
+import ChartistTooltip from 'chartist-plugin-tooltips-updated';
+import ChartistAxisLabels from 'chartist-plugin-axistitle';
+import '../../stylesheets/line_graph.css';
 
 class Graph extends React.Component {  
 
@@ -9,23 +11,12 @@ class Graph extends React.Component {
     let count = 0;
     for (let i = this.props.fups.length - 1; i >= 0; i --) {
       if (count <= 15) {
-        data.unshift(this.props.fups[i].score)
+        data.unshift({
+          meta: this.props.fups[i].text,
+          value: (this.props.fups[i].score).toFixed(3)})
       }
       count += 1;
     }
-    // this.props.fups.forEach(fup => {
-    //   if (count <= 25) {
-    //     data.unshift(fup.score)
-    //   } else {
-        
-    //   }
-    //   count += 1
-    // });
-
-    // this ensures that the graph doesnt get too lengthy but does maintain the trajectory
-    // if (data.length > 10) {
-    //   data = data.filter((el, idx) => idx % 2 === 0)
-    // }
     return data
   }
 
@@ -92,7 +83,7 @@ class Graph extends React.Component {
               from: 0,
               to: 1,
               easing: 'easeOutQuart'
-            }
+            },
           });
         } else if (data.type === 'grid') {
           let pos1Animation = {
@@ -123,7 +114,7 @@ class Graph extends React.Component {
           };
 
           data.element.animate(animations);
-        }
+        } 
       }
     }
 
@@ -136,8 +127,26 @@ class Graph extends React.Component {
     let lineChartOptions = {
       low: -1,
       high: 1,
-      showArea: true
-    }
+      showArea: true,
+      plugins: [
+        ChartistTooltip({appendToBody: true}),
+        ChartistAxisLabels({axisX: {
+                            axisTitle: 'Fups',
+                            offset: {
+                              y: 20,
+                            },
+                            textAnchor: 'middle'
+                          },
+                            axisY: {
+                              axisTitle: 'Sentiment',
+                              offset: {
+                                y: 10
+                              },
+                              textAnchor: 'middle',
+                              flipTitle: true
+                            }
+                        })
+      ]}
 
     return (
       <div className='bar_graph'>
