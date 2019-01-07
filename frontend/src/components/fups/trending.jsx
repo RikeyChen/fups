@@ -2,6 +2,9 @@ import React from 'react';
 
 class Trending extends React.Component {
 
+  componentWillUnmount() {
+    this.props.clearWords();
+  }
 
   render() {
     const trending = []
