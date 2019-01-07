@@ -11,6 +11,18 @@
   flex-direction: row;
 }
 
+.suggestion {
+  padding: 8px;
+}
+
+.life_suggestions {
+  margin-top: 10px;
+}
+
+.suggestion a {
+  text-decoration: none;
+}
+
 .user_data_container {
   margin-top: 50px;
   padding: 20px;
