@@ -9,11 +9,13 @@ class FupsAnonymous extends React.Component {
     super(props);
     this.state = {
       hasMore: true,
+      currentTab: 'All',
     }
     this.handleLoadMore = this.handleLoadMore.bind(this);
     this.fupsLengthDiff = true;
     this.handleLike = this.handleLike.bind(this);
     this.handleUnlike = this.handleUnlike.bind(this);
+    this.handleTabClick = this.handleTabClick.bind(this);
   }
 
   componentDidMount() {
@@ -62,6 +64,13 @@ class FupsAnonymous extends React.Component {
     }
   }
 
+  handleTabClick(tab) {
+    return e => {
+      e.preventDefault();
+      this.setState({ currentTab: tab })
+    }
+  }
+
   numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
@@ -69,7 +78,7 @@ class FupsAnonymous extends React.Component {
   render() {
     const { fups } = this.props;
     const loader = (
-      <div class="lds-ellipsis">
+      <div className="lds-ellipsis">
         <div></div>
         <div></div>
         <div></div>
@@ -104,6 +113,21 @@ class FupsAnonymous extends React.Component {
         <Trending />
         <div className='fups_anon'>
           <h1 className="fups-anon-header">FUPS Anonymous</h1>
+          <div className="anon-tabs">
+            <h1
+              className={this.state.currentTab === 'All' ? 'currentTab' : null}
+              onClick={this.handleTabClick('All')}
+            >
+              All
+            </h1>
+            <h1
+              className={this.state.currentTab === 'Top' ? 'currentTab' : null}
+              onClick={this.handleTabClick('Top')}
+            >
+              Top
+            </h1>
+          </div>
+          <hr />
           <InfiniteScroll
             pageStart={0}
             loadMore={this.handleLoadMore}
