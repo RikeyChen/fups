@@ -27,8 +27,6 @@ class Pie extends React.Component {
       series.push(word.count);
     })
  
-
-    // hardcode data for testing
     const data = {
       labels,
       series,
