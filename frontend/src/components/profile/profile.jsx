@@ -26,6 +26,7 @@ class Profile extends React.Component {
   componentWillUnmount() {
     this.props.clearFups();
     this.props.removeDataFups();
+    this.props.clearWords();
   }
 
   handleLoadMore(page) {

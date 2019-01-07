@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchUserWords } from '../../actions/words_actions';
+import { fetchUserWords, clearWords } from '../../actions/words_actions';
 import { fetchUserFups, fetchDataFups, clearFups, removeDataFups, fetchLike } from '../../actions/fups_actions';
 import Profile from './profile';
 
@@ -16,7 +16,8 @@ const mDTP = dispatch => ({
   clearFups: () => dispatch(clearFups()),
   fetchDataFups: id => dispatch(fetchDataFups(id)),
   removeDataFups: () => dispatch(removeDataFups()),
-  fetchLike: (id, data) => dispatch(fetchLike(id, data))
+  fetchLike: (id, data) => dispatch(fetchLike(id, data)),
+  clearWords: () => dispatch(clearWords())
 });
 
 export default connect(mSTP, mDTP)(Profile);
