@@ -21,6 +21,7 @@ class Profile extends React.Component {
     this.props.fetchUserWords(this.props.currentUserId);
     this.props.fetchUserFups(this.props.currentUserId, 0);
     this.props.fetchDataFups(this.props.currentUserId);
+    this.props.fetchFupsCount(this.props.currentUserId);
   }
 
   componentWillUnmount() {

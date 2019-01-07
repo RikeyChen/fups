@@ -1,4 +1,4 @@
-import { RECEIVE_DATA_FUPS, RECEIVE_NEW_FUP, REMOVE_DATA_FUPS } from '../actions/fups_actions';
+import { RECEIVE_DATA_FUPS, RECEIVE_NEW_FUP, REMOVE_DATA_FUPS, RECEIVE_FUPS_COUNT } from '../actions/fups_actions';
 
 const DataFupsReducer = (state = {line: [], activity: {}}, action) => {
   Object.freeze(state);
@@ -16,6 +16,9 @@ const DataFupsReducer = (state = {line: [], activity: {}}, action) => {
     case REMOVE_DATA_FUPS:
       newState.line = []
       return newState;
+    case RECEIVE_FUPS_COUNT:
+      newState.activity = action.fups
+      return newState
     default:
       return state
   }

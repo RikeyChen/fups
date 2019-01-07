@@ -79,6 +79,6 @@ export const fetchLike = (id, data) => dispatch =>
 
 export const fetchFupsCount = id => dispatch => (
   getFupActivity(id)
-    .then(fups => dispatch(receiveFupsCount(fups)))
+    .then(fups => dispatch(receiveFupsCount(fups.data)))
     .catch(err => console.log(err))
 )
