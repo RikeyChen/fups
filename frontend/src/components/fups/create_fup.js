@@ -23,12 +23,20 @@ class CreateFup extends React.Component {
   }
 
   update(field) {
+    if (field === "private") {
+      return e => {
+        this.setState({
+          [field]: !e.target.checked
+        });
+      };
+    }
     return e => this.setState({
       [field]: e.target.value
     });
   }
 
   render() {
+    console.log("private: ", this.state.private);
     return (
       <>
         <div className="create-container">
@@ -37,7 +45,7 @@ class CreateFup extends React.Component {
               <div className="form-box">
               <textarea className="text-field" value={this.state.text} onChange={this.update("text")} placeholder="Fupped today? Tell us about it. We're here to help."> </textarea>
                 <div className="check-box-text">
-                  <input className="checkbox-margin" type="checkbox" value="false" checked={this.state.private === 'false'} onChange={this.update("private")} />
+                  <input className="checkbox-margin" type="checkbox" checked={!this.state.private} onChange={this.update("private")} />
                   Publish post publicly
                 </div>
               </div>
