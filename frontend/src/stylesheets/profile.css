@@ -59,6 +59,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  margin-top: 20px;
 }
 
 .bar_graph {
@@ -74,8 +75,9 @@
 .graph_item {
   height: 240px;
   width: 500px;
-  margin-top: 20px;
+  margin-top: 40px;
   padding-right: 50px;
+
 }
 
 .pie_item {
