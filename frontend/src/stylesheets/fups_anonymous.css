@@ -63,6 +63,7 @@
 }
 
 .fups-item-main {
+  position: relative;
   overflow-wrap: break-word;
   width: 400px;
   margin-top: 10px;
@@ -77,6 +78,8 @@
 }
 
 .upvote-arrow-container {
+  position: absolute;
+  bottom: 0;
   width: 100%;
   height: 25px;
   display: flex;
@@ -86,11 +89,10 @@
 .upvote-arrow {
   color: #505050;
   position: absolute;
-  margin-left: -15px;
-  margin-top: -25px;
+  bottom: 0px;
+  right: 12px;
   width: 2px;
   height: 16px;
-  background-color: currentColor;
   transition: all .2s ease-in-out;
 }
 
@@ -115,11 +117,10 @@
 .upvote-arrow-liked {
   color: #505050;
   position: absolute;
-  margin-left: -15px;
-  margin-top: -25px;
+  bottom: 0px;
+  right: 12px;
   width: 2px;
   height: 16px;
-  background-color: blue;
   transition: all .2s ease-in-out;
 }
 
@@ -130,8 +131,8 @@
   top: 1px;
   width: 10px;
   height: 10px;
-  border-top: solid 2px blue;
-  border-right: solid 2px blue;
+  border-top: solid 2px #E98A48;
+  border-right: solid 2px #E98A48;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
@@ -139,4 +140,11 @@
 .upvote-arrow-liked:hover {
   transform: scale(1.1);
   cursor: pointer;
+}
+
+.likes-count {
+  font-size: 12px;
+  position: absolute;
+  bottom: 5px;
+  right: 30px;
 }
