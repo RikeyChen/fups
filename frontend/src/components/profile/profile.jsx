@@ -48,7 +48,6 @@ class Profile extends React.Component {
         <div className='graphs_container'>
           <Pie words={this.props.words}/>
           <Graph fups={this.props.dataFups} />
-          <Bar fups={this.props.fupActivity} />
         </div>
       );
     }
@@ -76,8 +75,9 @@ class Profile extends React.Component {
 
     return (
       <div className="profile_page">
+        <SuggestionBox words={this.props.words} />
+
         <div className='upper_page'>
-          <SuggestionBox words={this.props.words}/>
           <div className="user_data_container">
             <h1>Welcome back to FUPS</h1>
             {this.renderGraphs()}

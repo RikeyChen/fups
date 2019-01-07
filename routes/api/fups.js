@@ -53,6 +53,17 @@ router.get('/', (req, res) => {
     .catch(err => res.status(404).json({ nofupsfound: 'No fups were found' }));
 });
 
+router.get('/top', (req, res) => {
+  Fup.find()
+    .where({ private: false })
+    .sort({ likes: -1, date: -1 })
+    .limit(25)
+    .skip(25 * Math.max(0, req.param('page')))
+    .populate('likes')
+    .then(fups => res.json(fups))
+    .catch(err => res.status(404).json({ nofupsfound: 'No fups were found' }));
+});
+
 router.get('/user/:user_id', (req, res) => {
   Fup.find({ user: req.params.user_id })
     .sort({ date: -1 })
@@ -153,31 +164,30 @@ router.delete('/:fup_id/likes/:like_id',
       }));
   });
 
-  // Get week from date
-  Date.prototype.getWeek = function () {
-    let onejan = new Date(this.getFullYear(), 0, 1);
-    return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
-  }
+// Get week from date
+Date.prototype.getWeek = function () {
+  const onejan = new Date(this.getFullYear(), 0, 1);
+  return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+};
 
-  router.get('/data/week/:user_id',
-    (req, res) => {
-      let today = new Date;
-      const weekly = Fup.find({user: req.params.user_id})
-        .where('this.date.getWeek() === today.getWeek()')
-        .then(fups => {
-          const weeklyActivity = [
-            {day: 'Monday', count: fups.filter(fup => fup.date.getDay() === 1).length},
-            {day: 'Tuesday', count: fups.filter(fup => fup.date.getDay() === 2).length},
-            {day: 'Wednesday', count: fups.filter(fup => fup.date.getDay() === 3).length},
-            {day: 'Thursday', count: fups.filter(fup => fup.date.getDay() === 4).length},
-            {day: 'Friday', count: fups.filter(fup => fup.date.getDay() === 5).length},
-            {day: 'Saturday', count: fups.filter(fup => fup.date.getDay() === 6).length},
-            {day: 'Sunday', count: fups.filter(fup => fup.date.getDay() === 7).length},
-          ]
-          return(res.json(weeklyActivity))
-        })
-    }
-    )
+router.get('/data/week/:user_id',
+  (req, res) => {
+    const today = new Date();
+    const weekly = Fup.find({ user: req.params.user_id })
+      .where('this.date.getWeek() === today.getWeek()')
+      .then((fups) => {
+        const weeklyActivity = [
+          { day: 'Monday', count: fups.filter(fup => fup.date.getDay() === 1).length },
+          { day: 'Tuesday', count: fups.filter(fup => fup.date.getDay() === 2).length },
+          { day: 'Wednesday', count: fups.filter(fup => fup.date.getDay() === 3).length },
+          { day: 'Thursday', count: fups.filter(fup => fup.date.getDay() === 4).length },
+          { day: 'Friday', count: fups.filter(fup => fup.date.getDay() === 5).length },
+          { day: 'Saturday', count: fups.filter(fup => fup.date.getDay() === 6).length },
+          { day: 'Sunday', count: fups.filter(fup => fup.date.getDay() === 7).length },
+        ];
+        return (res.json(weeklyActivity));
+      });
+  });
 
 router.delete('/:id', (req, res) => {
   Fup.findOneAndRemove({ _id: req.params.id })

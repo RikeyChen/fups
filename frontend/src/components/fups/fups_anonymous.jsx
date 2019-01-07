@@ -2,6 +2,7 @@ import React from 'react';
 import FupsItem from './fups_item';
 import '../../stylesheets/fups_anonymous.css';
 import InfiniteScroll from 'react-infinite-scroller';
+import Trending from './trending';
 
 class FupsAnonymous extends React.Component {
   constructor(props) {
@@ -100,15 +101,18 @@ class FupsAnonymous extends React.Component {
 
     return (
       <div className="fups-anonymous-container">
-        <h1 className="fups-anon-header">FUPS Anonymous</h1>
-        <InfiniteScroll
-          pageStart={0}
-          loadMore={this.handleLoadMore}
-          hasMore={this.state.hasMore}
-          loader={loader}
-        >
-          {items}
-        </InfiniteScroll>
+        <Trending />
+        <div className='fups_anon'>
+          <h1 className="fups-anon-header">FUPS Anonymous</h1>
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={this.handleLoadMore}
+            hasMore={this.state.hasMore}
+            loader={loader}
+          >
+            {items}
+          </InfiniteScroll>
+        </div>
       </div>
     )
   }
