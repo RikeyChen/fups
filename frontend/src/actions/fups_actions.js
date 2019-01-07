@@ -38,10 +38,9 @@ export const removeDataFups = () => ({
 })
 
 export const receiveLike = (payload) => {
-  // debugger;
   return({
-  type: RECEIVE_LIKE,
-  like: payload.data
+    type: RECEIVE_LIKE,
+    like: payload.data
   })
 }
 
