@@ -133,6 +133,26 @@ router.post('/:fup_id/likes',
     });
   });
 
+router.delete('/:fup_id/likes/:like_id',
+  (req, res) => {
+    Like.findOneAndDelete({ _id: req.params.like_id })
+      .then((like) => {
+        Fup.findOne({ _id: req.params.fup_id })
+          .then((fup) => {
+            const likeIndex = fup.likes.indexOf(req.params.like_id);
+            fup.likes.splice(likeIndex, 1);
+            fup.save();
+            res.json({
+              like,
+              fup,
+            });
+          });
+      })
+      .catch(err => res.status(400).json({
+        unvoted: 'You have not voted for this FUP',
+      }));
+  });
+
 router.delete('/:id', (req, res) => {
   Fup.findOneAndRemove({ _id: req.params.id })
     .then(fup => res.json(fup))
