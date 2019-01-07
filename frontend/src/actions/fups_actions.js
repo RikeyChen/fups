@@ -65,8 +65,8 @@ export const fetchDataFups = (id) => dispatch =>
     .catch(err => console.log(err)
 );
 
-export const likeFup = (fup_id, data) => dispatch =>
+export const newFupLike = (fup_id, data) => dispatch =>
   likeFup(fup_id, data)
-    .then(like => dispatch(likeUserFup(like)))
+    .then(like => dispatch(receiveLike(like)))
     .catch(err => console.log(err)
 );
