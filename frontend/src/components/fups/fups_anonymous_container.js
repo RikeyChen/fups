@@ -6,7 +6,8 @@ import { fetchWords } from '../../actions/words_actions';
 
 const mapStateToProps = state => ({
   fups: state.entities.fups,
-  currentUser: state.session.user.id
+  currentUser: state.session.user.id, 
+  words: state.entities.words
 })
 
 const mapDispatchToProps = dispatch => ({

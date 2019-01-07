@@ -78,6 +78,23 @@
   border-radius: 5px;
 }
 
+.trending_list_items {
+  margin: 10px;
+  text-decoration: none;
+  list-style: none;
+  margin-left: 40px;
+}
+
+.trending h1 {
+  margin: 20px;
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+.trending_list_items a {
+  text-decoration: none;
+}
+
 .anon-image-container {
   margin-right: 10px;
 }
