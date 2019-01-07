@@ -2,6 +2,7 @@ import React from 'react';
 import FupCreate from "../fups/create_fup_container";
 import Graph from '../data_viz/graph';
 import Pie from '../data_viz/pie';
+import Bar from '../data_viz/bar';
 import '../../stylesheets/profile.css';
 import FupsItem from "../fups/fups_item";
 import InfiniteScroll from "react-infinite-scroller";
@@ -19,8 +20,8 @@ class Profile extends React.Component {
 
   componentDidMount() {
     this.props.fetchUserWords(this.props.currentUserId);
-    this.props.fetchUserFups(this.props.currentUserId, 0);
     this.props.fetchDataFups(this.props.currentUserId);
+    this.props.fetchUserFups(this.props.currentUserId, 0);
     this.props.fetchFupsCount(this.props.currentUserId);
   }
 
@@ -28,6 +29,7 @@ class Profile extends React.Component {
     this.props.clearFups();
     this.props.removeDataFups();
     this.props.clearWords();
+    this.props.clearFupsCount();
   }
 
   handleLoadMore(page) {
@@ -46,6 +48,7 @@ class Profile extends React.Component {
         <div className='graphs_container'>
           <Pie words={this.props.words}/>
           <Graph fups={this.props.dataFups} />
+          <Bar fups={this.props.fupActivity} />
         </div>
       );
     }

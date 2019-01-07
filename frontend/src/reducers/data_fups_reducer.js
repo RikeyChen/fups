@@ -1,6 +1,6 @@
-import { RECEIVE_DATA_FUPS, RECEIVE_NEW_FUP, REMOVE_DATA_FUPS, RECEIVE_FUPS_COUNT } from '../actions/fups_actions';
+import { RECEIVE_DATA_FUPS, RECEIVE_NEW_FUP, REMOVE_DATA_FUPS, RECEIVE_FUPS_COUNT, CLEAR_FUPS_COUNT } from '../actions/fups_actions';
 
-const DataFupsReducer = (state = {line: [], activity: {}}, action) => {
+const DataFupsReducer = (state = {line: [], activity: []}, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state)
   switch(action.type) {
@@ -19,6 +19,9 @@ const DataFupsReducer = (state = {line: [], activity: {}}, action) => {
     case RECEIVE_FUPS_COUNT:
       newState.activity = action.fups
       return newState
+    case CLEAR_FUPS_COUNT:
+      newState.activity = []
+      return newState;
     default:
       return state
   }

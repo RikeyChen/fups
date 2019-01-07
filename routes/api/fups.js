@@ -165,15 +165,15 @@ router.delete('/:fup_id/likes/:like_id',
       const weekly = Fup.find({user: req.params.user_id})
         .where('this.date.getWeek() === today.getWeek()')
         .then(fups => {
-          const weeklyActivity = {
-            Monday: fups.filter(fup => fup.date.getDay() === 1).length,
-            Tuesday: fups.filter(fup => fup.date.getDay() === 2).length,
-            Wednesday: fups.filter(fup => fup.date.getDay() === 3).length,
-            Thursday: fups.filter(fup => fup.date.getDay() === 4).length,
-            Friday: fups.filter(fup => fup.date.getDay() === 5).length,
-            Saturday: fups.filter(fup => fup.date.getDay() === 6).length,
-            Sunday: fups.filter(fup => fup.date.getDay() === 7).length,
-          }
+          const weeklyActivity = [
+            {day: 'Monday', count: fups.filter(fup => fup.date.getDay() === 1).length},
+            {day: 'Tuesday', count: fups.filter(fup => fup.date.getDay() === 2).length},
+            {day: 'Wednesday', count: fups.filter(fup => fup.date.getDay() === 3).length},
+            {day: 'Thursday', count: fups.filter(fup => fup.date.getDay() === 4).length},
+            {day: 'Friday', count: fups.filter(fup => fup.date.getDay() === 5).length},
+            {day: 'Saturday', count: fups.filter(fup => fup.date.getDay() === 6).length},
+            {day: 'Sunday', count: fups.filter(fup => fup.date.getDay() === 7).length},
+          ]
           return(res.json(weeklyActivity))
         })
     }

@@ -8,6 +8,7 @@ export const RECEIVE_DATA_FUPS = 'RECEIVE_DATA_FUPS';
 export const REMOVE_DATA_FUPS = 'REMOVE_DATA_FUPS';
 export const LIKE_FUP = 'LIKE_FUP';
 export const RECEIVE_FUPS_COUNT = 'RECEIVE_FUPS_COUNT';
+export const CLEAR_FUPS_COUNT = 'CLEAR_FUPS_COUNT';
 
 export const receiveFups = fups => ({
   type: RECEIVE_FUPS,
@@ -45,6 +46,10 @@ export const likeUserFup = (like) => ({
 const receiveFupsCount = fups => ({
   type: RECEIVE_FUPS_COUNT,
   fups
+})
+
+export const clearFupCount = () => ({
+  type: CLEAR_FUPS_COUNT
 })
 
 export const fetchFups = (page) => dispatch =>
