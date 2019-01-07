@@ -26,8 +26,7 @@ class Pie extends React.Component {
       donut: true,
       showSeries: true,
       plugins: [
-        ChartistTooltip({appendToBody: true,
-        class: 'pie-wrapper'}),
+        ChartistTooltip({appendToBody: true}),
       ]
     }
 
@@ -69,7 +68,7 @@ class Pie extends React.Component {
     // percents for each word
     const percents = this.props.words.map(word => {
       return(
-        <div className="table-format">
+        <div key={word.word} className="table-format">
           <div className="item-border">
             {word.word}
           </div>

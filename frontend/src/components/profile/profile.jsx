@@ -2,7 +2,6 @@ import React from 'react';
 import FupCreate from "../fups/create_fup_container";
 import Graph from '../data_viz/graph';
 import Pie from '../data_viz/pie';
-import Bar from '../data_viz/bar';
 import '../../stylesheets/profile.css';
 import FupsItem from "../fups/fups_item";
 import InfiniteScroll from "react-infinite-scroller";
@@ -55,7 +54,7 @@ class Profile extends React.Component {
 
   render() {
     const loader = (
-      <div className="lds-ellipsis">
+      <div className="lds-ellipsis" key={Math.random()}>
         <div></div>
         <div></div>
         <div></div>

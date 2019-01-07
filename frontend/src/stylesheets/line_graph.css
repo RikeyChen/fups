@@ -11,11 +11,15 @@
     transition: opacity .2s linear;
 }
 
-.chartist-tooltip span {
-  visibility: none !important;
+.tooltip-show span {
+  visibility: visible !important;
 }
 
-.chartist-tooltip:before {
+.chartist-tooltip span {
+  visibility: hidden;
+}
+
+.tooltip-show:before {
   position: absolute;
   bottom: -14px;
   left: 50%;
