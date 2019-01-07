@@ -1,4 +1,4 @@
-import { getFups, getUserFups, writeFup, getDataFups, likeFup, unlikeFup } from '../util/fups_api_util';
+import { getFups, getUserFups, writeFup, getDataFups, likeFup, unlikeFup, getFupActivity } from '../util/fups_api_util';
 
 export const RECEIVE_FUPS = 'RECEIVE_FUPS';
 export const RECEIVE_USER_FUPS = 'RECEIVE_USER_FUPS';
@@ -8,6 +8,8 @@ export const RECEIVE_DATA_FUPS = 'RECEIVE_DATA_FUPS';
 export const REMOVE_DATA_FUPS = 'REMOVE_DATA_FUPS';
 export const RECEIVE_LIKE = 'RECEIVE_LIKE';
 export const REMOVE_LIKE = 'REMOVE_LIKE';
+export const RECEIVE_FUPS_COUNT = 'RECEIVE_FUPS_COUNT';
+export const CLEAR_FUPS_COUNT = 'CLEAR_FUPS_COUNT';
 
 export const receiveFups = fups => ({
   type: RECEIVE_FUPS,
@@ -49,6 +51,15 @@ export const removeLike = (payload) => ({
   payload: payload.data
 })
 
+const receiveFupsCount = fups => ({
+  type: RECEIVE_FUPS_COUNT,
+  fups
+})
+
+export const clearFupCount = () => ({
+  type: CLEAR_FUPS_COUNT
+})
+
 export const fetchFups = (page) => dispatch =>
   getFups(page)
     .then(fups => dispatch(receiveFups(fups.data)))
@@ -82,5 +93,11 @@ export const newFupLike = (fup_id) => dispatch =>
 export const removeFupLike = (fup_id, like_id) => dispatch => (
   unlikeFup(fup_id, like_id)
     .then(payload => dispatch(removeLike(payload)))
+    .catch(err => console.log(err))
+)
+
+export const fetchFupsCount = id => dispatch => (
+  getFupActivity(id)
+    .then(fups => dispatch(receiveFupsCount(fups.data)))
     .catch(err => console.log(err))
 )

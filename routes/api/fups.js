@@ -153,6 +153,32 @@ router.delete('/:fup_id/likes/:like_id',
       }));
   });
 
+  // Get week from date
+  Date.prototype.getWeek = function () {
+    let onejan = new Date(this.getFullYear(), 0, 1);
+    return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+  }
+
+  router.get('/data/week/:user_id',
+    (req, res) => {
+      let today = new Date;
+      const weekly = Fup.find({user: req.params.user_id})
+        .where('this.date.getWeek() === today.getWeek()')
+        .then(fups => {
+          const weeklyActivity = [
+            {day: 'Monday', count: fups.filter(fup => fup.date.getDay() === 1).length},
+            {day: 'Tuesday', count: fups.filter(fup => fup.date.getDay() === 2).length},
+            {day: 'Wednesday', count: fups.filter(fup => fup.date.getDay() === 3).length},
+            {day: 'Thursday', count: fups.filter(fup => fup.date.getDay() === 4).length},
+            {day: 'Friday', count: fups.filter(fup => fup.date.getDay() === 5).length},
+            {day: 'Saturday', count: fups.filter(fup => fup.date.getDay() === 6).length},
+            {day: 'Sunday', count: fups.filter(fup => fup.date.getDay() === 7).length},
+          ]
+          return(res.json(weeklyActivity))
+        })
+    }
+    )
+
 router.delete('/:id', (req, res) => {
   Fup.findOneAndRemove({ _id: req.params.id })
     .then(fup => res.json(fup))

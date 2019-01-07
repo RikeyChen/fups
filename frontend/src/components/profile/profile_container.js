@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 import { fetchUserWords, clearWords } from '../../actions/words_actions';
-import { fetchUserFups, fetchDataFups, clearFups, removeDataFups } from '../../actions/fups_actions';
+import { fetchUserFups, fetchDataFups, clearFups, removeDataFups, fetchFupsCount, clearFupCount } from '../../actions/fups_actions';
 import Profile from './profile';
 
 const mSTP = (state, ownProps) => ({
   words: state.entities.words,
   currentUserId: state.session.user.id,
   fups: state.entities.fups,
-  dataFups: state.entities.dataFups
+  dataFups: state.entities.dataFups.line,
+  fupActivity: state.entities.dataFups.activity
 })
 
 const mDTP = dispatch => ({
@@ -16,7 +17,9 @@ const mDTP = dispatch => ({
   clearFups: () => dispatch(clearFups()),
   fetchDataFups: id => dispatch(fetchDataFups(id)),
   removeDataFups: () => dispatch(removeDataFups()),
-  clearWords: () => dispatch(clearWords())
+  clearFupsCount: () => dispatch(clearFupCount()),
+  clearWords: () => dispatch(clearWords()),
+  fetchFupsCount: id => dispatch(fetchFupsCount(id))
 });
 
 export default connect(mSTP, mDTP)(Profile);

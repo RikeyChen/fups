@@ -23,3 +23,7 @@ export const likeFup = (fup_id) => {
 export const unlikeFup = (fup_id, like_id) => {
   return axios.delete(`/api/fups/${fup_id}/likes/${like_id}`)
 }
+
+export const getFupActivity = (id) => {
+  return axios.get(`/api/fups/data/week/${id}`)
+}
