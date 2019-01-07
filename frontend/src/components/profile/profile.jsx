@@ -6,6 +6,7 @@ import '../../stylesheets/profile.css';
 import FupsItem from "../fups/fups_item";
 import UserFups from "../fups/user_fups";
 import InfiniteScroll from "react-infinite-scroller";
+import SuggestionBox from '../data_viz/suggestions_box';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -83,9 +84,12 @@ class Profile extends React.Component {
     // < UserFups fups = { this.props.fups } />
     return (
       <div className="profile_page">
-        <div className="user_data_container">
-          <h1>Welcome back INSERT NAME OF USER</h1>
-          {this.renderGraphs()}
+        <div className='upper_page'>
+          <SuggestionBox />
+          <div className="user_data_container">
+            <h1>Welcome back INSERT NAME OF USER</h1>
+            {this.renderGraphs()}
+          </div>
         </div>
         <FupCreate />
         <InfiniteScroll
