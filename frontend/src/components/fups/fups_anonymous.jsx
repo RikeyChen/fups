@@ -67,6 +67,14 @@ class FupsAnonymous extends React.Component {
 
   render() {
     const { fups } = this.props;
+    const loader = (
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    )
     if (!(fups instanceof Array) || !fups.length) return null;
     const items = (
       fups.map((fup, idx) => {
@@ -97,6 +105,7 @@ class FupsAnonymous extends React.Component {
           pageStart={0}
           loadMore={this.handleLoadMore}
           hasMore={this.state.hasMore}
+          loader={loader}
         >
           {items}
         </InfiniteScroll>
