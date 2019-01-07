@@ -5,7 +5,7 @@ export const getFups = (page) => {
 }
 
 export const getUserFups = (id, page) => {
-  return axios.get(`/api/fups?page=${page}/user/${id}`);
+  return axios.get(`/api/fups/user/${id}?page=${page}`);
 }
 
 export const writeFup = data => {

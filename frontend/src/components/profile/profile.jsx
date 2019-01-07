@@ -23,12 +23,6 @@ class Profile extends React.Component {
     this.props.fetchDataFups(this.props.currentUserId);
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.fups.length === prevProps.fups.length) {
-      this.fupsLengthDiff = false;
-    }
-  }
-
   componentWillUnmount() {
     this.props.clearFups();
     this.props.removeDataFups();
@@ -36,10 +30,12 @@ class Profile extends React.Component {
 
   handleLoadMore(page) {
     const fupsLength = this.props.fups.length;
-    this.props.fetchUserFups(this.props.currentUserId, page);
-    if (fupsLength % 25 > 0 && fupsLength % 25 < 25) {
-      this.setState({ hasMore: false });
-    }
+    if (fupsLength !== 0) {
+      this.props.fetchUserFups(this.props.currentUserId, page);
+      if (fupsLength % 25 > 0 && fupsLength % 25 < 25) {
+        this.setState({ hasMore: false });
+      }
+    } 
   }
 
   renderGraphs() {
@@ -54,16 +50,17 @@ class Profile extends React.Component {
   }
 
   render() {
+
     const { fups } = this.props;
-    if (!(fups instanceof Array) || !fups.length) return null;
     const items = (
-        fups.map((fup, idx) => (
-          <div className="user-fups-container" key={idx}>
-            <FupsItem key={fup._id} fup={fup} />
-          </div>
-        ))
+      fups.map((fup, idx) => (
+        
+        <div className="user-fups-container" key={idx}>
+          <FupsItem key={fup._id} fup={fup} />
+        </div>
+      ))
     )
-    // < UserFups fups = { this.props.fups } />
+
     return (
       <div className="profile_page">
         <div className='upper_page'>
