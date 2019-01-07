@@ -8,8 +8,8 @@ router.get('/:user_id', (req, res) => {
     .where('salience').gte(0.1)
     .where('fupScore').lte(0)
     .then(words => {
-      let counter = {}
-      let heap = maxHeap;
+      let counter = {};
+      let average = 0;
 
       // Create counter hash of words
       words.forEach(word => {
@@ -26,8 +26,12 @@ router.get('/:user_id', (req, res) => {
     
       keys.sort((word1, word2) => { 
         return word2.count - word1.count });
+
+      const topWords = keys.slice(0,7)
+      topWords.forEach(word => average += word.count);
+      topWords.forEach(word => word['percent'] = ((word.count / average) * 100).toFixed(1) + '%');
       
-      res.json(keys.slice(0,7))})
+      res.json(keys.slice(0,7)) })
     .catch(err => res.status(404).json({ nowordsfound: 'No words found for this user'}))
 })
 
