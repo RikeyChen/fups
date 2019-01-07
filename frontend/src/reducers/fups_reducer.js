@@ -20,7 +20,7 @@ const FupsReducer = (state = [], action) => {
     case RECEIVE_LIKE:
       let fupIdx;
       for (let i = 0; i < state.length; i++) {
-        if (state[i]._id === action.like.data.fup) {
+        if (state[i]._id === action.like.fup) {
           fupIdx = i
         }
       }

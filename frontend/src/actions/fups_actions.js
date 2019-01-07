@@ -37,10 +37,13 @@ export const removeDataFups = () => ({
   type: REMOVE_DATA_FUPS,
 })
 
-export const receiveLike = (like) => ({
+export const receiveLike = (payload) => {
+  // debugger;
+  return({
   type: RECEIVE_LIKE,
-  like
-})
+  like: payload.data
+  })
+}
 
 export const removeLike = (payload) => ({
   type: REMOVE_LIKE,
@@ -73,7 +76,7 @@ export const fetchDataFups = (id) => dispatch =>
 
 export const newFupLike = (fup_id) => dispatch =>
   likeFup(fup_id)
-    .then(like => dispatch(receiveLike(like)))
+    .then(payload => dispatch(receiveLike(payload)))
     .catch(err => console.log(err)
 );
 
