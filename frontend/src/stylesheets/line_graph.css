@@ -1,7 +1,3 @@
-.ct-point:hover + .chartist-tooltip {
-  display: block;
-}
-
 .tooltip-show{
     position: absolute;
     display: inline-block;
@@ -38,4 +34,12 @@
   display: block;
   opacity: 0;
   visibility: hidden;
+}
+
+.ct-label {
+  fill: white;
+}
+
+.ct-axis-title {
+  font-size: 14px;
 }

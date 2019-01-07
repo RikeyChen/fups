@@ -48,7 +48,6 @@ class Profile extends React.Component {
         <div className='graphs_container'>
           <Pie words={this.props.words}/>
           <Graph fups={this.props.dataFups} />
-          <Bar fups={this.props.fupActivity} />
         </div>
       );
     }

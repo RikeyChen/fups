@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "chartist": "^0.10.1",
+    "chartist-plugin-axistitle": "0.0.4",
     "chartist-plugin-tooltips-updated": "0.0.20",
     "express": "^4.16.4",
     "jwt-decode": "^2.2.0",

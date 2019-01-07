@@ -1,7 +1,7 @@
 import React from 'react';
 import ChartistGraph from 'react-chartist';
-import Chartist from 'chartist';
 import ChartistTooltip from 'chartist-plugin-tooltips-updated';
+import ChartistAxisLabels from 'chartist-plugin-axistitle';
 import '../../stylesheets/line_graph.css';
 
 class Graph extends React.Component {  
@@ -13,7 +13,7 @@ class Graph extends React.Component {
       if (count <= 15) {
         data.unshift({
           meta: this.props.fups[i].text,
-          value: this.props.fups[i].score})
+          value: (this.props.fups[i].score).toFixed(3)})
       }
       count += 1;
     }
@@ -129,7 +129,23 @@ class Graph extends React.Component {
       high: 1,
       showArea: true,
       plugins: [
-        ChartistTooltip({appendToBody: true})
+        ChartistTooltip({appendToBody: true}),
+        ChartistAxisLabels({axisX: {
+                            axisTitle: 'Fups',
+                            offset: {
+                              y: 20,
+                            },
+                            textAnchor: 'middle'
+                          },
+                            axisY: {
+                              axisTitle: 'Sentiment',
+                              offset: {
+                                y: 10
+                              },
+                              textAnchor: 'middle',
+                              flipTitle: true
+                            }
+                        })
       ]}
 
     return (
