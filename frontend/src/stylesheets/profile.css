@@ -6,6 +6,11 @@
   flex-direction: column;
 }
 
+.upper_page {
+  display: flex;
+  flex-direction: row;
+}
+
 .user_data_container {
   margin-top: 50px;
   padding: 20px;
@@ -13,7 +18,16 @@
   width: 900px;
   height: 300px;
   border-radius: 4px;
+  margin-left: 50px;
+}
 
+.suggestion_box {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #F7F7F7;
+  width: 300px;
+  height: auto;
+  border-radius: 4px;
 }
 
 .graphs_container {

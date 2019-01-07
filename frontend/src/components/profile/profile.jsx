@@ -41,7 +41,6 @@ class Profile extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // debugger
     if (this.props.fups.length === prevProps.fups.length) {
       this.fupsLengthDiff = false;
     }
@@ -55,7 +54,6 @@ class Profile extends React.Component {
   handleLoadMore(page) {
     const fupsLength = this.props.fups.length;
     this.props.fetchUserFups(this.props.currentUserId, page);
-    debugger
     if (fupsLength % 25 > 0 && fupsLength % 25 < 25) {
       this.setState({ hasMore: false });
     }

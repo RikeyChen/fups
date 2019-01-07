@@ -6,14 +6,26 @@ class Graph extends React.Component {
 
   getData() {
     let data = []
-    this.props.fups.forEach(fup => {
-      data.push(fup.score)
-    });
+    let count = 0;
+    for (let i = this.props.fups.length - 1; i >= 0; i --) {
+      if (count <= 15) {
+        data.unshift(this.props.fups[i].score)
+      }
+      count += 1;
+    }
+    // this.props.fups.forEach(fup => {
+    //   if (count <= 25) {
+    //     data.unshift(fup.score)
+    //   } else {
+        
+    //   }
+    //   count += 1
+    // });
 
     // this ensures that the graph doesnt get too lengthy but does maintain the trajectory
-    if (data.length > 10) {
-      data = data.filter((el, idx) => idx % 2 === 0)
-    }
+    // if (data.length > 10) {
+    //   data = data.filter((el, idx) => idx % 2 === 0)
+    // }
     return data
   }
 
