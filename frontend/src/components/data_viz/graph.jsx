@@ -2,6 +2,7 @@ import React from 'react';
 import ChartistGraph from 'react-chartist';
 import Chartist from 'chartist';
 import ChartistTooltip from 'chartist-plugin-tooltips-updated';
+import '../../stylesheets/line_graph.css';
 
 class Graph extends React.Component {  
 
@@ -82,7 +83,7 @@ class Graph extends React.Component {
               from: 0,
               to: 1,
               easing: 'easeOutQuart'
-            }
+            },
           });
         } else if (data.type === 'grid') {
           let pos1Animation = {
@@ -113,7 +114,7 @@ class Graph extends React.Component {
           };
 
           data.element.animate(animations);
-        }
+        } 
       }
     }
 
@@ -128,9 +129,8 @@ class Graph extends React.Component {
       high: 1,
       showArea: true,
       plugins: [
-        ChartistTooltip({anchorToPoint: true})
-      ]
-    }
+        ChartistTooltip({appendToBody: true})
+      ]}
 
     return (
       <div className='bar_graph'>
