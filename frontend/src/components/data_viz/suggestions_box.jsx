@@ -2,10 +2,6 @@ import React from 'react';
 import Suggestions from './suggestions';
 
 class SuggestionBox extends React.Component {
-  // constructor() {
-  //   super(props)
-  // }
-
 
   render() {
     return (
