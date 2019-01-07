@@ -53,6 +53,10 @@ class FupsAnonymous extends React.Component {
     }
   }
 
+  numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   render() {
     const { fups } = this.props;
     if (!(fups instanceof Array) || !fups.length) return null;
@@ -66,11 +70,11 @@ class FupsAnonymous extends React.Component {
             <div className="fups-item-main">
               <FupsItem fup={fup} key={fup._id} />
               <div className='upvote-arrow-container'>
+                <div className='likes-count'>{this.numberWithCommas(fup.likes.length)}</div>
                 {fup.likes.some(like => like.user === this.props.currentUser)
                   ? <div onClick={this.handleUnlike(fup)} className="upvote-arrow-liked" />
                   : (<div onClick={this.handleLike(fup._id)} className="upvote-arrow" />)
                 }
-                <div>{fup.likes.length}</div>
               </div>
             </div>
           </div>
