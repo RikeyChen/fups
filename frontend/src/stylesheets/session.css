@@ -1,0 +1,134 @@
+.session-main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.session-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 359px;
+  background: #FFFFFF;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.session-form-container form {
+  width: 100%;
+}
+
+.session-form-header {
+  margin: 10px 0px;
+}
+
+.session-form-container h1 {
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 30px;
+  text-align: center;
+  color: #505050;
+}
+
+.session-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.session-form input {
+  font-size: 14px;
+  padding: 10px;
+  width: 260px;
+  height: 40px;
+  background: #FFFFFF;
+  border: 1px solid #E98A48;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+
+.session-form input:last-of-type {
+  width: 175px;
+  height: 42px;
+  background: #F7F7F7;
+  border: 1px solid #E98A48;
+  box-sizing: border-box;
+  border-radius: 50px;
+  line-height: 0;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.session-form input:last-of-type:hover {
+  border: 2px solid #3BC3FC;
+}
+
+.session-form div:last-of-type{
+  margin: 10px 0px;
+}
+
+.session-errors {
+  width: 100%;
+  color: red;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
+  line-height: 1.2em;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.session-errors li > span {
+  margin-right: 5px;
+}
+
+#demo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 175px;
+  height: 42px;
+  background: #F7F7F7;
+  border: 1px solid #E98A48;
+  box-sizing: border-box;
+  border-radius: 50px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#demo:hover {
+  border: 2px solid #3BC3FC;
+}
+
+.splash-info {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  padding: 35px;
+  height: 350px;
+  margin: 0px 20px;
+}
+
+.splash-info h1 {
+  line-height: 1.2em;
+  font-size: 30px;
+  font-weight: bolder;
+  color: #B5D5FF;
+}
+
+.splash-info h2 {
+  font-weight: bolder;
+  color: #7D9FCC;
+  font-size: 20px;
+  margin: 15px 0px;
+}
+
+.info-section {
+  height: 250px;
+}

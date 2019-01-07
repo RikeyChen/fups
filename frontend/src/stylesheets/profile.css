@@ -1,0 +1,88 @@
+.profile_page {
+  position: relative;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.upper_page {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: 50px;
+}
+
+.suggestion {
+  padding: 6px;
+}
+
+.life_suggestions {
+  margin-top: 8px;
+}
+
+.suggestion a {
+  text-decoration: none;
+}
+
+.user_data_container {
+  padding: 20px;
+  background-color: #F7F7F7;
+  width: 70%;
+  height: 300px;
+  border-radius: 4px;
+  margin-left: 25vw;
+}
+
+.suggestion_box {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #F7F7F7;
+  width: 20%;
+  height: auto;
+  margin-left: 3vw;
+  position: fixed;
+  align-self: flex-start;
+  top: 65px;
+  border-radius: 4px;
+}
+
+.graphs_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.bar_graph {
+  width: 500px;
+  height: 100%;
+}
+
+.pie_chart {
+  height: 100%;
+  width: 300px;
+}
+
+.graph_item {
+  height: 240px;
+  width: 500px;
+  margin-top: 20px;
+  padding-right: 50px;
+}
+
+.pie_item {
+  height: 230px;
+  margin-right: 20px;
+  color: white;
+}
+
+.bar_graph_explanation p {
+  margin-left: 20px;
+  font-size: 12px;
+  line-height: 15px;
+  color: #757575;
+  margin-bottom: 10px;
+}
