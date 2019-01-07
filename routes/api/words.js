@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Word = require('../../models/Word');
+const maxHeap = require('../../util/heap');
 
 router.get('/:user_id', (req, res) => {
   Word.find({user: req.params.user_id})
@@ -8,6 +9,7 @@ router.get('/:user_id', (req, res) => {
     .where('fupScore').lte(0)
     .then(words => {
       let counter = {}
+      let heap = maxHeap;
 
       // Create counter hash of words
       words.forEach(word => {
@@ -18,11 +20,14 @@ router.get('/:user_id', (req, res) => {
         }
       })
 
-      // iterate through keys 
-      // Add desired amount to heap and extract max to result array
-      // respond with json of result array
-
-      res.json(counter)})
+      const keys = Object.keys(counter).map(key => {
+        return {word: key, count: counter[key]};
+      }, counter)
+    
+      keys.sort((word1, word2) => { 
+        return word2.count - word1.count });
+      
+      res.json(keys.slice(0,7))})
     .catch(err => res.status(404).json({ nowordsfound: 'No words found for this user'}))
 })
 
