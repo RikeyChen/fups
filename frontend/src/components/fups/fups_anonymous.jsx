@@ -11,6 +11,8 @@ class FupsAnonymous extends React.Component {
     }
     this.handleLoadMore = this.handleLoadMore.bind(this);
     this.fupsLengthDiff = true;
+    this.handleLike = this.handleLike.bind(this);
+    this.handleUnlike = this.handleUnlike.bind(this);
   }
 
   componentDidMount() {
@@ -35,23 +37,49 @@ class FupsAnonymous extends React.Component {
     }
   }
 
+  handleLike(fupId) {
+    return e => {
+      e.preventDefault();
+      this.props.likeFup(fupId);
+    }
+  }
+
+  handleUnlike(fup) {
+    const fupId = fup._id
+    const like = fup.likes.find(like => like.user === this.props.currentUser);
+    return e => {
+      e.preventDefault();
+      this.props.unlikeFup(fupId, like._id);
+    }
+  }
+
+  numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   render() {
     const { fups } = this.props;
     if (!(fups instanceof Array) || !fups.length) return null;
     const items = (
-      fups.map((fup, idx) => (
-        <div className="fups-item-master" key={idx}>
-          <div className='anon-image-container'>
-            <div className={`anon-image anon${fup.iconNum}`} />
-          </div>
-          <div className="fups-item-main">
-            <FupsItem fup={fup} key={fup._id} />
-            <div className='upvote-arrow-container'>
-              <div className="upvote-arrow" />
+      fups.map((fup, idx) => {
+        return (
+          <div className="fups-item-master" key={idx}>
+            <div className='anon-image-container'>
+              <div className={`anon-image anon${fup.iconNum}`} />
+            </div>
+            <div className="fups-item-main">
+              <FupsItem fup={fup} key={fup._id} />
+              <div className='upvote-arrow-container'>
+                <div className='likes-count'>{this.numberWithCommas(fup.likes.length)}</div>
+                {fup.likes.some(like => like.user === this.props.currentUser)
+                  ? <div onClick={this.handleUnlike(fup)} className="upvote-arrow-liked" />
+                  : (<div onClick={this.handleLike(fup._id)} className="upvote-arrow" />)
+                }
+              </div>
             </div>
           </div>
-        </div>
-      ))
+        )
+      })
     )
 
     return (
