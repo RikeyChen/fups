@@ -1,30 +1,35 @@
 const mongoose = require('mongoose');
+
 const Schema = mongoose.Schema;
 
 const FupSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'users'
+    ref: 'users',
   },
   text: {
     type: String,
-    required: true
+    required: true,
   },
   date: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   private: {
     type: Boolean,
-    default: true
-  }, 
+    default: true,
+  },
   score: {
     type: Number,
-    required: true
+    required: true,
   },
   iconNum: {
-    type: Number
-  }
+    type: Number,
+  },
+  likes: [{
+    type: Schema.Types.ObjectId,
+    ref: 'likes',
+  }],
 });
 
-module.exports = Fup = mongoose.model('fup', FupSchema);
+module.exports = Fup = mongoose.model('fups', FupSchema);

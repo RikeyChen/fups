@@ -4,6 +4,7 @@ import Graph from '../data_viz/graph';
 import Pie from '../data_viz/pie';
 import '../../stylesheets/profile.css';
 import UserFups from "../fups/user_fups";
+import SuggestionsBox from '../data_viz/suggestions_box';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -52,9 +53,12 @@ class Profile extends React.Component {
   render() {
     return (
       <div className='profile_page'>
-        <div className='user_data_container'>
-          <h1>Welcome back INSERT NAME OF USER</h1>
-          {this.renderGraphs()}
+        <div className='upper_page'>
+          <SuggestionsBox/>
+          <div className='user_data_container'>
+            <h1>Welcome back to FUPS</h1>
+            {this.renderGraphs()}
+          </div>
         </div>
         <FupCreate />
         <UserFups fups={this.props.fups}/>
