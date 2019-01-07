@@ -52,7 +52,7 @@ class Profile extends React.Component {
     return (
       <div className='profile_page'>
         <div className='user_data_container'>
-          <h1>Welcome back INSERT NAME OF USER</h1>
+          <h1>Welcome back to FUPS</h1>
           {this.renderGraphs()}
         </div>
         <FupCreate />
