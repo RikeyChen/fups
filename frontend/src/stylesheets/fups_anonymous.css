@@ -148,3 +148,8 @@
   bottom: 5px;
   right: 30px;
 }
+
+#disabled {
+  pointer-events: none;
+  opacity: 0.4;
+}

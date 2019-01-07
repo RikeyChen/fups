@@ -39,8 +39,12 @@ class FupsAnonymous extends React.Component {
 
   handleLike(fupId) {
     return e => {
-      e.preventDefault();
-      this.props.likeFup(fupId);
+      e.target.id = 'disabled';
+      this.props.likeFup(fupId)
+        .then(() => {
+          let target = document.getElementById('disabled');
+          target.id = 'enabled';
+        })
     }
   }
 
@@ -48,8 +52,12 @@ class FupsAnonymous extends React.Component {
     const fupId = fup._id
     const like = fup.likes.find(like => like.user === this.props.currentUser);
     return e => {
-      e.preventDefault();
-      this.props.unlikeFup(fupId, like._id);
+      e.target.id = 'disabled';
+      this.props.unlikeFup(fupId, like._id)
+        .then(() => {
+          let target = document.getElementById('disabled');
+          target.id = 'enabled'
+        })
     }
   }
 
