@@ -13,7 +13,7 @@ class SuggestionBox extends React.Component {
         <h1>We've used artificial intelligence to pinpoint some areas in your life that 
           need improvement. Here is a list of links and resourced if you're interested.
         </h1>
-        <Suggestions/>
+        <Suggestions words={this.props.words}/>
       </div>
     )
   }

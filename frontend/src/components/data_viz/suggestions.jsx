@@ -2,9 +2,12 @@ import React from 'react';
 
 class Suggestions extends React.Component{
 
-
   render() {
-    const temporaryTest = ['car', 'dog', 'work', 'friends', 'wife', 'boss']
+    const temporaryTest = []
+
+    this.props.words.forEach(word => {
+      temporaryTest.push(word.word);
+    })
     
     const words = temporaryTest.map(word => {
       return (
