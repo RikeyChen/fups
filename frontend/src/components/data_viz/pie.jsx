@@ -4,21 +4,6 @@ import Chartist from 'chartist';
 
 class Pie extends React.Component {
 
-  chartData() {
-    // TEMPORARY CODE SO IT DOESN'T BREAK
-    const items = (
-      <li>
-        data - 20%
-      </li>
-    )
-
-    return (
-      <ul>
-        {items}
-      </ul>
-    )
-  }
-
   render() {
     const labels = []
     const series = []
@@ -72,10 +57,19 @@ class Pie extends React.Component {
       }
     }
 
+    // percents for each word
+    const percents = this.props.words.map(word => {
+      return(
+        <li key={word.word}>
+          {word.word}: {word.percent}
+        </li>
+      )
+    })
+
     return(
       <div className='pie_chart'>
         <ChartistGraph className='pie_item' data={data} options={options} listener={listener} type={type} />
-        {this.chartData()}
+        {percents}
       </div>
     )
   }
