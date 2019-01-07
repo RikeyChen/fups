@@ -109,6 +109,7 @@ class FupsAnonymous extends React.Component {
             pageStart={0}
             loadMore={this.handleLoadMore}
             hasMore={this.state.hasMore}
+            loader={loader}
           >
             {items}
           </InfiniteScroll>

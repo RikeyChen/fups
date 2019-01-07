@@ -1,6 +1,7 @@
 import React from 'react';
 import ChartistGraph from 'react-chartist';
 import Chartist from 'chartist';
+import '../../stylesheets/pie.css'
 
 class Pie extends React.Component {
 
@@ -60,9 +61,14 @@ class Pie extends React.Component {
     // percents for each word
     const percents = this.props.words.map(word => {
       return(
-        <li key={word.word}>
-          {word.word}: {word.percent}
-        </li>
+        <div className="table-format">
+          <div className="item-border">
+            {word.word}
+          </div>
+          <div className="item-border">
+            {word.percent}
+          </div>
+        </div>
       )
     })
 

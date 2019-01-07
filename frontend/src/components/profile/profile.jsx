@@ -54,6 +54,14 @@ class Profile extends React.Component {
   }
 
   render() {
+    const loader = (
+      <div className="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    )
 
     const { fups } = this.props;
     const items = (
@@ -80,6 +88,7 @@ class Profile extends React.Component {
           pageStart={0}
           loadMore={this.handleLoadMore}
           hasMore={this.state.hasMore}
+          loader={loader}
         >
           {items}
         </InfiniteScroll>

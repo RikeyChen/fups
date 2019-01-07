@@ -21,6 +21,7 @@
 
 .life_suggestions {
   margin-top: 8px;
+  line-height: 24px;
 }
 
 .suggestion a {
@@ -31,13 +32,13 @@
   padding: 20px;
   background-color: #F7F7F7;
   width: 70%;
-  height: 300px;
+  height: 370px;
   border-radius: 4px;
   margin-left: 25vw;
 }
 
 .suggestion_box {
-  margin-top: 50px;
+  margin-top: 46px;
   padding: 20px;
   background-color: #F7F7F7;
   width: 20%;
@@ -49,11 +50,15 @@
   border-radius: 4px;
 }
 
+.suggestion_height {
+  line-height: 22px;
+}
+
 .graphs_container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .bar_graph {
@@ -85,4 +90,60 @@
   line-height: 15px;
   color: #757575;
   margin-bottom: 10px;
+}
+
+.lds-ellipsis {
+  position: relative;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 27px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 6px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 6px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 26px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 45px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(19px, 0);
+  }
 }
