@@ -7,7 +7,7 @@ const mSTP = (state, ownProps) => ({
   words: state.entities.words,
   currentUserId: state.session.user.id, 
   fups: state.entities.fups,
-  dataFups: state.entities.dataFups
+  dataFups: state.entities.dataFups.line
 })
 
 const mDTP = dispatch => ({

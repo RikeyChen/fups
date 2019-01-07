@@ -20,6 +20,6 @@ export const likeFup = (id, data) => {
   return axios.post(`/api/fups/${id}/likes`, data)
 }
 
-export const weeklyFupActivity = (id) => {
+export const getFupActivity = (id) => {
   return axios.get(`/api/fups/data/week/${id}`)
 }
