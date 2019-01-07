@@ -55,7 +55,7 @@ class Profile extends React.Component {
 
   render() {
     const loader = (
-      <div className="lds-ellipsis">
+      <div className="lds-ellipsisp" key={Math.random}>
         <div></div>
         <div></div>
         <div></div>
