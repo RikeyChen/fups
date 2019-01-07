@@ -2,6 +2,8 @@ import React from 'react';
 import ChartistGraph from 'react-chartist';
 import Chartist from 'chartist';
 import '../../stylesheets/pie.css'
+import '../../stylesheets/line_graph.css';
+import ChartistTooltip from 'chartist-plugin-tooltips-updated';
 
 class Pie extends React.Component {
 
@@ -10,7 +12,9 @@ class Pie extends React.Component {
     const series = []
     this.props.words.forEach(word => {
       labels.push(word.word);
-      series.push(word.count);
+      series.push({
+        meta: `${word.word} was mentioned`,
+        value: word.count});
     })
  
     const data = {
@@ -21,6 +25,9 @@ class Pie extends React.Component {
     const options = {
       donut: true,
       showSeries: true,
+      plugins: [
+        ChartistTooltip({appendToBody: true}),
+      ]
     }
 
     const type = 'Pie';
@@ -61,7 +68,7 @@ class Pie extends React.Component {
     // percents for each word
     const percents = this.props.words.map(word => {
       return(
-        <div className="table-format">
+        <div key={word.word} className="table-format">
           <div className="item-border">
             {word.word}
           </div>
