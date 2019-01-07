@@ -6,7 +6,7 @@ export const RECEIVE_NEW_FUP = 'RECEIVE_NEW_FUP';
 export const CLEAR_FUPS = 'CLEAR_FUPS';
 export const RECEIVE_DATA_FUPS = 'RECEIVE_DATA_FUPS';
 export const REMOVE_DATA_FUPS = 'REMOVE_DATA_FUPS';
-export const LIKE_FUP = 'LIKE_FUP';
+export const RECEIVE_LIKE = 'RECEIVE_LIKE';
 
 export const receiveFups = fups => ({
   type: RECEIVE_FUPS,
@@ -36,8 +36,8 @@ export const removeDataFups = () => ({
   type: REMOVE_DATA_FUPS,
 })
 
-export const likeUserFup = (like) => ({
-  type: LIKE_FUP,
+export const receiveLike = (like) => ({
+  type: RECEIVE_LIKE,
   like
 })
 
@@ -65,8 +65,8 @@ export const fetchDataFups = (id) => dispatch =>
     .catch(err => console.log(err)
 );
 
-export const fetchLike = (id, data) => dispatch =>
-  likeFup(id, data)
+export const likeFup = (fup_id, data) => dispatch =>
+  likeFup(fup_id, data)
     .then(like => dispatch(likeUserFup(like)))
     .catch(err => console.log(err)
 );
