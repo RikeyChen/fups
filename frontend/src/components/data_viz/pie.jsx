@@ -82,6 +82,7 @@ class Pie extends React.Component {
     return(
       <div className='pie_chart'>
         <ChartistGraph className='pie_item' data={data} options={options} listener={listener} type={type} />
+        <br/>
         {percents}
       </div>
     )
