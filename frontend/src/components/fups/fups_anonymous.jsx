@@ -11,6 +11,7 @@ class FupsAnonymous extends React.Component {
     }
     this.handleLoadMore = this.handleLoadMore.bind(this);
     this.fupsLengthDiff = true;
+    this.handleLike = this.handleLike.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +36,13 @@ class FupsAnonymous extends React.Component {
     }
   }
 
+  handleLike(fupId) {
+    return e => {
+      e.preventDefault();
+      this.props.likeFup(fupId);
+    }
+  }
+
   render() {
     const { fups } = this.props;
     if (!(fups instanceof Array) || !fups.length) return null;
@@ -47,7 +55,8 @@ class FupsAnonymous extends React.Component {
           <div className="fups-item-main">
             <FupsItem fup={fup} key={fup._id} />
             <div className='upvote-arrow-container'>
-              <div className="upvote-arrow" />
+              <div onClick={this.handleLike(fup._id)} className="upvote-arrow" />
+              <div>{fup.likes.length}</div>
             </div>
           </div>
         </div>

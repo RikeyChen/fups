@@ -16,8 +16,8 @@ export const getDataFups = (id) => {
   return axios.get(`/api/fups/data/${id}`)
 }
 
-export const likeFup = (fup_id, data) => {
-  return axios.post(`/api/fups/${fup_id}/likes`, data)
+export const likeFup = (fup_id) => {
+  return axios.post(`/api/fups/${fup_id}/likes`)
 }
 
 export const unlikeFup = (fup_id, like_id) => {

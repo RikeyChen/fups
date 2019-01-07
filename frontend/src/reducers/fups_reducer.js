@@ -5,7 +5,6 @@ const FupsReducer = (state = [], action) => {
   let newState;
   switch (action.type) {
     case RECEIVE_FUPS:
-      debugger;
       newState = state.slice();
       return newState.concat(action.fups);
     case RECEIVE_USER_FUPS:
@@ -21,7 +20,7 @@ const FupsReducer = (state = [], action) => {
     case RECEIVE_LIKE:
       let fupIdx;
       for (let i = 0; i < state.length; i++) {
-        if (state[i]._id === action.like.fup) {
+        if (state[i]._id === action.like.data.fup) {
           fupIdx = i
         }
       }
