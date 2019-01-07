@@ -15,6 +15,7 @@ const client = new language.LanguageServiceClient();
 
 const Fup = require('../../models/Fup');
 const Word = require('../../models/Word');
+const Like = require('../../models/Like');
 const validateFupInput = require('../../validation/fups');
 
 const getWordsFromFup = (fup, req) => {
@@ -47,6 +48,7 @@ router.get('/', (req, res) => {
     .sort({ date: -1 })
     .limit(25)
     .skip(25 * Math.max(0, req.param('page')))
+    .populate('likes')
     .then(fups => res.json(fups))
     .catch(err => res.status(404).json({ nofupsfound: 'No fups were found' }));
 });
@@ -94,18 +96,47 @@ router.post('/',
         newFup.save().then((fup) => {
           getWordsFromFup(fup, req);
           res.json(fup);
-
-} );
+        });
       })
       .catch((err) => {
         console.error('ERROR:', err);
       });
-  } );
+  });
+
+router.post('/:fup_id/likes',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const errors = {};
+    Like.findOne({
+      fup: req.params.fup_id,
+      user: req.user.id,
+    }).then((like) => {
+      if (like) {
+        errors.liked = "You've already liked this FUP";
+        return res.status(400).json(errors);
+      }
+      const newLike = new Like({
+        fup: req.params.fup_id,
+        user: req.user.id,
+      });
+
+      newLike.save()
+        .then((like) => {
+          res.json(like);
+          Fup.findOne({ _id: req.params.fup_id })
+            .then((fup) => {
+              fup.likes.push(like.id);
+              fup.save();
+            });
+        })
+        .catch(err => console.error('ERROR:', err));
+    });
+  });
 
 router.delete('/:id', (req, res) => {
   Fup.findOneAndRemove({ _id: req.params.id })
     .then(fup => res.json(fup))
     .catch(err => res.status(404).json({ somethingwentwrong: 'Fup not found or unable to delete' }));
-} );
+});
 
 module.exports = router;
