@@ -21,7 +21,7 @@ class Bar extends React.Component {
         if (data.type === 'bar') {
           data.element.animate({
             y2: {
-              dur: '0.2s',
+              dur: '1s',
               from: data.y1,
               to: data.y2
             }
