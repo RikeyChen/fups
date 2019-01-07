@@ -3,7 +3,7 @@ import React from 'react';
 class Trending extends React.Component {
 
   componentWillUnmount() {
-    this.props.clearWords();
+    this.props.clearWords()
   }
 
   render() {
