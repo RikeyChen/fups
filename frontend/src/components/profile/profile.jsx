@@ -5,6 +5,7 @@ import Pie from '../data_viz/pie';
 import '../../stylesheets/profile.css';
 import FupsItem from "../fups/fups_item";
 import InfiniteScroll from "react-infinite-scroller";
+import SuggestionBox from '../data_viz/suggestions_box';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -15,23 +16,6 @@ class Profile extends React.Component {
     this.handleLoadMore = this.handleLoadMore.bind(this);
     this.fupsLengthDiff = true;
   }
-
-  // importantWords() {
-  //   let wordCount = {}
-  //   let words = []
-
-  //   this.props.words.forEach(word => {
-  //     if (wordCount[word]) {
-  //       wordCount[word] += 1
-  //     } else {
-  //       wordCount[word] = 0
-  //     }
-  //   })
-
-  //   for (key in wordCount) {
-  //     if (wordCount[key] >)
-  //   }
-  // }
 
   componentDidMount() {
     this.props.fetchUserWords(this.props.currentUserId);
@@ -61,8 +45,8 @@ class Profile extends React.Component {
   renderGraphs() {
     if (this.props.fups) {
       return (
-        <div className="graphs_container">
-          <Pie />
+        <div className='graphs_container'>
+          <Pie words={this.props.words}/>
           <Graph fups={this.props.dataFups} />
         </div>
       );
@@ -82,9 +66,12 @@ class Profile extends React.Component {
     // < UserFups fups = { this.props.fups } />
     return (
       <div className="profile_page">
-        <div className="user_data_container">
-          <h1>Welcome back INSERT NAME OF USER</h1>
-          {this.renderGraphs()}
+        <div className='upper_page'>
+          <SuggestionBox />
+          <div className="user_data_container">
+            <h1>Welcome back to FUPS</h1>
+            {this.renderGraphs()}
+          </div>
         </div>
         <FupCreate />
         <InfiniteScroll
