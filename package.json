@@ -36,7 +36,7 @@
     "passport-jwt": "^4.0.0",
     "prop-types": "^15.6.2",
     "validator": "^10.10.0",
-    "node": "^11.6.0"
+    "node": "^10.15.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"
