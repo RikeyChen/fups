@@ -102,7 +102,7 @@ class FupsAnonymous extends React.Component {
 
     return (
       <div className="fups-anonymous-container">
-        <Trending words={this.props.words}/>
+        <Trending words={this.props.words} clearWords={this.props.clearWords}/>
         <div className='fups_anon'>
           <h1 className="fups-anon-header">FUPS Anonymous</h1>
           <InfiniteScroll

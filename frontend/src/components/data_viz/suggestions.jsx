@@ -13,7 +13,7 @@ class Suggestions extends React.Component{
       return (
         <li key={word} className='suggestion'>
           <a target='_blank' href={`https://www.google.com/search?source=hp&q=i+need+help+with+${word}`}>
-            {word} resources
+            "{word}" resources
           </a>
         </li>
       )
