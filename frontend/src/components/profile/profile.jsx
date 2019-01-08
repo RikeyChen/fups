@@ -19,9 +19,9 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchDataFups(this.props.currentUserId);
-    this.props.fetchUserFups(this.props.currentUserId, 0);
-    // this.props.fetchUserWords(this.props.currentUserId);
+    this.props.fetchDataFups(this.props.currentUserId)
+      .then(() => this.props.fetchUserWords(this.props.currentUserId))
+        .then(() => this.props.fetchUserFups(this.props.currentUserId, 0));
   }
 
   componentWillUnmount() {
@@ -31,20 +31,15 @@ class Profile extends React.Component {
   }
 
   componentDidUpdate(prevProps){
-    if (this.props.fups.length !== prevProps.fups.length && this.props.fups.length !== 0) {
-      this.props.clearWords();
-      this.props.fetchUserWords(this.props.currentUserId)
+    if (this.props.fups.length === prevProps.fups.length && this.props.fups.length) {
+      this.fupsLengthDiff = false;
     }
   }
 
   handleLoadMore(page) {
-    const fupsLength = this.props.fups.length;
-    
-    if (fupsLength !== 0) {
-      this.props.fetchUserFups(this.props.currentUserId, page);
-      if (fupsLength % 25 > 0) {
-        this.setState({ hasMore: false });
-      }
+    this.props.fetchUserFups(this.props.currentUserId, page);
+    if (!this.fupsLengthDiff) {
+      this.setState({ hasMore: false });
     }
   }
 
@@ -73,6 +68,8 @@ class Profile extends React.Component {
     }
 
     const { fups } = this.props;
+
+    if (!(fups instanceof Array) || !fups.length) return null;
     const items = (
       fups.map((fup, idx) => (
         <div className="user-fups-container" key={idx}>
@@ -81,7 +78,8 @@ class Profile extends React.Component {
       ))
     )
 
-    return <div className="profile_page">
+    return (
+      <div className="profile_page">
         <SuggestionBox words={this.props.words} />
 
         <div className="upper_page">
@@ -96,7 +94,8 @@ class Profile extends React.Component {
           {items}
         </InfiniteScroll>
         <ScrollUpButton className='ScrollUpButton__Container' />
-      </div>;
+      </div>
+    );
   }
 }
 

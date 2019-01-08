@@ -21,8 +21,8 @@ class FupsAnonymous extends React.Component {
 
   componentDidMount() {
     this.props.fetchWords()
-      .then(() => this.props.getTopFups(0)
-        .then(() => this.props.fetchFups(0)))
+      .then(() => this.props.getTopFups(0))
+        .then(() => this.props.fetchFups(0));
   }
 
   componentDidUpdate(prevProps) {
