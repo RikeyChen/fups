@@ -1,4 +1,4 @@
-import { RECEIVE_TOP_FUPS, RECEIVE_TOP_LIKE, REMOVE_TOP_LIKE } from '../actions/fups_actions';
+import { RECEIVE_TOP_FUPS, RECEIVE_TOP_LIKE, REMOVE_TOP_LIKE, CLEAR_FUPS } from '../actions/fups_actions';
 
 const TopFupsReducer = (state = [], action) => {
   Object.freeze(state);
@@ -14,17 +14,21 @@ const TopFupsReducer = (state = [], action) => {
           fupIdx = i
         }
       }
+      if (fupIdx === undefined) return state;
       newState = state.slice();
       newState[fupIdx].likes.push(action.like)
       return newState;
     case REMOVE_TOP_LIKE:
       newState = state.slice();
       let fup = newState.find(fup => fup._id === action.payload.fup._id);
+      if (fup === undefined) return state;
       fupIdx = newState.indexOf(fup);
       let like = newState[fupIdx].likes.find(like => like._id === action.payload.like._id);
       const likeIdx = newState.indexOf(like);
       newState[fupIdx].likes.splice(likeIdx, 1);
       return newState;
+    case CLEAR_FUPS:
+      return [];
     default:
       return state;
   }

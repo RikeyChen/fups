@@ -51,6 +51,21 @@
   word-wrap: break-word;
 }
 
+@media (max-width: 1200px) {
+  .upper_page {
+    justify-content: center;
+  }
+
+  .user_data_container{
+    margin-left: 0;
+    width: 80%;
+  }
+
+  .suggestion_box {
+    display: none;
+  }
+}
+
 .suggestion_height {
   line-height: 22px;
 }
@@ -97,7 +112,7 @@
 
 .lds-ellipsisp {
   position: relative;
-  left: 0%;
+  left: 43%;
   width: 64px;
   height: 64px;
 }

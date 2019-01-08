@@ -78,7 +78,7 @@ class Pie extends React.Component {
         </div>
       )
     })
-
+    if (this.props.words.length === 0) return null;
     return(
       <div className='pie_chart'>
         <ChartistGraph className='pie_item' data={data} options={options} listener={listener} type={type} />

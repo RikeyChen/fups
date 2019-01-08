@@ -26,10 +26,6 @@ function getFupScore(fup) {
     });
 };
 
-console.log(getFupScore('this is a hard coded test'));
-
-
-
   // Detects entities of the text 
 // client
 //   .analyzeEntitySentiment({ document: document })

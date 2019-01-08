@@ -114,22 +114,20 @@ export const fetchDataFups = (id) => dispatch =>
     .catch(err => console.log(err)
 );
 
-export const newFupLike = (fup_id, type) => dispatch =>
+export const newFupLike = (fup_id) => dispatch =>
   likeFup(fup_id)
     .then(payload => {
-      type === 'All'
-      ? dispatch(receiveLike(payload))
-      : dispatch(receiveTopLike(payload))
+      dispatch(receiveLike(payload))
+      dispatch(receiveTopLike(payload))
     })
     .catch(err => console.log(err)
 );
 
-export const removeFupLike = (fup_id, like_id, type) => dispatch => (
+export const removeFupLike = (fup_id, like_id) => dispatch => (
   unlikeFup(fup_id, like_id)
     .then(payload => {
-      type === 'All'
-      ? dispatch(removeLike(payload))
-      : dispatch(removeTopLike(payload))
+      dispatch(removeLike(payload))
+      dispatch(removeTopLike(payload))
     })
     .catch(err => console.log(err))
 )

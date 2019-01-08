@@ -15,3 +15,7 @@
   box-sizing: border-box;
   word-wrap: break-word;
 }
+
+.fup-text {
+  overflow-wrap: break-word;
+}

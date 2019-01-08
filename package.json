@@ -4,7 +4,7 @@
   "description": "For User Progress (FUPS)",
   "main": "app.js",
   "scripts": {
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm rebuild && npm run build --prefix frontend",
     "start": "node app.js",
     "server": "nodemon app.js",
     "server:debug": "nodemon --inspect app.js",
@@ -35,7 +35,8 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "prop-types": "^15.6.2",
-    "validator": "^10.10.0"
+    "validator": "^10.10.0",
+    "node": "^10.15.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"

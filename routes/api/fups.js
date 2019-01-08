@@ -5,7 +5,14 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 const path = __dirname;
-process.env.GOOGLE_APPLICATION_CREDENTIALS = `${path}/../../config/google_key.json`;
+
+if (process.env.NODE_ENV === 'production') {
+  const creds = process.env.GOOGLE_KEY
+  const JSONcreds = JSON.parse(creds)
+  process.env.GOOGLE_APPLICATION_CREDENTIALS = JSONcreds
+} else {
+  process.env.GOOGLE_APPLICATION_CREDENTIALS = `${path}/../../config/google_key.json`;
+}
 
 // Imports the Google Cloud client library
 const language = require('@google-cloud/language');

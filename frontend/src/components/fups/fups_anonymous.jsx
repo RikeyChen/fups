@@ -10,42 +10,27 @@ class FupsAnonymous extends React.Component {
     super(props);
     this.state = {
       hasMore: true,
-      hasMoreTopFups: true,
       currentTab: 'All',
     }
     this.handleLoadMore = this.handleLoadMore.bind(this);
-    this.handleLoadMoreTop = this.handleLoadMoreTop.bind(this);
     this.fupsLengthDiff = true;
-    this.topFupsLengthDiff = true;
     this.handleLike = this.handleLike.bind(this);
     this.handleUnlike = this.handleUnlike.bind(this);
     this.handleTabClick = this.handleTabClick.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchFups(0);
-    this.props.getTopFups(0);
-    this.props.fetchWords();
+    this.props.fetchWords()
+      .then(() => this.props.getTopFups(0))
+        .then(() => this.props.fetchFups(0));
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.fups.length === prevProps.fups.length
-      && !prevProps.fups.length
+      && this.props.fups.length
       && this.state.currentTab === 'All') {
       this.fupsLengthDiff = false;
     }
-
-    if (this.props.topFups.length === prevProps.topFups.length
-      && !prevProps.topFups.length
-      && this.state.currentTab === 'Top') {
-      this.topFupsLengthDiff = false;
-    }
-
-    // if (this.state.currentTab === 'All') {
-    //   this.props.fetchFups(0);
-    // } else {
-    //   this.props.getTopFups(0);
-    // }
   }
 
   componentWillUnmount() {
@@ -53,26 +38,16 @@ class FupsAnonymous extends React.Component {
   }
 
   handleLoadMore(page) {
-    const fupsLength = this.props.fups.length;
     this.props.fetchFups(page);
-    if (fupsLength % 25 !== 0 || !this.fupsLengthDiff) {
+    if (!this.fupsLengthDiff) {
       this.setState({ hasMore: false })
     }
   }
 
-  handleLoadMoreTop(page) {
-    const topFupsLength = this.props.topFups.length;
-    this.props.getTopFups(page);
-    if (topFupsLength % 25 !== 0 || !this.topFupsLengthDiff) {
-      this.setState({ hasMoreTopFups: false })
-    }
-  }
-
   handleLike(fupId) {
-    const type = this.state.currentTab;
     return e => {
       e.target.id = 'disabled';
-      this.props.likeFup(fupId, type)
+      this.props.likeFup(fupId)
         .then(() => {
           let target = document.getElementById('disabled');
           target.id = 'enabled';
@@ -83,10 +58,9 @@ class FupsAnonymous extends React.Component {
   handleUnlike(fup) {
     const fupId = fup._id
     const like = fup.likes.find(like => like.user === this.props.currentUser);
-    const type = this.state.currentTab;
     return e => {
       e.target.id = 'disabled';
-      this.props.unlikeFup(fupId, like._id, type)
+      this.props.unlikeFup(fupId, like._id)
         .then(() => {
           let target = document.getElementById('disabled');
           target.id = 'enabled'
@@ -138,6 +112,7 @@ class FupsAnonymous extends React.Component {
         )
       })
     )
+
     const infinite = (
       this.state.currentTab === 'All'
         ? <InfiniteScroll
@@ -148,14 +123,7 @@ class FupsAnonymous extends React.Component {
         >
           {items}
         </InfiniteScroll>
-        : <InfiniteScroll
-          pageStart={0}
-          loadMore={this.handleLoadMoreTop}
-          hasMore={this.state.hasMoreTopFups}
-          loader={loader}
-        >
-          {items}
-        </InfiniteScroll>
+        : <div />
     )
 
     return (
@@ -178,7 +146,7 @@ class FupsAnonymous extends React.Component {
             </h1>
           </div>
           <hr />
-          {infinite}
+          {this.state.currentTab === 'All' ? infinite : items}
           <ScrollUpButton />
         </div>
       </div>
