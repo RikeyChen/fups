@@ -15,8 +15,8 @@ const mapDispatchToProps = dispatch => ({
   fetchFups: (page) => dispatch(fetchFups(page)),
   getTopFups: (page) => dispatch(getMostLikedFups(page)),
   clearFups: () => dispatch(clearFups()),
-  likeFup: (fup_id, type) => dispatch(newFupLike(fup_id, type)),
-  unlikeFup: (fup_id, like_id, type) => dispatch(removeFupLike(fup_id, like_id, type)),
+  likeFup: (fup_id) => dispatch(newFupLike(fup_id)),
+  unlikeFup: (fup_id, like_id) => dispatch(removeFupLike(fup_id, like_id)),
   fetchWords: () => dispatch(fetchWords()),
   clearWords: () => dispatch(clearWords())
 })

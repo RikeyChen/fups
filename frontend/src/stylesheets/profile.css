@@ -51,6 +51,20 @@
   overflow: hidden;
 }
 
+@media (max-width: 900px) {
+  .upper_page {
+    justify-content: center;
+  }
+
+  .user_data_container{
+    margin-left: 0;
+  }
+
+  .suggestion_box {
+    display: none;
+  }
+}
+
 .suggestion_height {
   line-height: 22px;
 }
