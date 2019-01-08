@@ -16,6 +16,7 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
+
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
@@ -26,10 +27,10 @@ mongoose
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
-// app.get('/', (req, res) => res.send('This is working'));
+app.get('/', (req, res) => res.send('This is working'));
 app.use('/api/users', users);
 app.use('/api/fups', fups);
 app.use('/api/words', words);
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+// const port = process.env.PORT || 5000;
+// app.listen(port, () => console.log(`Server is running on port ${port}`));
