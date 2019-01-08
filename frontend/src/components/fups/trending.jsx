@@ -12,7 +12,7 @@ class Trending extends React.Component {
     let words = this.props.words.map(word => {
       return(
         <li key={word.word} className='trending_list_items'>
-          <a target='_blank' href={`https://www.google.com/search?source=hp&q=${word.word}`}>
+          <a target='_blank' rel="noopener noreferrer" href={`https://www.google.com/search?source=hp&q=${word.word}`}>
             {word.word}
           </a>
           <p className='mention'>{`mentioned ${word.count} times`}</p>
