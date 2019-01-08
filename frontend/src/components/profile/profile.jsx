@@ -33,10 +33,10 @@ class Profile extends React.Component {
 
   handleLoadMore(page) {
     const fupsLength = this.props.fups.length;
-
+    
     if (fupsLength !== 0) {
       this.props.fetchUserFups(this.props.currentUserId, page);
-      if (fupsLength % 25 > 0 && fupsLength % 25 < 25) {
+      if (fupsLength % 25 > 0) {
         this.setState({ hasMore: false });
       }
     }

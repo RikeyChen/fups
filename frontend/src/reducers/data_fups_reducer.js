@@ -11,7 +11,7 @@ const DataFupsReducer = (state = {line: [], activity: []}, action) => {
       const newLine = []
       newState.line.forEach(fup => newLine.push(fup))
       newLine.push(action.fup)
-      newState.line = action.fup
+      newState.line = newLine;
       return newState
     case REMOVE_DATA_FUPS:
       newState.line = []
