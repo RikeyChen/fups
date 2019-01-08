@@ -40,6 +40,12 @@ class FupsAnonymous extends React.Component {
       && this.state.currentTab === 'Top') {
       this.topFupsLengthDiff = false;
     }
+
+    // if (this.state.currentTab === 'All') {
+    //   this.props.fetchFups(0);
+    // } else {
+    //   this.props.getTopFups(0);
+    // }
   }
 
   componentWillUnmount() {
