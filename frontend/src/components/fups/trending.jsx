@@ -9,7 +9,7 @@ class Trending extends React.Component {
 
   render() {
 
-    const words = this.props.words.map(word => {
+    let words = this.props.words.map(word => {
       return(
         <li key={word.word} className='trending_list_items'>
           <a target='_blank' href={`https://www.google.com/search?source=hp&q=${word.word}`}>
@@ -19,7 +19,8 @@ class Trending extends React.Component {
         </li>
       )
     })
-    console.log(words)
+
+    words = words.slice(0,12)
 
     return (
       <div className='trending'>

@@ -2,8 +2,8 @@
   color: grey;
 }
 
-.trend_list_items a:hover {
-  color: lightblue
+.trending_list_items a:hover {
+  color: orange;
 }
 
 .mention {
