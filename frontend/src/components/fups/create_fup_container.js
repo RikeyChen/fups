@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
       text: '',
       private: true
     },
-    errors: state.errors.session
+    errors: state.errors.fup
   }
 }
 

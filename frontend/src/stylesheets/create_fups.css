@@ -44,7 +44,7 @@
 }
 
 .checkbox-margin {
-  margin: 0 8px 8px 10px;
+  margin: 0 8px 0px 10px;
   box-shadow: 18px 18px grey inset
 }
 
@@ -54,4 +54,8 @@
 }
 
 .create-container {
+}
+
+.fup-error-container {
+  margin-left: 11px;
 }
