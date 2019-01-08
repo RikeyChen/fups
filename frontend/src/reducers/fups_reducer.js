@@ -1,4 +1,4 @@
-import { RECEIVE_FUPS, RECEIVE_USER_FUPS, RECEIVE_NEW_FUP, CLEAR_FUPS, RECEIVE_LIKE, REMOVE_LIKE, RECEIVE_FUP_ERROR} from '../actions/fups_actions';
+import { RECEIVE_FUPS, RECEIVE_USER_FUPS, RECEIVE_NEW_FUP, CLEAR_FUPS, RECEIVE_LIKE, REMOVE_LIKE} from '../actions/fups_actions';
 
 const FupsReducer = (state = [], action) => {
   Object.freeze(state);
@@ -35,8 +35,6 @@ const FupsReducer = (state = [], action) => {
       const likeIdx = newState.indexOf(like);
       newState[fupIdx].likes.splice(likeIdx, 1);
       return newState;
-    case RECEIVE_FUP_ERROR:
-      return action.errors;
     default:
       return state;
   }
