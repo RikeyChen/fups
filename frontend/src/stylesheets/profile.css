@@ -149,3 +149,12 @@
     transform: translate(19px, 0);
   }
 }
+
+.ScrollUpButton__Container {
+  background-color: transparent !important;
+}
+
+.ScrollUpButton__Toggled {
+  background-color: transparent;
+}
+

@@ -77,11 +77,10 @@ class Profile extends React.Component {
       ))
     )
 
-    return (
-      <div className="profile_page">
+    return <div className="profile_page">
         <SuggestionBox words={this.props.words} />
 
-        <div className='upper_page'>
+        <div className="upper_page">
           <div className="user_data_container">
             <h1>Welcome back to FUPS</h1>
             {this.renderGraphs()}
@@ -89,17 +88,11 @@ class Profile extends React.Component {
         </div>
         <FupCreate />
 
-        <InfiniteScroll
-          pageStart={0}
-          loadMore={this.handleLoadMore}
-          hasMore={this.state.hasMore}
-          loader={loader}
-        >
+        <InfiniteScroll pageStart={0} loadMore={this.handleLoadMore} hasMore={this.state.hasMore} loader={loader}>
           {items}
         </InfiniteScroll>
-        <ScrollUpButton />
-      </div>
-    );
+        <ScrollUpButton className='ScrollUpButton__Container' />
+      </div>;
   }
 }
 

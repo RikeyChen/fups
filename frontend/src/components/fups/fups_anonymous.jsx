@@ -3,6 +3,7 @@ import FupsItem from './fups_item';
 import '../../stylesheets/fups_anonymous.css';
 import InfiniteScroll from 'react-infinite-scroller';
 import Trending from './trending';
+import ScrollUpButton from "react-scroll-up-button";
 
 class FupsAnonymous extends React.Component {
   constructor(props) {
@@ -113,6 +114,7 @@ class FupsAnonymous extends React.Component {
           >
             {items}
           </InfiniteScroll>
+          <ScrollUpButton />
         </div>
       </div>
     )
