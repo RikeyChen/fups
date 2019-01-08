@@ -6,6 +6,7 @@ import '../../stylesheets/profile.css';
 import FupsItem from "../fups/fups_item";
 import InfiniteScroll from "react-infinite-scroller";
 import SuggestionBox from '../data_viz/suggestions_box';
+import ScrollUpButton from "react-scroll-up-button";
 
 class Profile extends React.Component {
   constructor(props) {
@@ -87,6 +88,7 @@ class Profile extends React.Component {
           </div>
         </div>
         <FupCreate />
+
         <InfiniteScroll
           pageStart={0}
           loadMore={this.handleLoadMore}
@@ -95,6 +97,7 @@ class Profile extends React.Component {
         >
           {items}
         </InfiniteScroll>
+        <ScrollUpButton />
       </div>
     );
   }
