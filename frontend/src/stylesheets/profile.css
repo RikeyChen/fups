@@ -48,7 +48,7 @@
   align-self: flex-start;
   top: 65px;
   border-radius: 4px;
-  overflow: hidden;
+  word-wrap: break-word;
 }
 
 .suggestion_height {

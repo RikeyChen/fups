@@ -13,4 +13,5 @@
   border-radius: 5px;
   min-height: 80px;
   box-sizing: border-box;
+  word-wrap: break-word;
 }
