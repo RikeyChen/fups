@@ -3,6 +3,7 @@ import FupsItem from './fups_item';
 import '../../stylesheets/fups_anonymous.css';
 import InfiniteScroll from 'react-infinite-scroller';
 import Trending from './trending';
+import ScrollUpButton from "react-scroll-up-button";
 
 class FupsAnonymous extends React.Component {
   constructor(props) {
@@ -24,10 +25,10 @@ class FupsAnonymous extends React.Component {
   componentDidMount() {
     this.props.fetchFups(0);
     this.props.getTopFups(0);
+    this.props.fetchWords();
   }
 
   componentDidUpdate(prevProps) {
-    console.log(!this.props.fups.length)
     if (this.props.fups.length === prevProps.fups.length
       && !prevProps.fups.length
       && this.state.currentTab === 'All') {
@@ -54,7 +55,6 @@ class FupsAnonymous extends React.Component {
   }
 
   handleLoadMoreTop(page) {
-    console.log(page);
     const topFupsLength = this.props.topFups.length;
     this.props.getTopFups(page);
     if (topFupsLength % 25 !== 0 || !this.topFupsLengthDiff) {
@@ -132,8 +132,6 @@ class FupsAnonymous extends React.Component {
         )
       })
     )
-    console.log("FUPS:", this.state.hasMore);
-    console.log("TOP:", this.state.hasMoreTopFups);
     const infinite = (
       this.state.currentTab === 'All'
         ? <InfiniteScroll
@@ -156,7 +154,7 @@ class FupsAnonymous extends React.Component {
 
     return (
       <div className="fups-anonymous-container">
-        <Trending />
+        <Trending words={this.props.words} clearWords={this.props.clearWords} />
         <div className='fups_anon'>
           <h1 className="fups-anon-header">FUPS Anonymous</h1>
           <div className="anon-tabs">
@@ -175,6 +173,7 @@ class FupsAnonymous extends React.Component {
           </div>
           <hr />
           {infinite}
+          <ScrollUpButton />
         </div>
       </div>
     )

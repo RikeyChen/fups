@@ -5,6 +5,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "chartist": "^0.10.1",
+    "chartist-plugin-axistitle": "0.0.4",
+    "chartist-plugin-tooltips-updated": "0.0.20",
     "express": "^4.16.4",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.11",
@@ -15,6 +17,7 @@
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.2",
+    "react-scroll-up-button": "^1.6.4",
     "react-slick": "^0.23.2",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",

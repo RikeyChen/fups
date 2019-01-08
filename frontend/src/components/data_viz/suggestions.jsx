@@ -12,8 +12,8 @@ class Suggestions extends React.Component{
     const words = temporaryTest.map(word => {
       return (
         <li key={word} className='suggestion'>
-          <a href={`https://www.google.com/search?source=hp&q=i+need+help+with+${word}`}>
-            {word} resources
+          <a target='_blank' href={`https://www.google.com/search?source=hp&q=i+need+help+with+${word}`}>
+            "{word}" resources
           </a>
         </li>
       )

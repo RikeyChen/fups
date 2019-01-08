@@ -13,6 +13,7 @@ export const CLEAR_FUPS_COUNT = 'CLEAR_FUPS_COUNT';
 export const RECEIVE_TOP_FUPS = 'RECEIVE_TOP_FUPS';
 export const RECEIVE_TOP_LIKE = 'RECEIVE_TOP_LIKE';
 export const REMOVE_TOP_LIKE = 'REMOVE_TOP_LIKE';
+export const RECEIVE_FUP_ERROR = 'RECEIVE_FUP_ERROR';
 
 export const receiveFups = fups => ({
   type: RECEIVE_FUPS,
@@ -84,6 +85,11 @@ export const clearFupCount = () => ({
   type: CLEAR_FUPS_COUNT
 })
 
+export const receiveFupError = errors => ({
+  type: RECEIVE_FUP_ERROR,
+  errors
+})
+
 export const fetchFups = (page) => dispatch =>
   getFups(page)
     .then(fups => dispatch(receiveFups(fups.data)))
@@ -99,7 +105,7 @@ export const fetchUserFups = (id, page) => dispatch =>
 export const composeFup = (data) => dispatch =>
   writeFup(data)
     .then(fup => dispatch(receiveNewFup(fup.data)))
-    .catch(err => console.log(err)
+    .catch(err => dispatch(receiveFupError(err.response.data))
 );
 
 export const fetchDataFups = (id) => dispatch =>

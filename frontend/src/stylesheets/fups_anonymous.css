@@ -49,7 +49,6 @@
 .fups-anonymous-container {
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
   justify-content: space-around;
   position: relative;
 }
@@ -72,13 +71,31 @@
 }
 
 .trending {
-  width: 350px;
+  width: 25%;
   position: sticky;
   top: 15vh;
-  height: 80vh;
+  height: 580px;
   background-color: #f7f7f7;
   margin: 50px;
   border-radius: 5px;
+}
+
+.trending_list_items {
+  margin: 10px;
+  text-decoration: none;
+  list-style: none;
+  margin-left: 40px;
+  margin-bottom: 15px;
+}
+
+.trending h1 {
+  margin: 20px;
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+.trending_list_items a {
+  text-decoration: none;
 }
 
 .anon-image-container {
