@@ -76,6 +76,7 @@ router.get('/top', (req, res) => {
       {
         $sort: {
           numLikes: -1,
+          date: -1,
         },
       },
       {
