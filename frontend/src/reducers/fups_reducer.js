@@ -24,12 +24,14 @@ const FupsReducer = (state = [], action) => {
           fupIdx = i
         }
       }
+      if (fupIdx === undefined) return state;
       newState = state.slice();
       newState[fupIdx].likes.push(action.like)
       return newState;
     case REMOVE_LIKE:
       newState = state.slice();
       let fup = newState.find(fup => fup._id === action.payload.fup._id);
+      if (fup === undefined) return state;
       fupIdx = newState.indexOf(fup);
       let like = newState[fupIdx].likes.find(like => like._id === action.payload.like._id);
       const likeIdx = newState.indexOf(like);

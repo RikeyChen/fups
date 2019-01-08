@@ -14,3 +14,7 @@
   min-height: 80px;
   box-sizing: border-box;
 }
+
+.fup-text {
+  overflow-wrap: break-word;
+}
