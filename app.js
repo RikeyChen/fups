@@ -7,6 +7,16 @@ const words = require('./routes/api/words');
 const db = require('./config/keys').mongoURI;
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const path = require('path');
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/build'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  })
+}
+
+
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
