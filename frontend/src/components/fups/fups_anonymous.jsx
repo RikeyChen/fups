@@ -20,14 +20,14 @@ class FupsAnonymous extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchWords();
-    this.props.fetchFups(0);
-    this.props.getTopFups(0);
+    this.props.fetchWords()
+      .then(() => this.props.getTopFups(0)
+        .then(() => this.props.fetchFups(0)))
   }
 
   componentDidUpdate(prevProps) {
-    if ((this.props.fups.length === prevProps.fups.length
-      || !prevProps.fups.length)
+    if (this.props.fups.length === prevProps.fups.length
+      && this.props.fups.length
       && this.state.currentTab === 'All') {
       this.fupsLengthDiff = false;
     }
@@ -38,9 +38,8 @@ class FupsAnonymous extends React.Component {
   }
 
   handleLoadMore(page) {
-    const fupsLength = this.props.fups.length;
     this.props.fetchFups(page);
-    if (!this.fupsLengthDiff || fupsLength % 25 !== 0) {
+    if (!this.fupsLengthDiff) {
       this.setState({ hasMore: false })
     }
   }
