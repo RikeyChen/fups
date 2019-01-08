@@ -8,7 +8,8 @@ const mapStateToProps = (state) => {
       user: state.session.user.id,
       text: '',
       private: true
-    }
+    },
+    errors: state.errors.session
   }
 }
 
