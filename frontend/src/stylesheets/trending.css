@@ -1,0 +1,12 @@
+.trending_list_items a {
+  color: grey;
+}
+
+.trend_list_items a:hover {
+  color: lightblue
+}
+
+.mention {
+  color: #757575;
+  font-size: 12px;
+}

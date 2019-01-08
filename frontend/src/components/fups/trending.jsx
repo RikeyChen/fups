@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../stylesheets/trending.css';
 
 class Trending extends React.Component {
 
@@ -7,21 +8,18 @@ class Trending extends React.Component {
   }
 
   render() {
-    const trending = []
 
-    this.props.words.forEach(word => {
-      trending.push(word.word);
-    })
-
-    const words = trending.map(word => {
-      return (
-        <li key={word} className='trending_list_items'>
-          <a target='_blank' href={`https://www.google.com/search?source=hp&q=${word}`}>
-            {word}
+    const words = this.props.words.map(word => {
+      return(
+        <li key={word.word} className='trending_list_items'>
+          <a target='_blank' href={`https://www.google.com/search?source=hp&q=${word.word}`}>
+            {word.word}
           </a>
+          <p className='mention'>{`mentioned ${word.count} times`}</p>
         </li>
       )
     })
+    console.log(words)
 
     return (
       <div className='trending'>
