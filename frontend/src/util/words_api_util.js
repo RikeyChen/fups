@@ -5,5 +5,5 @@ export const getUserWords = (id) => {
 }
 
 export const getWords = () => {
-  return axios.get(`/api/words`)
+  return axios.get(`/api/words/`)
 }

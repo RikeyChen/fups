@@ -2,11 +2,11 @@ import React from 'react';
 import FupCreate from "../fups/create_fup_container";
 import Graph from '../data_viz/graph';
 import Pie from '../data_viz/pie';
-import Bar from '../data_viz/bar';
 import '../../stylesheets/profile.css';
 import FupsItem from "../fups/fups_item";
 import InfiniteScroll from "react-infinite-scroller";
 import SuggestionBox from '../data_viz/suggestions_box';
+import ScrollUpButton from "react-scroll-up-button";
 
 class Profile extends React.Component {
   constructor(props) {
@@ -34,12 +34,13 @@ class Profile extends React.Component {
 
   handleLoadMore(page) {
     const fupsLength = this.props.fups.length;
+    
     if (fupsLength !== 0) {
       this.props.fetchUserFups(this.props.currentUserId, page);
-      if (fupsLength % 25 > 0 && fupsLength % 25 < 25) {
+      if (fupsLength % 25 > 0) {
         this.setState({ hasMore: false });
       }
-    } 
+    }
   }
 
   renderGraphs() {
@@ -54,6 +55,17 @@ class Profile extends React.Component {
   }
 
   render() {
+    let loader;
+    if (this.props.fups.length > 0) {
+      loader = (
+        <div className="lds-ellipsisp" key={Math.random}>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      )
+    }
 
     const { fups } = this.props;
     const items = (
@@ -76,13 +88,16 @@ class Profile extends React.Component {
           </div>
         </div>
         <FupCreate />
+
         <InfiniteScroll
           pageStart={0}
           loadMore={this.handleLoadMore}
           hasMore={this.state.hasMore}
+          loader={loader}
         >
           {items}
         </InfiniteScroll>
+        <ScrollUpButton />
       </div>
     );
   }

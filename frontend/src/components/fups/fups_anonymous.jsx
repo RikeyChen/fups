@@ -70,7 +70,7 @@ class FupsAnonymous extends React.Component {
   render() {
     const { fups } = this.props;
     const loader = (
-      <div class="lds-ellipsis">
+      <div className="lds-ellipsis" key={Math.random()}>
         <div></div>
         <div></div>
         <div></div>
@@ -102,13 +102,14 @@ class FupsAnonymous extends React.Component {
 
     return (
       <div className="fups-anonymous-container">
-        <Trending words={this.props.words}/>
+        <Trending words={this.props.words} clearWords={this.props.clearWords}/>
         <div className='fups_anon'>
           <h1 className="fups-anon-header">FUPS Anonymous</h1>
           <InfiniteScroll
             pageStart={0}
             loadMore={this.handleLoadMore}
             hasMore={this.state.hasMore}
+            loader={loader}
           >
             {items}
           </InfiniteScroll>
