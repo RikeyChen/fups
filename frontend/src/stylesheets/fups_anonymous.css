@@ -61,7 +61,6 @@
   padding-right: 10%;
   margin-top: 20px;
   margin-bottom: 40px;
-  /* margin-left: 10%; */
 }
 
 .fups-item-master {
@@ -78,6 +77,12 @@
   background-color: #f7f7f7;
   margin: 50px;
   border-radius: 5px;
+}
+
+@media (max-width: 900px) {
+  .trending {
+    display: none;
+  }
 }
 
 .trending_list_items {
