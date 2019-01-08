@@ -40,12 +40,6 @@ class FupsAnonymous extends React.Component {
       && this.state.currentTab === 'Top') {
       this.topFupsLengthDiff = false;
     }
-
-    // if (this.state.currentTab === 'All') {
-    //   this.props.fetchFups(0);
-    // } else {
-    //   this.props.getTopFups(0);
-    // }
   }
 
   componentWillUnmount() {
@@ -69,10 +63,9 @@ class FupsAnonymous extends React.Component {
   }
 
   handleLike(fupId) {
-    const type = this.state.currentTab;
     return e => {
       e.target.id = 'disabled';
-      this.props.likeFup(fupId, type)
+      this.props.likeFup(fupId)
         .then(() => {
           let target = document.getElementById('disabled');
           target.id = 'enabled';
@@ -83,10 +76,9 @@ class FupsAnonymous extends React.Component {
   handleUnlike(fup) {
     const fupId = fup._id
     const like = fup.likes.find(like => like.user === this.props.currentUser);
-    const type = this.state.currentTab;
     return e => {
       e.target.id = 'disabled';
-      this.props.unlikeFup(fupId, like._id, type)
+      this.props.unlikeFup(fupId, like._id)
         .then(() => {
           let target = document.getElementById('disabled');
           target.id = 'enabled'
