@@ -33,12 +33,13 @@ class Profile extends React.Component {
 
   handleLoadMore(page) {
     const fupsLength = this.props.fups.length;
+    
     if (fupsLength !== 0) {
       this.props.fetchUserFups(this.props.currentUserId, page);
-      if (fupsLength % 25 > 0 && fupsLength % 25 < 25) {
+      if (fupsLength % 25 > 0) {
         this.setState({ hasMore: false });
       }
-    } 
+    }
   }
 
   renderGraphs() {
@@ -53,14 +54,17 @@ class Profile extends React.Component {
   }
 
   render() {
-    const loader = (
-      <div className="lds-ellipsisp" key={Math.random}>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    )
+    let loader;
+    if (this.props.fups.length > 0) {
+      loader = (
+        <div className="lds-ellipsisp" key={Math.random}>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      )
+    }
 
     const { fups } = this.props;
     const items = (
