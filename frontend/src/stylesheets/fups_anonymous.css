@@ -69,10 +69,10 @@
 }
 
 .trending {
-  width: 350px;
+  width: 30%;
   position: sticky;
   top: 15vh;
-  height: 80vh;
+  height: 580px;
   background-color: #f7f7f7;
   margin: 50px;
   border-radius: 5px;
@@ -83,6 +83,7 @@
   text-decoration: none;
   list-style: none;
   margin-left: 40px;
+  margin-bottom: 15px;
 }
 
 .trending h1 {
