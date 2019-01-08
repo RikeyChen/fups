@@ -4,6 +4,10 @@ export const getFups = (page) => {
   return axios.get(`/api/fups?page=${page}`)
 }
 
+export const getTopFups = (page) => {
+  return axios.get(`/api/fups/top?page=${page}`)
+}
+
 export const getUserFups = (id, page) => {
   return axios.get(`/api/fups/user/${id}?page=${page}`);
 }
