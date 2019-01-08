@@ -54,14 +54,38 @@ router.get('/', (req, res) => {
 });
 
 router.get('/top', (req, res) => {
-  Fup.find()
-    .where({ private: false })
-    .sort({ likes: -1, date: -1 })
-    .limit(25)
-    .skip(25 * Math.max(0, req.param('page')))
-    .populate('likes')
-    .then(fups => res.json(fups))
-    .catch(err => res.status(404).json({ nofupsfound: 'No fups were found' }));
+  Fup
+    .aggregate([
+      {
+        $match: {
+          private: false,
+        },
+      },
+      {
+        $project: {
+          user: 1,
+          date: 1,
+          score: 1,
+          iconNum: 1,
+          likes: 1,
+          text: 1,
+          private: 1,
+          numLikes: { $size: '$likes' },
+        },
+      },
+      {
+        $sort: {
+          numLikes: -1,
+        },
+      },
+      {
+        $skip: (25 * Math.max(0, req.param('page'))),
+      },
+      {
+        $limit: 25,
+      },
+    ])
+    .exec((err, fups) => Like.populate(fups, { path: 'likes' }, (err, populatedLikes) => res.json(populatedLikes)));
 });
 
 router.get('/user/:user_id', (req, res) => {

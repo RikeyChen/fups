@@ -9,10 +9,13 @@ class FupsAnonymous extends React.Component {
     super(props);
     this.state = {
       hasMore: true,
+      hasMoreTopFups: true,
       currentTab: 'All',
     }
     this.handleLoadMore = this.handleLoadMore.bind(this);
+    this.handleLoadMoreTop = this.handleLoadMoreTop.bind(this);
     this.fupsLengthDiff = true;
+    this.topFupsLengthDiff = true;
     this.handleLike = this.handleLike.bind(this);
     this.handleUnlike = this.handleUnlike.bind(this);
     this.handleTabClick = this.handleTabClick.bind(this);
@@ -20,11 +23,21 @@ class FupsAnonymous extends React.Component {
 
   componentDidMount() {
     this.props.fetchFups(0);
+    this.props.getTopFups(0);
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.fups.length === prevProps.fups.length) {
+    console.log(!this.props.fups.length)
+    if (this.props.fups.length === prevProps.fups.length
+      && !prevProps.fups.length
+      && this.state.currentTab === 'All') {
       this.fupsLengthDiff = false;
+    }
+
+    if (this.props.topFups.length === prevProps.topFups.length
+      && !prevProps.topFups.length
+      && this.state.currentTab === 'Top') {
+      this.topFupsLengthDiff = false;
     }
   }
 
@@ -37,6 +50,15 @@ class FupsAnonymous extends React.Component {
     this.props.fetchFups(page);
     if (fupsLength % 25 !== 0 || !this.fupsLengthDiff) {
       this.setState({ hasMore: false })
+    }
+  }
+
+  handleLoadMoreTop(page) {
+    console.log(page);
+    const topFupsLength = this.props.topFups.length;
+    this.props.getTopFups(page);
+    if (topFupsLength % 25 !== 0 || !this.topFupsLengthDiff) {
+      this.setState({ hasMoreTopFups: false })
     }
   }
 
@@ -76,15 +98,16 @@ class FupsAnonymous extends React.Component {
   }
 
   render() {
-    const { fups } = this.props;
+    const fups = this.state.currentTab === 'All' ? this.props.fups : this.props.topFups;
     const loader = (
-      <div className="lds-ellipsis">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+      <div key={0} className="lds-ellipsis">
+        <div key={1}></div>
+        <div key={2}></div>
+        <div key={3}></div>
+        <div key={4}></div>
       </div>
     )
+
     if (!(fups instanceof Array) || !fups.length) return null;
     const items = (
       fups.map((fup, idx) => {
@@ -107,6 +130,27 @@ class FupsAnonymous extends React.Component {
         )
       })
     )
+    console.log("FUPS:", this.state.hasMore);
+    console.log("TOP:", this.state.hasMoreTopFups);
+    const infinite = (
+      this.state.currentTab === 'All'
+        ? <InfiniteScroll
+          pageStart={0}
+          loadMore={this.handleLoadMore}
+          hasMore={this.state.hasMore}
+          loader={loader}
+        >
+          {items}
+        </InfiniteScroll>
+        : <InfiniteScroll
+          pageStart={0}
+          loadMore={this.handleLoadMoreTop}
+          hasMore={this.state.hasMoreTopFups}
+          loader={loader}
+        >
+          {items}
+        </InfiniteScroll>
+    )
 
     return (
       <div className="fups-anonymous-container">
@@ -128,14 +172,7 @@ class FupsAnonymous extends React.Component {
             </h1>
           </div>
           <hr />
-          <InfiniteScroll
-            pageStart={0}
-            loadMore={this.handleLoadMore}
-            hasMore={this.state.hasMore}
-            loader={loader}
-          >
-            {items}
-          </InfiniteScroll>
+          {infinite}
         </div>
       </div>
     )
