@@ -1,8 +1,8 @@
-.trending_list_items a {
+.trending_list_items a, .suggestion a {
   color: grey;
 }
 
-.trending_list_items a:hover {
+.trending_list_items a:hover, .suggestion a:hover {
   color: orange;
 }
 

@@ -25,7 +25,7 @@ class Trending extends React.Component {
     return (
       <div className='trending'>
         <h1>
-          Trending triggers
+          Trending
         </h1>
         {words}
       </div>

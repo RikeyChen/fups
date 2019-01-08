@@ -1,5 +1,6 @@
 import React from 'react';
 import Suggestions from './suggestions';
+import '../../stylesheets/trending.css'
 
 class SuggestionBox extends React.Component {
 
