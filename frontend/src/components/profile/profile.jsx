@@ -19,17 +19,22 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUserWords(this.props.currentUserId);
     this.props.fetchDataFups(this.props.currentUserId);
     this.props.fetchUserFups(this.props.currentUserId, 0);
-    this.props.fetchFupsCount(this.props.currentUserId);
+    // this.props.fetchUserWords(this.props.currentUserId);
   }
 
   componentWillUnmount() {
     this.props.clearFups();
     this.props.removeDataFups();
     this.props.clearWords();
-    this.props.clearFupsCount();
+  }
+
+  componentDidUpdate(prevProps){
+    if (this.props.fups.length !== prevProps.fups.length && this.props.fups.length !== 0) {
+      this.props.clearWords();
+      this.props.fetchUserWords(this.props.currentUserId)
+    }
   }
 
   handleLoadMore(page) {
@@ -70,7 +75,6 @@ class Profile extends React.Component {
     const { fups } = this.props;
     const items = (
       fups.map((fup, idx) => (
-        
         <div className="user-fups-container" key={idx}>
           <FupsItem key={fup._id} fup={fup} />
         </div>

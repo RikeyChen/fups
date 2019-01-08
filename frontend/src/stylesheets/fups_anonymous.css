@@ -78,6 +78,7 @@
   background-color: #f7f7f7;
   margin: 50px;
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .trending_list_items {
