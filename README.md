@@ -21,12 +21,12 @@ This page features all of the anoymous FUPS that users publicly posted. Users ca
 ### Data Visualization
 User's can view personalized graphs about all of the FUPS they have posted. The pie graph shows the top key words that appear in their FUPS. The line graph displays the sentiment of each of their FUPS to show the progression of their attitude.
 
-<a href="https://imgur.com/QkURi4e"><img src="https://i.imgur.com/QkURi4e.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/XDTC6Y3"><img src="https://i.imgur.com/XDTC6Y3.png" title="source: imgur.com" /></a>
 
 ### Improvements
 Taking in the top keywords that appear the user's FUPS we offer some resources so that the user can make improvements where they see fit.
 
-<a href="https://imgur.com/QkURi4e"><img src="https://i.imgur.com/QkURi4e.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/4B2YHqw"><img src="https://i.imgur.com/4B2YHqw.png" title="source: imgur.com" /></a>
 
 # OLD STUFF BELOW DELETE AFTER
 
