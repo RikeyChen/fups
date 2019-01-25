@@ -22,8 +22,8 @@ class Graph extends React.Component {
 
   render() {
     let seq = 0,
-      delays = 80,
-      durations = 500;  
+      delays = 50,
+      durations = 100;  
 
     const listener = {
       'created': function () {
@@ -152,6 +152,7 @@ class Graph extends React.Component {
       <div className='bar_graph'>
         <ChartistGraph className='graph_item' listener={listener} data={lineChartData} options={lineChartOptions} type={'Line'} />
         <div className='bar_graph_explanation'>
+          <br />
           <p>
             This is your sentiment per fup in chronological order. 
             Sentiment is a measure of attitude and we display it from very negative (-1) to very positive (1).

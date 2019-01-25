@@ -13,6 +13,7 @@
   flex-direction: row;
   width: 90%;
   margin: 50px;
+  margin-top: 10px;
 }
 
 .suggestion {
@@ -32,13 +33,12 @@
   padding: 20px;
   background-color: #F7F7F7;
   width: 70%;
-  height: 500px;
+  height: 450px;
   border-radius: 4px;
   margin-left: 25vw;
 }
 
 .suggestion_box {
-  margin-top: 46px;
   padding: 20px;
   background-color: #F7F7F7;
   width: 20%;
@@ -46,7 +46,7 @@
   margin-left: 3vw;
   position: fixed;
   align-self: flex-start;
-  top: 65px;
+  top: 143px;
   border-radius: 4px;
   word-wrap: break-word;
 }
@@ -74,9 +74,15 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 20px;
   height: 100%;
+  width: 100%;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: center;
 }
 
 .bar_graph {
@@ -88,7 +94,7 @@
 .pie_chart {
   padding-top: 50px;
   height: 100%;
-  width: 40%;
+  width: 50%;
 }
 
 .graph_item {

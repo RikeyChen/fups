@@ -81,10 +81,9 @@ class Profile extends React.Component {
     return (
       <div className="profile_page">
         <SuggestionBox words={this.props.words} />
-
+        <h1 className="fups-anon-header">FUPS Dashboard</h1>
         <div className="upper_page">
           <div className="user_data_container">
-            <h1>Welcome back to FUPS</h1>
             {this.renderGraphs()}
           </div>
         </div>

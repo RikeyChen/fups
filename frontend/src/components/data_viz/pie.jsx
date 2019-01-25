@@ -8,19 +8,6 @@ import ChartistTooltip from 'chartist-plugin-tooltips-updated';
 class Pie extends React.Component {
 
   render() {
-    // percents for each word
-    const percents = this.props.words.map(word => {
-      return (
-        <div key={word.word} className="table-format">
-          <div className="item-border">
-            {word.word}
-          </div>
-          <div className="item-border">
-            {word.percent}
-          </div>
-        </div>
-      )
-    })
 
     const labels = []
     const series = []
@@ -36,7 +23,7 @@ class Pie extends React.Component {
 
     const options = {
       donut: true,
-      donutWidth: 70,
+      donutWidth: 60,
       showSeries: true,
       chartPadding: 40,
       labelOffset: 40,
@@ -60,7 +47,7 @@ class Pie extends React.Component {
           const animation = {
             'stroke-dashoffset': {
               id: 'anim' + data.index,
-              dur: 450,
+              dur: 350,
               from: -pathLength + 'px',
               to: '0px',
               easing: Chartist.Svg.Easing.easeOutQuint,
@@ -90,6 +77,7 @@ class Pie extends React.Component {
         {/* <br/>
         {percents}
         <br /> */}
+      <br />
       <br />
       <div className='bar_graph_explanation'>
       <p>
