@@ -20,8 +20,8 @@ class Profile extends React.Component {
 
   componentDidMount() {
     this.props.fetchDataFups(this.props.currentUserId)
-      .then(() => this.props.fetchUserFups(this.props.currentUserId, 0))
-        .then(() => this.props.fetchUserWords(this.props.currentUserId));
+      .then(() => this.props.fetchUserWords(this.props.currentUserId))
+        .then(() => this.props.fetchUserFups(this.props.currentUserId, 0));
   }
 
   componentWillUnmount() {
