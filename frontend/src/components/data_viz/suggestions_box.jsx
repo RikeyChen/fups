@@ -10,7 +10,7 @@ class SuggestionBox extends React.Component {
       suggestions = (
         <div className='suggestion_box'>
           <h1 className="suggestion_height">We've used artificial intelligence to pinpoint some areas in your life that
-            need improvement. Here is a list of links and resourced if you're interested.
+            need improvement based on your posts. Here is a list of links and resources to get you started.
         </h1>
           <Suggestions words={this.props.words} />
         </div>

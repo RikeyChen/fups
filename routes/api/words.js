@@ -31,7 +31,7 @@ router.get('/:user_id', (req, res) => {
       topWords.forEach(word => average += word.count);
       topWords.forEach(word => word['percent'] = ((word.count / average) * 100).toFixed(1) + '%');
       
-      res.json(keys.slice(0,7)) })
+      res.json(keys.slice(0,6)) })
     .catch(err => res.status(404).json({ nowordsfound: 'No words found for this user'}))
 })
 

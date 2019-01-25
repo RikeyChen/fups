@@ -153,7 +153,7 @@ class Graph extends React.Component {
         <ChartistGraph className='graph_item' listener={listener} data={lineChartData} options={lineChartOptions} type={'Line'} />
         <div className='bar_graph_explanation'>
           <p>
-            This demonstrates sentiment per fup in chronological order. 
+            This is your sentiment per fup in chronological order. 
             Sentiment is a measure of attitude and we display it from very negative (-1) to very positive (1).
           </p>
         </div>

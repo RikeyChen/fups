@@ -32,7 +32,7 @@
   padding: 20px;
   background-color: #F7F7F7;
   width: 70%;
-  height: 370px;
+  height: 500px;
   border-radius: 4px;
   margin-left: 25vw;
 }
@@ -76,28 +76,31 @@
   align-items: center;
   justify-content: space-around;
   margin-top: 20px;
+  height: 100%;
 }
 
 .bar_graph {
-  width: 500px;
+  width: 50%;
+  margin-left: 20px;
   height: 100%;
 }
 
 .pie_chart {
+  padding-top: 50px;
   height: 100%;
-  width: 300px;
+  width: 40%;
 }
 
 .graph_item {
-  height: 240px;
-  width: 500px;
+  height: 70%;
+  width: 100%;
   margin-top: 40px;
   padding-right: 50px;
-
 }
 
 .pie_item {
-  height: 230px;
+  height: 70%;
+  width: 100%;
   margin-right: 20px;
   color: white;
 }
