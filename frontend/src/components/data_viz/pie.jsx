@@ -81,7 +81,7 @@ class Pie extends React.Component {
       <br />
       <div className='bar_graph_explanation'>
       <p>
-          These are the words that are most commonly mentioned in your fups with negative sentiment scores. 
+          These are the words that are most frequently mentioned in your fups with negative sentiment scores. 
       </p>
       </div>
       </div>

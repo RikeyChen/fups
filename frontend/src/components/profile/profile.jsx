@@ -46,10 +46,12 @@ class Profile extends React.Component {
   renderGraphs() {
     if (this.props.fups) {
       return (
+        <>
         <div className='graphs_container'>
           <Pie words={this.props.words}/>
           <Graph fups={this.props.dataFups} />
         </div>
+        </>
       );
     }
   }

@@ -155,7 +155,7 @@ class Graph extends React.Component {
           <br />
           <p>
             This is your sentiment per fup in chronological order. 
-            Sentiment is a measure of attitude and we display it from very negative (-1) to very positive (1).
+            Sentiment is a measure of attitude and we display it from very negative (-1) to very positive (1).  Hover over a point to see the fup and its associated score.
           </p>
         </div>
       </div>
