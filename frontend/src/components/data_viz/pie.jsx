@@ -12,7 +12,7 @@ class Pie extends React.Component {
     const labels = []
     const series = []
     this.props.words.forEach(word => {
-      labels.push(word.word + `(${word.percent})`);
+      labels.push(word.word + ` (${word.percent})`);
       series.push(word.count);
     })
  
