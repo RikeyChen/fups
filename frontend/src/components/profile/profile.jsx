@@ -86,6 +86,14 @@ class Profile extends React.Component {
         <h1 className="fups-anon-header">FUPS Dashboard</h1>
         <div className="upper_page">
           <div className="user_data_container">
+            <div className='graph-headers'>
+            <div>
+              <h1>KeyWords</h1>
+            </div>
+            <div>
+              <h1>Sentiment</h1>
+            </div>
+            </div>
             {this.renderGraphs()}
           </div>
         </div>

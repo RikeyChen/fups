@@ -16,6 +16,11 @@
   margin-top: 10px;
 }
 
+.graph-headers {
+  display: flex;
+  justify-content: space-around;
+}
+
 .suggestion {
   padding: 6px;
 }
@@ -31,6 +36,7 @@
 
 .user_data_container {
   padding: 20px;
+  padding-bottom: 5px;
   background-color: #F7F7F7;
   width: 70%;
   height: 450px;
@@ -75,7 +81,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-top: 20px;
   height: 100%;
   width: 100%;
 }
