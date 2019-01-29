@@ -24,6 +24,16 @@
   margin: 10px 0px;
 }
 
+.slick-dots {
+  transform: rotate(90deg);
+  top: 20px;
+  right: 400px;
+}
+
+.info-header {
+  margin-top: 80px;
+}
+
 .session-form-container h1 {
   font-style: normal;
   font-weight: normal;

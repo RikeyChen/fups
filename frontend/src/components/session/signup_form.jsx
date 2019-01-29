@@ -76,33 +76,34 @@ class SignupForm extends React.Component {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      autoplay: true,
+      autoplay: false,
       autoplaySpeed: 5000,
-      dots: false,
+      dots: true,
       arrows: false,
       vertical: true,
+      pauseOnDots: 'hover',
     }
     return (
       <div className="session-main">
         <div className="splash-info">
           <Slider {...settings}>
             <div className='info-section'>
-              <h1>Welcome to FUPS!</h1>
+              <h1 className='info-header'>Welcome to FUPS!</h1>
               <h1>Let's get you to your best self.</h1>
               <h2>What is FUPS?</h2>
               <h2>FUPS is For User Progress.</h2>
             </div>
             <div className='info-section'>
-              <h1>FUPS is a progress tracker.</h1>
+              <h1 className='info-header'>FUPS is a progress tracker.</h1>
               <h2>Add FUPS to your profile to track your most common mistakes.</h2>
               <h2>View cool charts to see your data over time.</h2>
             </div>
             <div className='info-section'>
-              <h1>Support System</h1>
+              <h1 className='info-header'>Support System</h1>
               <h2>Receive online resources on areas where you can improve.</h2>
             </div>
             <div className='info-section'>
-              <h1>Community</h1>
+              <h1 className='info-header'>Community</h1>
               <h2>Share your FUPS anonymously with the community.</h2>
               <h2>Upvote FUPS to show support.</h2>
             </div>
