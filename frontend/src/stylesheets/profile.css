@@ -11,7 +11,7 @@
 .upper_page {
   display: flex;
   flex-direction: row;
-  width: 90%;
+  width: 100%;
   margin: 50px;
   margin-top: 10px;
 }
@@ -19,6 +19,13 @@
 .graph-headers {
   display: flex;
   justify-content: space-around;
+  margin-top: 10px;
+  font-size: 20px;
+  line-height: 1.3em;
+}
+
+.graph-headers div {
+  border-bottom: 1px solid black;
 }
 
 .suggestion {
@@ -35,13 +42,14 @@
 }
 
 .user_data_container {
-  padding: 20px;
+  padding: 10px;
   padding-bottom: 5px;
+  padding-right: 10px;
   background-color: #F7F7F7;
   width: 70%;
   height: 450px;
   border-radius: 4px;
-  margin-left: 25vw;
+  margin-left: 26vw;
 }
 
 .suggestion_box {
@@ -49,7 +57,7 @@
   background-color: #F7F7F7;
   width: 20%;
   height: auto;
-  margin-left: 3vw;
+  margin-left: 2vw;
   position: fixed;
   align-self: flex-start;
   top: 143px;
@@ -94,10 +102,10 @@
   width: 50%;
   margin-left: 20px;
   height: 100%;
+  margin-top: -50px;
 }
 
 .pie_chart {
-  padding-top: 50px;
   height: 100%;
   width: 50%;
 }
