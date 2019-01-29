@@ -15,7 +15,7 @@ class Pie extends React.Component {
       labels.push(word.word + ` (${word.percent})`);
       series.push(word.count);
     })
- 
+
     const data = {
       labels,
       series,
@@ -29,7 +29,7 @@ class Pie extends React.Component {
       labelOffset: 40,
       labelDirection: 'explode',
       plugins: [
-        ChartistTooltip({appendToBody: true}),
+        ChartistTooltip({ appendToBody: true }),
       ]
     }
 
@@ -37,7 +37,7 @@ class Pie extends React.Component {
 
     const listener = {
       'draw': data => {
-        if(data.type === 'slice') {
+        if (data.type === 'slice') {
           const pathLength = data.element._node.getTotalLength();
 
           data.element.attr({
@@ -54,7 +54,7 @@ class Pie extends React.Component {
               fill: 'freeze'
             }
           }
-          
+
           if (data.index !== 0) {
             animation['stroke-dashoffset'].begin = 'anim' + (data.index - 1) + '.end';
           }
@@ -68,23 +68,28 @@ class Pie extends React.Component {
       },
     }
 
+    const graphText = (
+      <div className="empty-pie">
+        <h1>Not enough information to identify keywords.</h1>
+      </div>
+    )
 
-    if (this.props.words.length === 0) return null;
-    return(
+    if (this.props.words.length === 0) return graphText;
+    return (
       <>
-      <div className='pie_chart'>
-        <ChartistGraph className='pie_item' data={data} options={options} listener={listener} type={type} />
-        {/* <br/>
+        <div className='pie_chart'>
+          <ChartistGraph className='pie_item' data={data} options={options} listener={listener} type={type} />
+          {/* <br/>
         {percents}
         <br /> */}
-      <br />
-      <br />
-      <div className='bar_graph_explanation'>
-      <p>
-          These are the words that are most frequently mentioned in your fups with negative sentiment scores. 
+          <br />
+          <br />
+          <div className='bar_graph_explanation'>
+            <p>
+              These are the words that are most frequently mentioned in your fups with negative sentiment scores.
       </p>
-      </div>
-      </div>
+          </div>
+        </div>
       </>
     )
   }
