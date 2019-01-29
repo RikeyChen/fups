@@ -21,7 +21,7 @@ class Profile extends React.Component {
   componentDidMount() {
     this.props.fetchDataFups(this.props.currentUserId)
       .then(() => this.props.fetchUserFups(this.props.currentUserId, 0))
-        .then(() => this.props.fetchUserWords(this.props.currentUserId));
+      .then(() => this.props.fetchUserWords(this.props.currentUserId));
   }
 
   componentWillUnmount() {
@@ -30,7 +30,7 @@ class Profile extends React.Component {
     this.props.clearWords();
   }
 
-  componentDidUpdate(prevProps){
+  componentDidUpdate(prevProps) {
     if (this.props.fups.length === prevProps.fups.length && this.props.fups.length) {
       this.fupsLengthDiff = false;
     }
@@ -47,10 +47,10 @@ class Profile extends React.Component {
     if (this.props.fups) {
       return (
         <>
-        <div className='graphs_container'>
-          <Pie words={this.props.words}/>
-          <Graph fups={this.props.dataFups} />
-        </div>
+          <div className='graphs_container'>
+            <Pie words={this.props.words} />
+            <Graph fups={this.props.dataFups} />
+          </div>
         </>
       );
     }
@@ -72,6 +72,7 @@ class Profile extends React.Component {
     const { fups } = this.props;
 
     if (!(fups instanceof Array) || !fups.length) return null;
+    // if (!(fups instanceof Array)) return null;
     const items = (
       fups.map((fup, idx) => (
         <div className="user-fups-container" key={idx}>
@@ -87,12 +88,12 @@ class Profile extends React.Component {
         <div className="upper_page">
           <div className="user_data_container">
             <div className='graph-headers'>
-            <div>
-              <h1>KeyWords</h1>
-            </div>
-            <div>
-              <h1>Sentiment</h1>
-            </div>
+              <div>
+                <h1>KeyWords</h1>
+              </div>
+              <div>
+                <h1>Sentiment</h1>
+              </div>
             </div>
             {this.renderGraphs()}
           </div>
