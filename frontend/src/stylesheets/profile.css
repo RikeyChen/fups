@@ -196,3 +196,16 @@
   background-color: transparent;
 }
 
+.empty-pie {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    height: 50%;
+    width: 50%;
+    font-size: 20px
+}
+
+.empty-pie h1 {
+  width: 75%;
+}
