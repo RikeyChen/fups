@@ -7,16 +7,17 @@ import FupsItem from "../fups/fups_item";
 import InfiniteScroll from "react-infinite-scroller";
 import SuggestionBox from '../data_viz/suggestions_box';
 import ScrollUpButton from "react-scroll-up-button";
+import FupsFeed from './user_fup_feed.jsx';
 
 class Profile extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hasMore: true
-    };
-    this.handleLoadMore = this.handleLoadMore.bind(this);
-    this.fupsLengthDiff = true;
-  }
+  // constructor(props) {
+  //   super(props);
+  //   // this.state = {
+  //   //   hasMore: true
+  //   // };
+  //   // // this.handleLoadMore = this.handleLoadMore.bind(this);
+  //   // this.fupsLengthDiff = true;
+  // }
 
   componentDidMount() {
     this.props.fetchDataFups(this.props.currentUserId)
@@ -30,18 +31,18 @@ class Profile extends React.Component {
     this.props.clearWords();
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.fups.length === prevProps.fups.length && this.props.fups.length) {
-      this.fupsLengthDiff = false;
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.fups.length === prevProps.fups.length && this.props.fups.length) {
+  //     this.fupsLengthDiff = false;
+  //   }
+  // }
 
-  handleLoadMore(page) {
-    this.props.fetchUserFups(this.props.currentUserId, page);
-    if (!this.fupsLengthDiff) {
-      this.setState({ hasMore: false });
-    }
-  }
+  // handleLoadMore(page) {
+  //   this.props.fetchUserFups(this.props.currentUserId, page);
+  //   if (!this.fupsLengthDiff) {
+  //     this.setState({ hasMore: false });
+  //   }
+  // }
 
   renderGraphs() {
     if (this.props.fups) {
@@ -57,29 +58,30 @@ class Profile extends React.Component {
   }
 
   render() {
-    let loader;
-    if (this.props.fups.length > 0) {
-      loader = (
-        <div className="lds-ellipsisp" key={Math.random}>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      )
-    }
+    // let loader;
+    // if (this.props.fups.length > 0) {
+    //   loader = (
+    //     <div className="lds-ellipsisp" key={Math.random}>
+    //       <div></div>
+    //       <div></div>
+    //       <div></div>
+    //       <div></div>
+    //     </div>
+    //   )
+    // }
 
     const { fups } = this.props;
 
-    if (!(fups instanceof Array) || !fups.length) return null;
-    // if (!(fups instanceof Array)) return null;
-    const items = (
-      fups.map((fup, idx) => (
-        <div className="user-fups-container" key={idx}>
-          <FupsItem key={fup._id} fup={fup} />
-        </div>
-      ))
-    )
+    // if (!(fups instanceof Array) || !fups.length) return null;
+    // // if (!(fups instanceof Array)) return null;
+    // const items = (
+    //   fups.map((fup, idx) => (
+    //     <div className="user-fups-container" key={idx}>
+    //       <FupsItem key={fup._id} fup={fup} />
+    //     </div>
+    //   ))
+    // )
+
 
     return (
       <div className="profile_page">
@@ -100,9 +102,10 @@ class Profile extends React.Component {
         </div>
         <FupCreate />
 
-        <InfiniteScroll pageStart={0} loadMore={this.handleLoadMore} hasMore={this.state.hasMore} loader={loader}>
-          {items}
-        </InfiniteScroll>
+        {/* <InfiniteScroll pageStart={0} loadMore={this.handleLoadMore} hasMore={this.state.hasMore} loader={loader}> */}
+          {/* {items} */}
+        <FupsFeed fups={fups} fetchUserFups={this.props.fetchUserFups} currentUserId={this.props.currentUserId}/>
+        {/* </InfiniteScroll> */}
         <ScrollUpButton className='ScrollUpButton__Container' />
       </div>
     );
